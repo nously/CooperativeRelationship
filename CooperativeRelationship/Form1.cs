@@ -76,5 +76,10 @@ namespace CooperativeRelationship
             pan.BackColor = Color.White;
             pan.Cursor = Cursors.Arrow;
         }
+
+        private void tahun_panel_Click(object sender, EventArgs e)
+        {
+            new DocumentList().Show();
+        }
     }
 }

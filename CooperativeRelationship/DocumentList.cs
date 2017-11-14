@@ -41,18 +41,15 @@ namespace CooperativeRelationship
             documents.AllowColumnReorder = true;
 
             // Add the columns just like in database
-            documents.Columns.Add("Institusi", 170, HorizontalAlignment.Left);
-            documents.Columns.Add("Nomor Perjanjian", 150, HorizontalAlignment.Left);
-            documents.Columns.Add("Waktu, Tempat TTD", 170, HorizontalAlignment.Left);
-            documents.Columns.Add("Mulai Berlaku", 100, HorizontalAlignment.Left);
-            documents.Columns.Add("Berhenti Berlaku", 100, HorizontalAlignment.Left);
+            documents.Columns.Add("Institusi", 100, HorizontalAlignment.Left);
+            documents.Columns.Add("Nomor Perjanjian", 100, HorizontalAlignment.Left);
+            documents.Columns.Add("Waktu, Tempat TTD", 100, HorizontalAlignment.Left);
+            documents.Columns.Add("Masa Berlaku", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Fokus Perjanjian", 100, HorizontalAlignment.Left);
-            documents.Columns.Add("Penandatangan FISIP", 100, HorizontalAlignment.Left);
-            documents.Columns.Add("Penandatangan Institusi", 100, HorizontalAlignment.Left);
+            documents.Columns.Add("Penandatangan", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Unit Pengusul", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Unit Pengguna", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Narahubung FISIP", 100, HorizontalAlignment.Left);
-            documents.Columns.Add("Narahubung Institusi", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Narahubung Institusi", 100, HorizontalAlignment.Left);
             documents.Columns.Add("Nilai Kerjasama", 100, HorizontalAlignment.Left);
         }

@@ -232,6 +232,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Manajemen Kerjasama";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.luarNegeri_Button.ResumeLayout(false);

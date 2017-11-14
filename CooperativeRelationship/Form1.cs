@@ -47,6 +47,7 @@ namespace CooperativeRelationship
             highlight_luarNegeri.Visible = false;
             label1.ForeColor = Color.Red;
             label2.ForeColor = Color.Black;
+            judulTahun.Text = "Kerjasama Dalam Negeri";
         }
 
         private void luarNegeri_Button_MouseClick(object sender, MouseEventArgs e)
@@ -55,6 +56,7 @@ namespace CooperativeRelationship
             highlight_dalamNegeri.Visible = false;
             label2.ForeColor = Color.Red;
             label1.ForeColor = Color.Black;
+            judulTahun.Text = "Kerjasama Luar Negeri";
         }
 
         private void tahun_panel_MouseEnter(object sender, EventArgs e)
@@ -80,6 +82,11 @@ namespace CooperativeRelationship
         private void tahun_panel_Click(object sender, EventArgs e)
         {
             new DocumentList().Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            judulTahun.Text = "Kerjasama Dalam Negeri";
         }
     }
 }

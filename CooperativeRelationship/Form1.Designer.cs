@@ -40,8 +40,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.judulTahun = new System.Windows.Forms.Label();
             this.tahun_panel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -173,41 +173,47 @@
             // 
             // tahun_panel
             // 
+            this.tahun_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tahun_panel.Controls.Add(this.label3);
-            this.tahun_panel.Location = new System.Drawing.Point(3, 3);
+            this.tahun_panel.Location = new System.Drawing.Point(1, 1);
+            this.tahun_panel.Margin = new System.Windows.Forms.Padding(1);
             this.tahun_panel.Name = "tahun_panel";
-            this.tahun_panel.Size = new System.Drawing.Size(663, 29);
+            this.tahun_panel.Size = new System.Drawing.Size(663, 21);
             this.tahun_panel.TabIndex = 0;
             this.tahun_panel.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
             this.tahun_panel.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(3, 38);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(663, 29);
-            this.panel3.TabIndex = 1;
-            this.panel3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
-            this.panel3.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 8);
+            this.label3.Location = new System.Drawing.Point(7, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Dimulai Tahun 2017";
             this.label3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(1, 24);
+            this.panel3.Margin = new System.Windows.Forms.Padding(1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(663, 21);
+            this.panel3.TabIndex = 1;
+            this.panel3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 8);
+            this.label4.Location = new System.Drawing.Point(7, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
-            this.label4.TabIndex = 1;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Dimulai Tahun 2017";
             this.label4.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
             // 
@@ -252,8 +258,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label judulTahun;
         private System.Windows.Forms.Panel tahun_panel;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
     }
 }

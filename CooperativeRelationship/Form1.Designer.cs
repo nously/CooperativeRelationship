@@ -41,8 +41,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tahun_panel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.luarNegeri_Button.SuspendLayout();
@@ -176,6 +176,7 @@
             // 
             // tahun_panel
             // 
+            this.tahun_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tahun_panel.Controls.Add(this.label3);
             this.tahun_panel.Location = new System.Drawing.Point(1, 1);
             this.tahun_panel.Margin = new System.Windows.Forms.Padding(1);
@@ -197,18 +198,6 @@
             this.label3.Click += new System.EventHandler(this.tahun_panel_Click);
             this.label3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(1, 24);
-            this.panel3.Margin = new System.Windows.Forms.Padding(1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(663, 21);
-            this.panel3.TabIndex = 1;
-            this.panel3.Click += new System.EventHandler(this.tahun_panel_Click);
-            this.panel3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
-            this.panel3.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -219,6 +208,19 @@
             this.label4.Text = "Dimulai Tahun 2017";
             this.label4.Click += new System.EventHandler(this.tahun_panel_Click);
             this.label4.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(1, 24);
+            this.panel3.Margin = new System.Windows.Forms.Padding(1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(663, 21);
+            this.panel3.TabIndex = 1;
+            this.panel3.Click += new System.EventHandler(this.tahun_panel_Click);
+            this.panel3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
+            this.panel3.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
             // 
             // Form1
             // 

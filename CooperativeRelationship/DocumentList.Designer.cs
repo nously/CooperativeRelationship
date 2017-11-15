@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.documents = new BrightIdeasSoftware.ObjectListView();
+            this.institusi = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nomorPerjanjian = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.waktuTempatTTD = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.masaBerlaku = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -42,8 +43,7 @@
             this.penandatangan = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.unitPengusul = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.unitPengguna = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.narahubungFisip = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.narahubungInstitusi = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.narahubung = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nilaiKerjasama = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,13 +57,13 @@
             this.panel1.Controls.Add(this.tambahKerjasama_button);
             this.panel1.Location = new System.Drawing.Point(12, 450);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(921, 52);
+            this.panel1.Size = new System.Drawing.Size(1057, 52);
             this.panel1.TabIndex = 1;
             // 
             // tambahKerjasama_button
             // 
             this.tambahKerjasama_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tambahKerjasama_button.Location = new System.Drawing.Point(801, 9);
+            this.tambahKerjasama_button.Location = new System.Drawing.Point(937, 9);
             this.tambahKerjasama_button.Name = "tambahKerjasama_button";
             this.tambahKerjasama_button.Size = new System.Drawing.Size(117, 35);
             this.tambahKerjasama_button.TabIndex = 0;
@@ -82,13 +82,13 @@
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(920, 37);
+            this.panel2.Size = new System.Drawing.Size(1056, 37);
             this.panel2.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(821, 7);
+            this.button1.Location = new System.Drawing.Point(957, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -109,11 +109,12 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(97, 9);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(718, 20);
+            this.textBox1.Size = new System.Drawing.Size(854, 20);
             this.textBox1.TabIndex = 0;
             // 
             // documents
             // 
+            this.documents.AllColumns.Add(this.institusi);
             this.documents.AllColumns.Add(this.nomorPerjanjian);
             this.documents.AllColumns.Add(this.waktuTempatTTD);
             this.documents.AllColumns.Add(this.masaBerlaku);
@@ -121,11 +122,14 @@
             this.documents.AllColumns.Add(this.penandatangan);
             this.documents.AllColumns.Add(this.unitPengusul);
             this.documents.AllColumns.Add(this.unitPengguna);
-            this.documents.AllColumns.Add(this.narahubungFisip);
-            this.documents.AllColumns.Add(this.narahubungInstitusi);
+            this.documents.AllColumns.Add(this.narahubung);
             this.documents.AllColumns.Add(this.nilaiKerjasama);
+            this.documents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.documents.CellEditUseWholeCell = false;
             this.documents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.institusi,
             this.nomorPerjanjian,
             this.waktuTempatTTD,
             this.masaBerlaku,
@@ -133,66 +137,82 @@
             this.penandatangan,
             this.unitPengusul,
             this.unitPengguna,
-            this.narahubungFisip,
-            this.narahubungInstitusi,
+            this.narahubung,
             this.nilaiKerjasama});
             this.documents.Cursor = System.Windows.Forms.Cursors.Default;
             this.documents.Location = new System.Drawing.Point(12, 56);
             this.documents.Name = "documents";
-            this.documents.Size = new System.Drawing.Size(921, 388);
+            this.documents.Size = new System.Drawing.Size(1057, 388);
             this.documents.TabIndex = 3;
             this.documents.UseCompatibleStateImageBehavior = false;
             this.documents.View = System.Windows.Forms.View.Details;
             // 
+            // institusi
+            // 
+            this.institusi.AspectName = "Institusi";
+            this.institusi.Text = "Institusi";
+            this.institusi.Width = 130;
+            // 
             // nomorPerjanjian
             // 
+            this.nomorPerjanjian.AspectName = "NomorPerjanjian";
             this.nomorPerjanjian.Text = "Nomor Perjanjian";
             this.nomorPerjanjian.Width = 102;
             // 
             // waktuTempatTTD
             // 
+            this.waktuTempatTTD.AspectName = "TempatTanggalTTD";
             this.waktuTempatTTD.Text = "Waktu dan Tempat Penandatanganan";
             this.waktuTempatTTD.Width = 198;
             // 
             // masaBerlaku
             // 
+            this.masaBerlaku.AspectName = "MasaBerlaku";
             this.masaBerlaku.Text = "Masa Berlaku";
             this.masaBerlaku.Width = 81;
             // 
             // fokusPerjanjian
             // 
+            this.fokusPerjanjian.AspectName = "FokusPerjanjian";
             this.fokusPerjanjian.Text = "Fokus Perjanjian";
+            this.fokusPerjanjian.Width = 94;
             // 
             // penandatangan
             // 
+            this.penandatangan.AspectName = "Penandatangan";
             this.penandatangan.Text = "Penandatangan";
+            this.penandatangan.Width = 92;
             // 
             // unitPengusul
             // 
+            this.unitPengusul.AspectName = "UnitPengusul";
             this.unitPengusul.Text = "Unit Pengusul";
+            this.unitPengusul.Width = 82;
             // 
             // unitPengguna
             // 
+            this.unitPengguna.AspectName = "UnitPengguna";
             this.unitPengguna.Text = "Unit Pengguna";
+            this.unitPengguna.Width = 83;
             // 
-            // narahubungFisip
+            // narahubung
             // 
-            this.narahubungFisip.Text = "Narahubung FISIP";
-            // 
-            // narahubungInstitusi
-            // 
-            this.narahubungInstitusi.Text = "Narahubung Institusi";
+            this.narahubung.AspectName = "Narahubung";
+            this.narahubung.Text = "Narahubung";
+            this.narahubung.Width = 78;
             // 
             // nilaiKerjasama
             // 
+            this.nilaiKerjasama.AspectName = "NilaiKerjasama";
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
+            this.nilaiKerjasama.Width = 98;
             // 
             // DocumentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(945, 514);
+            this.ClientSize = new System.Drawing.Size(1081, 514);
             this.Controls.Add(this.documents);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -222,8 +242,8 @@
         private BrightIdeasSoftware.OLVColumn penandatangan;
         private BrightIdeasSoftware.OLVColumn unitPengusul;
         private BrightIdeasSoftware.OLVColumn unitPengguna;
-        private BrightIdeasSoftware.OLVColumn narahubungFisip;
-        private BrightIdeasSoftware.OLVColumn narahubungInstitusi;
+        private BrightIdeasSoftware.OLVColumn narahubung;
         private BrightIdeasSoftware.OLVColumn nilaiKerjasama;
+        private BrightIdeasSoftware.OLVColumn institusi;
     }
 }

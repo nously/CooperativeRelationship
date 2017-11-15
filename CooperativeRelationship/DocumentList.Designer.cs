@@ -37,7 +37,7 @@
             this.documents = new BrightIdeasSoftware.ObjectListView();
             this.institusi = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nomorPerjanjian = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.waktuTempatTTD = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.tempatTanggalTTD = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.masaBerlaku = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.fokusPerjanjian = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.penandatangan = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -116,7 +116,7 @@
             // 
             this.documents.AllColumns.Add(this.institusi);
             this.documents.AllColumns.Add(this.nomorPerjanjian);
-            this.documents.AllColumns.Add(this.waktuTempatTTD);
+            this.documents.AllColumns.Add(this.tempatTanggalTTD);
             this.documents.AllColumns.Add(this.masaBerlaku);
             this.documents.AllColumns.Add(this.fokusPerjanjian);
             this.documents.AllColumns.Add(this.penandatangan);
@@ -131,7 +131,7 @@
             this.documents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.institusi,
             this.nomorPerjanjian,
-            this.waktuTempatTTD,
+            this.tempatTanggalTTD,
             this.masaBerlaku,
             this.fokusPerjanjian,
             this.penandatangan,
@@ -150,62 +150,64 @@
             // institusi
             // 
             this.institusi.AspectName = "Institusi";
+            this.institusi.Sortable = false;
             this.institusi.Text = "Institusi";
+            this.institusi.UseFiltering = false;
             this.institusi.Width = 130;
             // 
             // nomorPerjanjian
             // 
             this.nomorPerjanjian.AspectName = "NomorPerjanjian";
             this.nomorPerjanjian.Text = "Nomor Perjanjian";
-            this.nomorPerjanjian.Width = 102;
+            this.nomorPerjanjian.Width = 93;
             // 
-            // waktuTempatTTD
+            // tempatTanggalTTD
             // 
-            this.waktuTempatTTD.AspectName = "TempatTanggalTTD";
-            this.waktuTempatTTD.Text = "Waktu dan Tempat Penandatanganan";
-            this.waktuTempatTTD.Width = 198;
+            this.tempatTanggalTTD.AspectName = "TempatTanggalTTD";
+            this.tempatTanggalTTD.Text = "Tempat Tanggal TTD";
+            this.tempatTanggalTTD.Width = 119;
             // 
             // masaBerlaku
             // 
             this.masaBerlaku.AspectName = "MasaBerlaku";
             this.masaBerlaku.Text = "Masa Berlaku";
-            this.masaBerlaku.Width = 81;
+            this.masaBerlaku.Width = 83;
             // 
             // fokusPerjanjian
             // 
             this.fokusPerjanjian.AspectName = "FokusPerjanjian";
             this.fokusPerjanjian.Text = "Fokus Perjanjian";
-            this.fokusPerjanjian.Width = 94;
+            this.fokusPerjanjian.Width = 98;
             // 
             // penandatangan
             // 
             this.penandatangan.AspectName = "Penandatangan";
             this.penandatangan.Text = "Penandatangan";
-            this.penandatangan.Width = 92;
+            this.penandatangan.Width = 94;
             // 
             // unitPengusul
             // 
             this.unitPengusul.AspectName = "UnitPengusul";
             this.unitPengusul.Text = "Unit Pengusul";
-            this.unitPengusul.Width = 82;
+            this.unitPengusul.Width = 84;
             // 
             // unitPengguna
             // 
             this.unitPengguna.AspectName = "UnitPengguna";
             this.unitPengguna.Text = "Unit Pengguna";
-            this.unitPengguna.Width = 83;
+            this.unitPengguna.Width = 89;
             // 
             // narahubung
             // 
             this.narahubung.AspectName = "Narahubung";
             this.narahubung.Text = "Narahubung";
-            this.narahubung.Width = 78;
+            this.narahubung.Width = 71;
             // 
             // nilaiKerjasama
             // 
             this.nilaiKerjasama.AspectName = "NilaiKerjasama";
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
-            this.nilaiKerjasama.Width = 98;
+            this.nilaiKerjasama.Width = 93;
             // 
             // DocumentList
             // 
@@ -235,8 +237,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private BrightIdeasSoftware.ObjectListView documents;
+        private BrightIdeasSoftware.OLVColumn institusi;
         private BrightIdeasSoftware.OLVColumn nomorPerjanjian;
-        private BrightIdeasSoftware.OLVColumn waktuTempatTTD;
+        private BrightIdeasSoftware.OLVColumn tempatTanggalTTD;
         private BrightIdeasSoftware.OLVColumn masaBerlaku;
         private BrightIdeasSoftware.OLVColumn fokusPerjanjian;
         private BrightIdeasSoftware.OLVColumn penandatangan;
@@ -244,6 +247,5 @@
         private BrightIdeasSoftware.OLVColumn unitPengguna;
         private BrightIdeasSoftware.OLVColumn narahubung;
         private BrightIdeasSoftware.OLVColumn nilaiKerjasama;
-        private BrightIdeasSoftware.OLVColumn institusi;
     }
 }

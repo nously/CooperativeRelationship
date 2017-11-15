@@ -40,74 +40,122 @@ namespace CooperativeRelationship
 
         private void DocumentList_Load(object sender, EventArgs e)
         {
-            documents.Columns.Clear();
-            documents.Items.Clear();
-            documents.View = View.Details;
-            documents.Sorting = SortOrder.Ascending;
-            documents.AllowColumnReorder = true;
+            List<Document> list = new List<Document>();
 
-            Document test = new Document();
+            list.Add(new Document("test", "nomor", "test", "test", "test", "test", "test", "test", "test", "test"));
 
-            test.Institusi = "test";
-            test.NomorPerjanjian = tambahKerjasama_button;
-            test.TempatTanggalTTD = "test";
-
-            documents.AddObject(test);
+            this.documents.SetObjects(list);
         }
     }
 
     class Document
     {
-        public Document() { }
+        private string institusi;
+        private string nomorPerjanjian;
+        private string tempatTanggalTTD;
+        private string masaBerlaku;
+        private string fokusPerjanjian;
+        private string penandatangan;
+        private string unitPengusul;
+        private string unitPengguna;
+        private string narahubung;
+        private string nilaiKerjasama;
+
+
+        public Document(string institusi, string nomor, string tempatTanggalTTD,
+            string masaBerlaku, string fokusPerjanjian, string penandatangan, string unitPengusul,
+            string unitPengguna, string narahubung, string nilaiKerjasama
+            ) {
+            this.institusi = institusi;
+            nomorPerjanjian = nomor;
+            this.tempatTanggalTTD = tempatTanggalTTD;
+            this.masaBerlaku = masaBerlaku;
+            this.fokusPerjanjian = fokusPerjanjian;
+            this.penandatangan = penandatangan;
+            this.unitPengusul = unitPengusul;
+            this.unitPengguna = unitPengguna;
+            this.narahubung = narahubung;
+            this.nilaiKerjasama = nilaiKerjasama;
+        }
 
         public string Institusi
         {
-            get; set;
+            get
+            {
+                return institusi;
+            }
         }
 
-        public Button NomorPerjanjian
+        public string NomorPerjanjian
         {
-            get; set;
+            get
+            {
+                return nomorPerjanjian;
+            }
         }
 
         public string TempatTanggalTTD
         {
-            get; set;
+            get
+            {
+                return tempatTanggalTTD;
+            }
         }
 
-        public Button MasaBerlaku
+        public string MasaBerlaku
         {
-            get; set;
+            get
+            {
+                return masaBerlaku;
+            }
         }
 
-        public Button FokusPerjanjian
+        public string FokusPerjanjian
         {
-            get; set;
+            get
+            {
+                return fokusPerjanjian;
+            }
         }
 
-        public Button Penandatangan
+        public string Penandatangan
         {
-            get; set;
+            get
+            {
+                return penandatangan;
+            }
         }
 
         public string UnitPengusul
         {
-            get; set;
+            get
+            {
+                return unitPengusul;
+            }
         }
 
-        public Button UnitPengguna
+        public string UnitPengguna
         {
-            get; set;
+            get
+            {
+                return unitPengguna;
+            }
         }
 
-        public Button Narahubung
+        public string Narahubung
         {
-            get; set;
+            get
+            {
+                return narahubung;
+            }
         }
 
         public string NilaiKerjasama
         {
-            get; set;
+            get
+            {
+                return nilaiKerjasama;
+            }
         }
     }
 

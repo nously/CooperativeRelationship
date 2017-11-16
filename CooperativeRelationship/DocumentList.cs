@@ -23,7 +23,6 @@ namespace CooperativeRelationship
         int activeMode;
         string tahun;
         Form1 parent;
-        Popup popup;
 
         public DocumentList(Form1 parent, int activeMode, string tahun)
         {
@@ -72,36 +71,56 @@ namespace CooperativeRelationship
             }
         }
 
+        private Popup createPopup (string message)
+        {
+            Popup popup;
+
+            ComplexPopup complexPopup = new ComplexPopup();
+            Panel panel = new Panel();
+            panel.Parent = complexPopup;
+            panel.Dock = DockStyle.Fill;
+
+            Label label = new Label();
+            label.Text = message;
+            label.AutoSize = true;
+            label.Parent = panel;
+
+            popup = new Popup(complexPopup);
+            popup.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 3, 200);
+            popup.Resizable = true;
+
+            if (SystemInformation.IsComboBoxAnimationEnabled)
+            {
+                popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
+                popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
+            }
+            else
+            {
+                popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
+            }
+            return popup;
+        }
+
         private void populateListView(SQLiteDataReader result)
         {
             List<Document> list = new List<Document>();
             while (result.Read())
             {
-                ComplexPopup panel = new ComplexPopup();
-                Label label = new Label();
-                label.Text = result["institusi"] + "";
-                label.AutoSize = true;
+                Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi \n" + result["institusi"] +
+                "\n\nNomor Perjanjian di FISIP:\n" + result["nomorPerjanjianFisip"] + "\n"
+                + "Nomor Perjanjian di Institusi Terkait:\n" + result["nomorPerjanjianInstitusi"]);
 
-                label.Parent = panel;
+                Popup masaBerlakuPopup = createPopup("Masa Berlaku Perjanjian dengan Institusi\n" + result["institusi"]);
+                Popup fokusPerjanjianPopup = createPopup("Fokus Perjanjian dengan Instintusi\n" + result["institusi"]);
+                Popup penandatanganPopup = createPopup("Penandatangan Perjanjian dengan Institusi\n" + result["institusi"]);
+                Popup unitPenggunaPopup = createPopup("Unit Pengguna dalam Perjanjian dengan Institusi\n" + result["institusi"]);
+                Popup narahubungPopup = createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
 
-                panel.BackColor = Color.AliceBlue;
-                popup = new Popup(panel);
-                popup.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 4, 250);
-                popup.Resizable = true;
-
-                if (SystemInformation.IsComboBoxAnimationEnabled)
-                {
-                    popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
-                    popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
-                }
-                else
-                {
-                    popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
-                }
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "", 
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", popup);
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", nomorPerjanjianPopup, masaBerlakuPopup,
+                    fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup, narahubungPopup);
 
                 list.Add(document);
             }
@@ -109,17 +128,33 @@ namespace CooperativeRelationship
             documents.ButtonClick += delegate (object sender, CellClickEventArgs e)
             {
                 // pop up detail
-                string x = ((Document)e.Model).Institusi;
-                popup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 8, 
-                    Screen.PrimaryScreen.Bounds.Height / 2 - 125));
-            };
+                Document clickedDocument = (Document)e.Model;
 
+                if (e.Column.Text.Equals("Nomor Perjanjian"))
+                    clickedDocument.NomorPerjanjianPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6, 
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Masa Berlaku"))
+                    clickedDocument.MasaBerlakuPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Fokus Perjanjian"))
+                    clickedDocument.FokusPerjanjianPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Penandatangan"))
+                    clickedDocument.PenandatanganPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Unit Pengguna"))
+                    clickedDocument.UnitPenggunaPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Narahubung"))
+                    clickedDocument.NarahubungPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                        Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+            };
             documents.RowHeight = 35;
             documents.FullRowSelect = true;
             documents.SetObjects(list);
+            
         }
     }
-
 
     class Document
     {
@@ -133,112 +168,52 @@ namespace CooperativeRelationship
         private string unitPengguna;
         private string narahubung;
         private string nilaiKerjasama;
-        private Popup popup;
+        Popup nomorPerjanjianPopup;
+        Popup masaBerlakuPopup;
+        Popup fokusPerjanjianPopup;
+        Popup penandatanganPopup;
+        Popup unitPenggunaPopup;
+        Popup narahubungPopup;
 
         public Document(string institusi, string nomor, string tempatTanggalTTD,
             string masaBerlaku, string fokusPerjanjian, string penandatangan, string unitPengusul,
-            string unitPengguna, string narahubung, string nilaiKerjasama, Popup popup
-            ) {
-            this.institusi = institusi;
-            this.nomorPerjanjian = nomor;
-            this.tempatTanggalTTD = tempatTanggalTTD;
-            this.masaBerlaku = masaBerlaku;
-            this.fokusPerjanjian = fokusPerjanjian;
-            this.penandatangan = penandatangan;
-            this.unitPengusul = unitPengusul;
-            this.unitPengguna = unitPengguna;
-            this.narahubung = narahubung;
-            this.nilaiKerjasama = nilaiKerjasama;
-            this.popup = popup;
+            string unitPengguna, string narahubung, string nilaiKerjasama, Popup nomorPerjanjianPopup, Popup masaBerlakuPopup,
+            Popup fokusPerjanjianPopup, Popup penandatanganPopup, Popup unitPenggunaPopup, Popup narahubungPopup)
+        {
+            Institusi = institusi;
+            NomorPerjanjian = nomor;
+            TempatTanggalTTD = tempatTanggalTTD;
+            MasaBerlaku = masaBerlaku;
+            FokusPerjanjian = fokusPerjanjian;
+            Penandatangan = penandatangan;
+            UnitPengusul = unitPengusul;
+            UnitPengguna = unitPengguna;
+            Narahubung = narahubung;
+            NilaiKerjasama = nilaiKerjasama;
+            NomorPerjanjianPopup = nomorPerjanjianPopup;
+            MasaBerlakuPopup = masaBerlakuPopup;
+            FokusPerjanjianPopup = fokusPerjanjianPopup;
+            PenandatanganPopup = penandatanganPopup;
+            UnitPenggunaPopup = unitPenggunaPopup;
+            NarahubungPopup = narahubungPopup;
         }
 
-        public Popup Popup
-        {
-            get
-            {
-                return popup;
-            }
-        }
-
-        public string Institusi
-        {
-            get
-            {
-                return institusi;
-            }
-        }
-
-        public string NomorPerjanjian
-        {
-            get
-            {
-                return nomorPerjanjian;
-            }
-        }
-
-        public string TempatTanggalTTD
-        {
-            get
-            {
-                return tempatTanggalTTD;
-            }
-        }
-
-        public string MasaBerlaku
-        {
-            get
-            {
-                return masaBerlaku;
-            }
-        }
-
-        public string FokusPerjanjian
-        {
-            get
-            {
-                return fokusPerjanjian;
-            }
-        }
-
-        public string Penandatangan
-        {
-            get
-            {
-                return penandatangan;
-            }
-        }
-
-        public string UnitPengusul
-        {
-            get
-            {
-                return unitPengusul;
-            }
-        }
-
-        public string UnitPengguna
-        {
-            get
-            {
-                return unitPengguna;
-            }
-        }
-
-        public string Narahubung
-        {
-            get
-            {
-                return narahubung;
-            }
-        }
-
-        public string NilaiKerjasama
-        {
-            get
-            {
-                return nilaiKerjasama;
-            }
-        }
+        public Popup NomorPerjanjianPopup { get => nomorPerjanjianPopup; set => nomorPerjanjianPopup = value; }
+        public Popup MasaBerlakuPopup { get => masaBerlakuPopup; set => masaBerlakuPopup = value; }
+        public Popup FokusPerjanjianPopup { get => fokusPerjanjianPopup; set => fokusPerjanjianPopup = value; }
+        public Popup PenandatanganPopup { get => penandatanganPopup; set => penandatanganPopup = value; }
+        public Popup UnitPenggunaPopup { get => unitPenggunaPopup; set => unitPenggunaPopup = value; }
+        public Popup NarahubungPopup { get => narahubungPopup; set => narahubungPopup = value; }
+        public string Institusi { get => institusi; set => institusi = value; }
+        public string NomorPerjanjian { get => nomorPerjanjian; set => nomorPerjanjian = value; }
+        public string TempatTanggalTTD { get => tempatTanggalTTD; set => tempatTanggalTTD = value; }
+        public string MasaBerlaku { get => masaBerlaku; set => masaBerlaku = value; }
+        public string FokusPerjanjian { get => fokusPerjanjian; set => fokusPerjanjian = value; }
+        public string Penandatangan { get => penandatangan; set => penandatangan = value; }
+        public string UnitPengusul { get => unitPengusul; set => unitPengusul = value; }
+        public string UnitPengguna { get => unitPengguna; set => unitPengguna = value; }
+        public string Narahubung { get => narahubung; set => narahubung = value; }
+        public string NilaiKerjasama { get => nilaiKerjasama; set => nilaiKerjasama = value; }
     }
 
 }

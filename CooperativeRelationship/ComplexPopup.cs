@@ -37,6 +37,7 @@ namespace CooperativeRelationship
             // ComplexPopup
             // 
             this.Name = "ComplexPopup";
+            this.Padding = new System.Windows.Forms.Padding(70, 10, 10, 10);
             this.ResumeLayout(false);
 
         }

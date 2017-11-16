@@ -154,6 +154,7 @@
             this.institusi.Text = "Institusi";
             this.institusi.UseFiltering = false;
             this.institusi.Width = 175;
+            this.institusi.WordWrap = true;
             // 
             // tempatTanggalTTD
             // 

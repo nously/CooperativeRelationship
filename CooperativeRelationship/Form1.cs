@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace CooperativeRelationship
 {
     public partial class Form1 : Form
     {
+        int activeMode;
+        string tahun;
+        private string databaseSource;
+
         public Form1()
         {
             InitializeComponent();
+            databaseSource = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
         }
 
         private void dalamNegeri_Button_MouseLeave(object sender, EventArgs e)
@@ -48,6 +54,9 @@ namespace CooperativeRelationship
             label1.ForeColor = Color.Red;
             label2.ForeColor = Color.Black;
             judulTahun.Text = "Kerjasama Dalam Negeri";
+            activeMode = DocumentList.KERJASAMA_DALAM_NEGERI;
+
+            loadTahun();
         }
 
         private void luarNegeri_Button_MouseClick(object sender, MouseEventArgs e)
@@ -57,6 +66,9 @@ namespace CooperativeRelationship
             label2.ForeColor = Color.Red;
             label1.ForeColor = Color.Black;
             judulTahun.Text = "Kerjasama Luar Negeri";
+            activeMode = DocumentList.KERJASAMA_LUAR_NEGERI;
+
+            loadTahun();
         }
 
         private void tahun_panel_MouseEnter(object sender, EventArgs e)
@@ -81,12 +93,55 @@ namespace CooperativeRelationship
 
         private void tahun_panel_Click(object sender, EventArgs e)
         {
-            new DocumentList().Show();
+            string[] words = ((Control)sender).Name.Split('_');
+
+            new DocumentList(this, activeMode, words[1]).Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             judulTahun.Text = "Kerjasama Dalam Negeri";
+            activeMode = DocumentList.KERJASAMA_DALAM_NEGERI;
+
+            loadTahun();
+        }
+
+        void loadTahun ()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + this.databaseSource))
+            {
+                string query = "SELECT * FROM daftar_tahun WHERE jenis_kerjasama=" + activeMode + " ORDER BY tahun asc";
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    conn.Open();
+                    using (SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        while (result.Read())
+                        {
+                            Label tahun = new Label();
+                            tahun.Text = "Dimulai Tahun " + result["tahun"];
+                            Panel panel = new Panel();
+                            tahun.Parent = panel;
+                            panel.Size = new Size(663, 40);
+                            panel.Margin = new Padding(1, 1, 1, 1);
+                            tahun.Location = new Point(25, 13);
+                            tahun.AutoSize = true;
+                            panel.Click += new EventHandler(tahun_panel_Click);
+                            tahun.Click += new EventHandler(tahun_panel_Click);
+                            panel.MouseEnter += new EventHandler(tahun_panel_MouseEnter);
+                            tahun.MouseEnter += new EventHandler(tahun_panel_MouseEnter);
+                            panel.MouseLeave += new EventHandler(tahun_panel_MouseLeave);
+
+                            panel.Name = "panel_" + result["tahun"];
+                            tahun.Name = "label_" + result["tahun"];
+
+                            panel.Parent = flowLayoutPanel1;
+                        }
+                    }
+                    conn.Close();
+                }
+            }
         }
     }
 }

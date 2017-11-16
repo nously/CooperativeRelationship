@@ -8,19 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using BrightIdeasSoftware;
 
 namespace CooperativeRelationship
 {
     public partial class DocumentList : Form
     {
 
-        static int KERJASAMA_DALAM_NEGERI = 1;
-        static int KERJASAMA_LUAR_NEGERI = 2;
+        public static int KERJASAMA_DALAM_NEGERI = 1;
+        public static int KERJASAMA_LUAR_NEGERI = 2;
+        private string databaseSource;
 
-        public DocumentList()
+        int activeMode;
+        string tahun;
+        Form1 parent;
+
+        public DocumentList(Form1 parent, int activeMode, string tahun)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+
+            this.activeMode = activeMode;
+            this.tahun = tahun;
+            this.parent = parent;
+
+            databaseSource = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
         }
 
         private void tambahKerjasama_button_Click(object sender, EventArgs e)
@@ -40,13 +52,47 @@ namespace CooperativeRelationship
 
         private void DocumentList_Load(object sender, EventArgs e)
         {
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + this.databaseSource))
+            {
+                string query = "SELECT * FROM kerjasama WHERE jenisKerjasama=" + this.activeMode + " AND tahun=" + this.tahun;
+                conn.Open();
+                //string query = "SELECT * FROM kerjasama";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    using (SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        populateListView(result);
+                    }
+                }
+                conn.Close();
+            }
+        }
+
+        private void populateListView(SQLiteDataReader result)
+        {
             List<Document> list = new List<Document>();
+            while (result.Read())
+            {
+                Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
+                    "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "", 
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "");
 
-            list.Add(new Document("test", "nomor", "test", "test", "test", "test", "test", "test", "test", "test"));
+                list.Add(document);
+            }
 
-            this.documents.SetObjects(list);
+            documents.ButtonClick += delegate (object sender, CellClickEventArgs e)
+            {
+                // pop up detail
+                string x = ((Document)e.Model).Institusi;
+            };
+
+            documents.RowHeight = 35;
+            documents.FullRowSelect = true;
+            documents.SetObjects(list);
         }
     }
+
 
     class Document
     {
@@ -67,7 +113,7 @@ namespace CooperativeRelationship
             string unitPengguna, string narahubung, string nilaiKerjasama
             ) {
             this.institusi = institusi;
-            nomorPerjanjian = nomor;
+            this.nomorPerjanjian = nomor;
             this.tempatTanggalTTD = tempatTanggalTTD;
             this.masaBerlaku = masaBerlaku;
             this.fokusPerjanjian = fokusPerjanjian;

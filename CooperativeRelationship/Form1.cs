@@ -51,7 +51,7 @@ namespace CooperativeRelationship
         {
             highlight_dalamNegeri.Visible = true;
             highlight_luarNegeri.Visible = false;
-            label1.ForeColor = Color.Red;
+            label1.ForeColor = Color.FromArgb(52, 152, 219);
             label2.ForeColor = Color.Black;
             judulTahun.Text = "Kerjasama Dalam Negeri";
             activeMode = DocumentList.KERJASAMA_DALAM_NEGERI;
@@ -63,7 +63,7 @@ namespace CooperativeRelationship
         {
             highlight_luarNegeri.Visible = true;
             highlight_dalamNegeri.Visible = false;
-            label2.ForeColor = Color.Red;
+            label2.ForeColor = Color.FromArgb(52, 152, 219);
             label1.ForeColor = Color.Black;
             judulTahun.Text = "Kerjasama Luar Negeri";
             activeMode = DocumentList.KERJASAMA_LUAR_NEGERI;
@@ -120,13 +120,14 @@ namespace CooperativeRelationship
                         while (result.Read())
                         {
                             Label tahun = new Label();
-                            tahun.Text = "Dimulai Tahun " + result["tahun"];
                             Panel panel = new Panel();
-                            tahun.Parent = panel;
-                            panel.Size = new Size(663, 40);
+                            tahun.Text = "Dimulai Tahun " + result["tahun"];
+
+                            panel.Size = new Size(flowLayoutPanel1.Width, 40);
                             panel.Margin = new Padding(1, 1, 1, 1);
                             tahun.Location = new Point(25, 13);
                             tahun.AutoSize = true;
+
                             panel.Click += new EventHandler(tahun_panel_Click);
                             tahun.Click += new EventHandler(tahun_panel_Click);
                             panel.MouseEnter += new EventHandler(tahun_panel_MouseEnter);
@@ -136,11 +137,20 @@ namespace CooperativeRelationship
                             panel.Name = "panel_" + result["tahun"];
                             tahun.Name = "label_" + result["tahun"];
 
+                            tahun.Parent = panel;
                             panel.Parent = flowLayoutPanel1;
                         }
                     }
                     conn.Close();
                 }
+            }
+        }
+
+        private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Panel panelTahun in flowLayoutPanel1.Controls)
+            {
+                panelTahun.Size = new Size(flowLayoutPanel1.Width, 40);
             }
         }
     }

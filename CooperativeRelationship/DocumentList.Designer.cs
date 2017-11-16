@@ -57,13 +57,13 @@
             this.panel1.Controls.Add(this.tambahKerjasama_button);
             this.panel1.Location = new System.Drawing.Point(12, 538);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1346, 52);
+            this.panel1.Size = new System.Drawing.Size(866, 52);
             this.panel1.TabIndex = 1;
             // 
             // tambahKerjasama_button
             // 
             this.tambahKerjasama_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tambahKerjasama_button.Location = new System.Drawing.Point(1226, 9);
+            this.tambahKerjasama_button.Location = new System.Drawing.Point(746, 9);
             this.tambahKerjasama_button.Name = "tambahKerjasama_button";
             this.tambahKerjasama_button.Size = new System.Drawing.Size(117, 35);
             this.tambahKerjasama_button.TabIndex = 0;
@@ -82,13 +82,13 @@
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1345, 37);
+            this.panel2.Size = new System.Drawing.Size(865, 37);
             this.panel2.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(1246, 7);
+            this.button1.Location = new System.Drawing.Point(766, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -109,7 +109,7 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(97, 9);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1143, 20);
+            this.textBox1.Size = new System.Drawing.Size(663, 20);
             this.textBox1.TabIndex = 0;
             // 
             // documents
@@ -142,7 +142,7 @@
             this.documents.Cursor = System.Windows.Forms.Cursors.Default;
             this.documents.Location = new System.Drawing.Point(12, 56);
             this.documents.Name = "documents";
-            this.documents.Size = new System.Drawing.Size(1346, 476);
+            this.documents.Size = new System.Drawing.Size(866, 476);
             this.documents.TabIndex = 3;
             this.documents.UseCompatibleStateImageBehavior = false;
             this.documents.View = System.Windows.Forms.View.Details;
@@ -235,7 +235,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1370, 602);
+            this.ClientSize = new System.Drawing.Size(890, 602);
             this.Controls.Add(this.documents);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

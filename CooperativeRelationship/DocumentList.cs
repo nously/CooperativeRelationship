@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using BrightIdeasSoftware;
 using PopupControl;
+using System.Diagnostics;
 
 namespace CooperativeRelationship
 {
@@ -58,7 +59,6 @@ namespace CooperativeRelationship
             {
                 string query = "SELECT * FROM kerjasama WHERE jenisKerjasama=" + this.activeMode + " AND tahun=" + this.tahun;
                 conn.Open();
-                //string query = "SELECT * FROM kerjasama";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                 {
@@ -104,6 +104,7 @@ namespace CooperativeRelationship
         private void populateListView(SQLiteDataReader result)
         {
             List<Document> list = new List<Document>();
+            // populate objectlistview
             while (result.Read())
             {
                 Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi \n" + result["institusi"] +
@@ -116,15 +117,18 @@ namespace CooperativeRelationship
                 Popup unitPenggunaPopup = createPopup("Unit Pengguna dalam Perjanjian dengan Institusi\n" + result["institusi"]);
                 Popup narahubungPopup = createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
 
-
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "", 
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", nomorPerjanjianPopup, masaBerlakuPopup,
-                    fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup, narahubungPopup);
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", 
+                    nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup, 
+                    narahubungPopup);
+                document.PathFile = result["filePath"] + "";
 
                 list.Add(document);
             }
-
+            
+            
+            // show the popup when click the button
             documents.ButtonClick += delegate (object sender, CellClickEventArgs e)
             {
                 // pop up detail
@@ -149,10 +153,24 @@ namespace CooperativeRelationship
                     clickedDocument.NarahubungPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
                         Screen.PrimaryScreen.Bounds.Height / 2 - 125));
             };
+
+            // opens the *.docx file when doubleclick on item
+            documents.CellClick += delegate (object sender, CellClickEventArgs e)
+            {
+                if (e.ClickCount == 2)
+                {
+                    // opens the *.docx file
+                    Process theDoc = new Process();
+
+                    theDoc.StartInfo.FileName = ((Document)e.Model).PathFile;
+                    theDoc.Start();
+                    return;
+                }
+            };
+
             documents.RowHeight = 35;
             documents.FullRowSelect = true;
             documents.SetObjects(list);
-            
         }
     }
 
@@ -168,6 +186,7 @@ namespace CooperativeRelationship
         private string unitPengguna;
         private string narahubung;
         private string nilaiKerjasama;
+        private string pathFile;
         Popup nomorPerjanjianPopup;
         Popup masaBerlakuPopup;
         Popup fokusPerjanjianPopup;
@@ -177,8 +196,9 @@ namespace CooperativeRelationship
 
         public Document(string institusi, string nomor, string tempatTanggalTTD,
             string masaBerlaku, string fokusPerjanjian, string penandatangan, string unitPengusul,
-            string unitPengguna, string narahubung, string nilaiKerjasama, Popup nomorPerjanjianPopup, Popup masaBerlakuPopup,
-            Popup fokusPerjanjianPopup, Popup penandatanganPopup, Popup unitPenggunaPopup, Popup narahubungPopup)
+            string unitPengguna, string narahubung, string nilaiKerjasama, string PathFile, Popup nomorPerjanjianPopup, 
+            Popup masaBerlakuPopup, Popup fokusPerjanjianPopup, Popup penandatanganPopup, Popup unitPenggunaPopup, 
+            Popup narahubungPopup)
         {
             Institusi = institusi;
             NomorPerjanjian = nomor;
@@ -190,6 +210,7 @@ namespace CooperativeRelationship
             UnitPengguna = unitPengguna;
             Narahubung = narahubung;
             NilaiKerjasama = nilaiKerjasama;
+            PathFile = pathFile;
             NomorPerjanjianPopup = nomorPerjanjianPopup;
             MasaBerlakuPopup = masaBerlakuPopup;
             FokusPerjanjianPopup = fokusPerjanjianPopup;
@@ -214,6 +235,7 @@ namespace CooperativeRelationship
         public string UnitPengguna { get => unitPengguna; set => unitPengguna = value; }
         public string Narahubung { get => narahubung; set => narahubung = value; }
         public string NilaiKerjasama { get => nilaiKerjasama; set => nilaiKerjasama = value; }
+        public string PathFile { get => pathFile; set => pathFile = value; }
     }
 
 }

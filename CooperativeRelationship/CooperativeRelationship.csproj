@@ -66,6 +66,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComplexPopup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComplexPopup.Designer.cs" />
     <Compile Include="DocumentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +90,7 @@
     <Compile Include="TambahKerjasama_Form.Designer.cs">
       <DependentUpon>TambahKerjasama_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ComplexPopup.resx" />
     <EmbeddedResource Include="DocumentList.resx">
       <DependentUpon>DocumentList.cs</DependentUpon>
     </EmbeddedResource>

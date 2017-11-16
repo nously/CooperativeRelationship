@@ -34,21 +34,8 @@ namespace CooperativeRelationship
             this.tahun = tahun;
             this.parent = parent;
 
-            databaseSource = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
-
-            Panel panel = new Panel();
-            panel.BackColor = Color.AliceBlue;
-            panel.Size = new Size(50, 50);
-            popup = new Popup(panel);
-            if (SystemInformation.IsComboBoxAnimationEnabled)
-            {
-                popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
-                popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
-            }
-            else
-            {
-                popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
-            }
+            databaseSource = 
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
         }
 
         private void tambahKerjasama_button_Click(object sender, EventArgs e)
@@ -90,9 +77,31 @@ namespace CooperativeRelationship
             List<Document> list = new List<Document>();
             while (result.Read())
             {
+                ComplexPopup panel = new ComplexPopup();
+                Label label = new Label();
+                label.Text = result["institusi"] + "";
+                label.AutoSize = true;
+
+                label.Parent = panel;
+
+                panel.BackColor = Color.AliceBlue;
+                popup = new Popup(panel);
+                popup.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 4, 250);
+                popup.Resizable = true;
+
+                if (SystemInformation.IsComboBoxAnimationEnabled)
+                {
+                    popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
+                    popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
+                }
+                else
+                {
+                    popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
+                }
+
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "", 
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "");
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", popup);
 
                 list.Add(document);
             }
@@ -101,7 +110,8 @@ namespace CooperativeRelationship
             {
                 // pop up detail
                 string x = ((Document)e.Model).Institusi;
-                popup.Show(new Point(500,500));
+                popup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 8, 
+                    Screen.PrimaryScreen.Bounds.Height / 2 - 125));
             };
 
             documents.RowHeight = 35;
@@ -123,11 +133,11 @@ namespace CooperativeRelationship
         private string unitPengguna;
         private string narahubung;
         private string nilaiKerjasama;
-
+        private Popup popup;
 
         public Document(string institusi, string nomor, string tempatTanggalTTD,
             string masaBerlaku, string fokusPerjanjian, string penandatangan, string unitPengusul,
-            string unitPengguna, string narahubung, string nilaiKerjasama
+            string unitPengguna, string narahubung, string nilaiKerjasama, Popup popup
             ) {
             this.institusi = institusi;
             this.nomorPerjanjian = nomor;
@@ -139,6 +149,15 @@ namespace CooperativeRelationship
             this.unitPengguna = unitPengguna;
             this.narahubung = narahubung;
             this.nilaiKerjasama = nilaiKerjasama;
+            this.popup = popup;
+        }
+
+        public Popup Popup
+        {
+            get
+            {
+                return popup;
+            }
         }
 
         public string Institusi

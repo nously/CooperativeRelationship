@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using BrightIdeasSoftware;
+using PopupControl;
 
 namespace CooperativeRelationship
 {
@@ -22,6 +23,7 @@ namespace CooperativeRelationship
         int activeMode;
         string tahun;
         Form1 parent;
+        Popup popup;
 
         public DocumentList(Form1 parent, int activeMode, string tahun)
         {
@@ -33,6 +35,20 @@ namespace CooperativeRelationship
             this.parent = parent;
 
             databaseSource = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+
+            Panel panel = new Panel();
+            panel.BackColor = Color.AliceBlue;
+            panel.Size = new Size(50, 50);
+            popup = new Popup(panel);
+            if (SystemInformation.IsComboBoxAnimationEnabled)
+            {
+                popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
+                popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
+            }
+            else
+            {
+                popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
+            }
         }
 
         private void tambahKerjasama_button_Click(object sender, EventArgs e)
@@ -85,6 +101,7 @@ namespace CooperativeRelationship
             {
                 // pop up detail
                 string x = ((Document)e.Model).Institusi;
+                popup.Show(new Point(500,500));
             };
 
             documents.RowHeight = 35;

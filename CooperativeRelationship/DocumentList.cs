@@ -16,7 +16,6 @@ namespace CooperativeRelationship
 {
     public partial class DocumentList : Form
     {
-
         public static int KERJASAMA_DALAM_NEGERI = 1;
         public static int KERJASAMA_LUAR_NEGERI = 2;
         private string databaseSource;

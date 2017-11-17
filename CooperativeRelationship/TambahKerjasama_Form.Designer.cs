@@ -28,8 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.judul = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.editNarahubung_Button = new System.Windows.Forms.Button();
+            this.editUnitPengguna_Button = new System.Windows.Forms.Button();
+            this.penandatanganInstitusi_TextBox = new System.Windows.Forms.TextBox();
+            this.penandatanganFisip_TextBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.editFokusPerjanjian_Button = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.nilaiKerjasama_TextBox = new System.Windows.Forms.TextBox();
+            this.unitPengusul_TextBox = new System.Windows.Forms.TextBox();
+            this.berakhirPada_DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.mulaiBerlaku_DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tanggalTTD_DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tempatTtd_TextBox = new System.Windows.Forms.TextBox();
+            this.noPerjanjianInstitusi_TextBox = new System.Windows.Forms.TextBox();
+            this.noPerjanjianFisip_TextBox = new System.Windows.Forms.TextBox();
+            this.institusi_TextBox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dalamNegeri_RadioButton = new System.Windows.Forms.RadioButton();
+            this.luarNegeri_RadioButton = new System.Windows.Forms.RadioButton();
+            this.judulFile_TextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -46,54 +71,49 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // judul
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(359, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Detail Kerjasama Baru";
+            this.judul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.judul.AutoSize = true;
+            this.judul.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.judul.Location = new System.Drawing.Point(359, 13);
+            this.judul.Name = "judul";
+            this.judul.Size = new System.Drawing.Size(284, 31);
+            this.judul.TabIndex = 0;
+            this.judul.Text = "Detail Kerjasama Baru";
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.editNarahubung_Button);
+            this.panel1.Controls.Add(this.editUnitPengguna_Button);
+            this.panel1.Controls.Add(this.penandatanganInstitusi_TextBox);
+            this.panel1.Controls.Add(this.penandatanganFisip_TextBox);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.editFokusPerjanjian_Button);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.dateTimePicker3);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.nilaiKerjasama_TextBox);
+            this.panel1.Controls.Add(this.unitPengusul_TextBox);
+            this.panel1.Controls.Add(this.berakhirPada_DateTimePicker);
+            this.panel1.Controls.Add(this.mulaiBerlaku_DateTimePicker);
+            this.panel1.Controls.Add(this.tanggalTTD_DateTimePicker);
+            this.panel1.Controls.Add(this.tempatTtd_TextBox);
+            this.panel1.Controls.Add(this.noPerjanjianInstitusi_TextBox);
+            this.panel1.Controls.Add(this.noPerjanjianFisip_TextBox);
+            this.panel1.Controls.Add(this.institusi_TextBox);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.judulFile_TextBox);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
@@ -112,13 +132,248 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(77, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(862, 513);
+            this.panel1.Size = new System.Drawing.Size(862, 556);
             this.panel1.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(548, 190);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(10, 13);
+            this.label23.TabIndex = 41;
+            this.label23.Text = ",";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(557, 187);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(46, 13);
+            this.label22.TabIndex = 40;
+            this.label22.Text = "Tanggal";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(365, 187);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Tempat";
+            // 
+            // editNarahubung_Button
+            // 
+            this.editNarahubung_Button.Location = new System.Drawing.Point(368, 461);
+            this.editNarahubung_Button.Name = "editNarahubung_Button";
+            this.editNarahubung_Button.Size = new System.Drawing.Size(75, 23);
+            this.editNarahubung_Button.TabIndex = 38;
+            this.editNarahubung_Button.Text = "button3";
+            this.editNarahubung_Button.UseVisualStyleBackColor = true;
+            this.editNarahubung_Button.Click += new System.EventHandler(this.editNarahubung_Button_Click);
+            // 
+            // editUnitPengguna_Button
+            // 
+            this.editUnitPengguna_Button.Location = new System.Drawing.Point(368, 432);
+            this.editUnitPengguna_Button.Name = "editUnitPengguna_Button";
+            this.editUnitPengguna_Button.Size = new System.Drawing.Size(75, 23);
+            this.editUnitPengguna_Button.TabIndex = 37;
+            this.editUnitPengguna_Button.Text = "button2";
+            this.editUnitPengguna_Button.UseVisualStyleBackColor = true;
+            this.editUnitPengguna_Button.Click += new System.EventHandler(this.editUnitPengguna_Button_Click);
+            // 
+            // penandatanganInstitusi_TextBox
+            // 
+            this.penandatanganInstitusi_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.penandatanganInstitusi_TextBox.Location = new System.Drawing.Point(368, 369);
+            this.penandatanganInstitusi_TextBox.Name = "penandatanganInstitusi_TextBox";
+            this.penandatanganInstitusi_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.penandatanganInstitusi_TextBox.TabIndex = 36;
+            // 
+            // penandatanganFisip_TextBox
+            // 
+            this.penandatanganFisip_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.penandatanganFisip_TextBox.Location = new System.Drawing.Point(368, 343);
+            this.penandatanganFisip_TextBox.Name = "penandatanganFisip_TextBox";
+            this.penandatanganFisip_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.penandatanganFisip_TextBox.TabIndex = 35;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(75, 372);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(157, 13);
+            this.label21.TabIndex = 34;
+            this.label21.Text = "Penandatangan Institusi Terkait";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(75, 346);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(112, 13);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Penandatangan FISIP";
+            // 
+            // editFokusPerjanjian_Button
+            // 
+            this.editFokusPerjanjian_Button.Location = new System.Drawing.Point(368, 288);
+            this.editFokusPerjanjian_Button.Name = "editFokusPerjanjian_Button";
+            this.editFokusPerjanjian_Button.Size = new System.Drawing.Size(75, 23);
+            this.editFokusPerjanjian_Button.TabIndex = 32;
+            this.editFokusPerjanjian_Button.Text = "button1";
+            this.editFokusPerjanjian_Button.UseVisualStyleBackColor = true;
+            this.editFokusPerjanjian_Button.Click += new System.EventHandler(this.editFokusPerjanjian_Button_Click);
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(785, 494);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(13, 13);
+            this.label19.TabIndex = 31;
+            this.label19.Text = ",-";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(365, 494);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Rp";
+            // 
+            // nilaiKerjasama_TextBox
+            // 
+            this.nilaiKerjasama_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nilaiKerjasama_TextBox.Location = new System.Drawing.Point(387, 491);
+            this.nilaiKerjasama_TextBox.Name = "nilaiKerjasama_TextBox";
+            this.nilaiKerjasama_TextBox.Size = new System.Drawing.Size(398, 20);
+            this.nilaiKerjasama_TextBox.TabIndex = 29;
+            // 
+            // unitPengusul_TextBox
+            // 
+            this.unitPengusul_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.unitPengusul_TextBox.Location = new System.Drawing.Point(368, 398);
+            this.unitPengusul_TextBox.Name = "unitPengusul_TextBox";
+            this.unitPengusul_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.unitPengusul_TextBox.TabIndex = 28;
+            // 
+            // berakhirPada_DateTimePicker
+            // 
+            this.berakhirPada_DateTimePicker.Location = new System.Drawing.Point(368, 255);
+            this.berakhirPada_DateTimePicker.Name = "berakhirPada_DateTimePicker";
+            this.berakhirPada_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.berakhirPada_DateTimePicker.TabIndex = 27;
+            // 
+            // mulaiBerlaku_DateTimePicker
+            // 
+            this.mulaiBerlaku_DateTimePicker.Location = new System.Drawing.Point(368, 229);
+            this.mulaiBerlaku_DateTimePicker.Name = "mulaiBerlaku_DateTimePicker";
+            this.mulaiBerlaku_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.mulaiBerlaku_DateTimePicker.TabIndex = 26;
+            // 
+            // tanggalTTD_DateTimePicker
+            // 
+            this.tanggalTTD_DateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tanggalTTD_DateTimePicker.Location = new System.Drawing.Point(609, 184);
+            this.tanggalTTD_DateTimePicker.Name = "tanggalTTD_DateTimePicker";
+            this.tanggalTTD_DateTimePicker.Size = new System.Drawing.Size(197, 20);
+            this.tanggalTTD_DateTimePicker.TabIndex = 25;
+            // 
+            // tempatTtd_TextBox
+            // 
+            this.tempatTtd_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tempatTtd_TextBox.Location = new System.Drawing.Point(414, 184);
+            this.tempatTtd_TextBox.Name = "tempatTtd_TextBox";
+            this.tempatTtd_TextBox.Size = new System.Drawing.Size(133, 20);
+            this.tempatTtd_TextBox.TabIndex = 24;
+            // 
+            // noPerjanjianInstitusi_TextBox
+            // 
+            this.noPerjanjianInstitusi_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.noPerjanjianInstitusi_TextBox.Location = new System.Drawing.Point(368, 154);
+            this.noPerjanjianInstitusi_TextBox.Name = "noPerjanjianInstitusi_TextBox";
+            this.noPerjanjianInstitusi_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.noPerjanjianInstitusi_TextBox.TabIndex = 22;
+            // 
+            // noPerjanjianFisip_TextBox
+            // 
+            this.noPerjanjianFisip_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.noPerjanjianFisip_TextBox.Location = new System.Drawing.Point(368, 128);
+            this.noPerjanjianFisip_TextBox.Name = "noPerjanjianFisip_TextBox";
+            this.noPerjanjianFisip_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.noPerjanjianFisip_TextBox.TabIndex = 21;
+            // 
+            // institusi_TextBox
+            // 
+            this.institusi_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.institusi_TextBox.Location = new System.Drawing.Point(368, 80);
+            this.institusi_TextBox.Name = "institusi_TextBox";
+            this.institusi_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.institusi_TextBox.TabIndex = 20;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.dalamNegeri_RadioButton);
+            this.panel2.Controls.Add(this.luarNegeri_RadioButton);
+            this.panel2.Location = new System.Drawing.Point(368, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(245, 23);
+            this.panel2.TabIndex = 19;
+            // 
+            // dalamNegeri_RadioButton
+            // 
+            this.dalamNegeri_RadioButton.AutoSize = true;
+            this.dalamNegeri_RadioButton.Checked = true;
+            this.dalamNegeri_RadioButton.Location = new System.Drawing.Point(3, 3);
+            this.dalamNegeri_RadioButton.Name = "dalamNegeri_RadioButton";
+            this.dalamNegeri_RadioButton.Size = new System.Drawing.Size(89, 17);
+            this.dalamNegeri_RadioButton.TabIndex = 17;
+            this.dalamNegeri_RadioButton.TabStop = true;
+            this.dalamNegeri_RadioButton.Text = "Dalam Negeri";
+            this.dalamNegeri_RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // luarNegeri_RadioButton
+            // 
+            this.luarNegeri_RadioButton.AutoSize = true;
+            this.luarNegeri_RadioButton.Location = new System.Drawing.Point(120, 3);
+            this.luarNegeri_RadioButton.Name = "luarNegeri_RadioButton";
+            this.luarNegeri_RadioButton.Size = new System.Drawing.Size(80, 17);
+            this.luarNegeri_RadioButton.TabIndex = 18;
+            this.luarNegeri_RadioButton.Text = "Luar Negeri";
+            this.luarNegeri_RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // judulFile_TextBox
+            // 
+            this.judulFile_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.judulFile_TextBox.Location = new System.Drawing.Point(368, 24);
+            this.judulFile_TextBox.Name = "judulFile_TextBox";
+            this.judulFile_TextBox.Size = new System.Drawing.Size(438, 20);
+            this.judulFile_TextBox.TabIndex = 16;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(50, 439);
+            this.label17.Location = new System.Drawing.Point(50, 494);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 13);
             this.label17.TabIndex = 15;
@@ -127,7 +382,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(50, 411);
+            this.label16.Location = new System.Drawing.Point(50, 466);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 14;
@@ -136,7 +391,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(50, 382);
+            this.label15.Location = new System.Drawing.Point(50, 437);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 13);
             this.label15.TabIndex = 13;
@@ -145,7 +400,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(50, 350);
+            this.label14.Location = new System.Drawing.Point(50, 405);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 13);
             this.label14.TabIndex = 12;
@@ -259,147 +514,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nama File";
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(368, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(438, 20);
-            this.textBox1.TabIndex = 16;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(139, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.radioButton1);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(368, 51);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 23);
-            this.panel2.TabIndex = 19;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(368, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(438, 20);
-            this.textBox2.TabIndex = 20;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(368, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(438, 20);
-            this.textBox3.TabIndex = 21;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(368, 154);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(438, 20);
-            this.textBox4.TabIndex = 22;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(434, 184);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(109, 20);
-            this.textBox6.TabIndex = 24;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(606, 184);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 25;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(368, 229);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 26;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(368, 255);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker3.TabIndex = 27;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(368, 343);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(438, 20);
-            this.textBox5.TabIndex = 28;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(387, 436);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(398, 20);
-            this.textBox7.TabIndex = 29;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(365, 439);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Rp";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(785, 439);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 31;
-            this.label19.Text = ",-";
-            // 
             // TambahKerjasama_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,9 +521,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1010, 623);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.judul);
             this.Name = "TambahKerjasama_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kerjasama Baru";
+            this.SizeChanged += new System.EventHandler(this.TambahKerjasama_Form_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -421,7 +537,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label judul;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -439,20 +555,30 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox judulFile_TextBox;
+        private System.Windows.Forms.RadioButton luarNegeri_RadioButton;
+        private System.Windows.Forms.RadioButton dalamNegeri_RadioButton;
+        private System.Windows.Forms.TextBox institusi_TextBox;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox noPerjanjianInstitusi_TextBox;
+        private System.Windows.Forms.TextBox noPerjanjianFisip_TextBox;
+        private System.Windows.Forms.TextBox tempatTtd_TextBox;
+        private System.Windows.Forms.DateTimePicker tanggalTTD_DateTimePicker;
+        private System.Windows.Forms.DateTimePicker berakhirPada_DateTimePicker;
+        private System.Windows.Forms.DateTimePicker mulaiBerlaku_DateTimePicker;
+        private System.Windows.Forms.TextBox unitPengusul_TextBox;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox nilaiKerjasama_TextBox;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button editFokusPerjanjian_Button;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox penandatanganInstitusi_TextBox;
+        private System.Windows.Forms.TextBox penandatanganFisip_TextBox;
+        private System.Windows.Forms.Button editUnitPengguna_Button;
+        private System.Windows.Forms.Button editNarahubung_Button;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label23;
     }
 }

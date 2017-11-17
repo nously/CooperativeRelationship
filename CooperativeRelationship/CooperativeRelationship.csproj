@@ -76,11 +76,23 @@
     <Compile Include="DocumentList.Designer.cs">
       <DependentUpon>DocumentList.cs</DependentUpon>
     </Compile>
+    <Compile Include="FokusPerjanjian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FokusPerjanjian.Designer.cs">
+      <DependentUpon>FokusPerjanjian.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Narahubung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Narahubung.Designer.cs">
+      <DependentUpon>Narahubung.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,12 +102,24 @@
     <Compile Include="TambahKerjasama_Form.Designer.cs">
       <DependentUpon>TambahKerjasama_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitPengguna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitPengguna.Designer.cs">
+      <DependentUpon>UnitPengguna.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ComplexPopup.resx" />
     <EmbeddedResource Include="DocumentList.resx">
       <DependentUpon>DocumentList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FokusPerjanjian.resx">
+      <DependentUpon>FokusPerjanjian.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Narahubung.resx">
+      <DependentUpon>Narahubung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="TambahKerjasama_Form.resx">
       <DependentUpon>TambahKerjasama_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitPengguna.resx">
+      <DependentUpon>UnitPengguna.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -362,6 +362,7 @@
             this.dalamNegeri_RadioButton.Size = new System.Drawing.Size(89, 17);
             this.dalamNegeri_RadioButton.TabIndex = 17;
             this.dalamNegeri_RadioButton.TabStop = true;
+            this.dalamNegeri_RadioButton.Tag = "1";
             this.dalamNegeri_RadioButton.Text = "Dalam Negeri";
             this.dalamNegeri_RadioButton.UseVisualStyleBackColor = true;
             // 
@@ -372,6 +373,7 @@
             this.luarNegeri_RadioButton.Name = "luarNegeri_RadioButton";
             this.luarNegeri_RadioButton.Size = new System.Drawing.Size(80, 17);
             this.luarNegeri_RadioButton.TabIndex = 18;
+            this.luarNegeri_RadioButton.Tag = "2";
             this.luarNegeri_RadioButton.Text = "Luar Negeri";
             this.luarNegeri_RadioButton.UseVisualStyleBackColor = true;
             // 
@@ -524,9 +526,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(50, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nama File";
+            this.label2.Text = "Judul Kerjasama";
             // 
             // TambahKerjasama_Form
             // 

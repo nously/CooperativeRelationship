@@ -192,6 +192,7 @@
             this.ClientSize = new System.Drawing.Size(610, 415);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "UnitPengguna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unit Pengguna";

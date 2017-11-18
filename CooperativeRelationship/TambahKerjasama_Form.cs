@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,13 +15,19 @@ namespace CooperativeRelationship
         int y;
         public string fokusPerjanjianData = "";
         public string unitPenggunaData = "";
-        public string narahubungData = "";
+        public Dictionary<string, string> narahubungFisipData;
+        public Dictionary<string, string> narahubungInstitusiData;
+        private string databaseSource;
 
         public TambahKerjasama_Form()
         {
             InitializeComponent();
             y = judul.Location.Y;
             MinimumSize = Size;
+            narahubungFisipData = new Dictionary<string, string>();
+            narahubungInstitusiData = new Dictionary<string, string>();
+            databaseSource =
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
         }
 
         // event handlers
@@ -47,7 +53,7 @@ namespace CooperativeRelationship
 
         private void editNarahubung_Button_Click(object sender, EventArgs e)
         {
-            Narahubung narahubung = new Narahubung();
+            Narahubung narahubung = new Narahubung(this);
             narahubung.ShowDialog();
         }
 
@@ -63,7 +69,21 @@ namespace CooperativeRelationship
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(fokusPerjanjianData + "\n\n" + unitPenggunaData);
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+            {
+                string query = "insert into kerjasama values" +
+                    "(null, 'judul'," +
+                    "'tahun', 'jenisKerjasama'," +
+                    "'institusi', 'nomorPerjanjianFisip'," +
+                    "'nomorPerjanjianInstitus', 'tempattanggalttd'," +
+                    "'mulai berlaku', 'berhenti berlaku'," +
+                    "'fokus perjanjian', 'nama narahubung fisip'," +
+                    "'handphone narahubung fisip', 'email narahubung fisip'," +
+                    "'nama narahubung institusi', 'handphone narahubung institusi'," +
+                    "'email narahubung institusi', 'jabatan narahubung fisip'," +
+                    "'jabatan narahubung institusi', nilai kerjasama," +
+                    "'filePath')";
+            }
         }
         // other functions
     }

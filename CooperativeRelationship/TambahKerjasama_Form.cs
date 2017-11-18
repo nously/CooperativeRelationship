@@ -13,6 +13,10 @@ namespace CooperativeRelationship
     public partial class TambahKerjasama_Form : Form
     {
         int y;
+        public string fokusPerjanjianData = "";
+        public string unitPenggunaData = "";
+        public string narahubungData = "";
+
         public TambahKerjasama_Form()
         {
             InitializeComponent();
@@ -20,6 +24,7 @@ namespace CooperativeRelationship
             MinimumSize = Size;
         }
 
+        // event handlers
         private void TambahKerjasama_Form_SizeChanged(object sender, EventArgs e)
         {
             judul.Location = new Point(
@@ -30,7 +35,7 @@ namespace CooperativeRelationship
 
         private void editFokusPerjanjian_Button_Click(object sender, EventArgs e)
         {
-            FokusPerjanjian fokusPerjanjian = new FokusPerjanjian();
+            FokusPerjanjian fokusPerjanjian = new FokusPerjanjian(this);
             fokusPerjanjian.ShowDialog();
         }
 
@@ -45,5 +50,21 @@ namespace CooperativeRelationship
             Narahubung narahubung = new Narahubung();
             narahubung.ShowDialog();
         }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(fokusPerjanjianData);
+        }
+        // other functions
     }
 }

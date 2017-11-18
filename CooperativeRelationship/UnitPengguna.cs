@@ -70,17 +70,42 @@ namespace CooperativeRelationship
             foreach (ComboBox comboBox in comboBoxes)
             {
                 parent.unitPenggunaData += comboBox.Text + "|";
+
+                // add item if it does not exist in database table
+                if (!comboBox.Text.Equals(""))
+                    using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+                        {
+                            conn.Open();
+
+                            // check existence in database table
+                            string query = "select count(*) from unit_pengguna " +
+                                "where namaUnitPengguna='" + comboBox.Text + "'";
+                            bool isExist = false;
+
+                            using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                                if (int.Parse(command.ExecuteScalar().ToString()) > 0)
+                                    isExist = true;
+
+                            // add new item into database table
+                            if (!isExist)
+                            {
+                                query = "Insert into unit_pengguna values(null, '"+ comboBox.Text +"')";
+                                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                                    command.ExecuteNonQuery();
+                            }
+
+                            conn.Close();
+                        }
             }
 
             Close();
         }
 
-
         private void populateCombobox(ComboBox comboBox)
         {
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
-                string query = "SELECT * FROM unit_pengguna";
+                string query = "SELECT * FROM unit_pengguna order by id desc";
                 conn.Open();
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                 {

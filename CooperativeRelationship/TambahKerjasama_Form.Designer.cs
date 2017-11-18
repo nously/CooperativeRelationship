@@ -81,7 +81,7 @@
             this.judul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.judul.AutoSize = true;
             this.judul.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.judul.Location = new System.Drawing.Point(359, 37);
+            this.judul.Location = new System.Drawing.Point(359, 13);
             this.judul.Name = "judul";
             this.judul.Size = new System.Drawing.Size(284, 31);
             this.judul.TabIndex = 0;

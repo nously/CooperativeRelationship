@@ -41,7 +41,7 @@ namespace CooperativeRelationship
 
         private void editUnitPengguna_Button_Click(object sender, EventArgs e)
         {
-            UnitPengguna unitPengguna = new UnitPengguna();
+            UnitPengguna unitPengguna = new UnitPengguna(this);
             unitPengguna.ShowDialog();
         }
 
@@ -63,7 +63,7 @@ namespace CooperativeRelationship
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(fokusPerjanjianData);
+            MessageBox.Show(fokusPerjanjianData + "\n\n" + unitPenggunaData);
         }
         // other functions
     }

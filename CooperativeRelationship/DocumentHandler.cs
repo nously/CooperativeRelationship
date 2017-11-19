@@ -8,14 +8,22 @@ using System.Data.SQLite;
 
 namespace CooperativeRelationship
 {
-    public class CreateDocument
+    public class DocumentHandler
     {
-        public CreateDocument()
+
+
+
+        public DocumentHandler()
         {
 
         }
 
         public bool Create()
+        {
+            return false;
+        }
+
+        public bool Delete()
         {
             return false;
         }

@@ -71,20 +71,62 @@ namespace CooperativeRelationship
         {
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
+                conn.Open();
+
+                // insert new document
+                int tahun = mulaiBerlaku_DateTimePicker.Value.Year;
+                int pilihan = (dalamNegeri_RadioButton.Checked) ? 1 : 2;
+                string tempattanggalttd = tempatTtd_TextBox.Text + tanggalTTD_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                string filePath =
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
+                
                 string query = "insert into kerjasama values" +
-                    "(null, 'judul'," +
-                    "'tahun', 'jenisKerjasama'," +
-                    "'institusi', 'nomorPerjanjianFisip'," +
-                    "'nomorPerjanjianInstitus', 'tempattanggalttd'," +
-                    "'mulai berlaku', 'berhenti berlaku'," +
-                    "'fokus perjanjian', 'nama narahubung fisip'," +
-                    "'handphone narahubung fisip', 'email narahubung fisip'," +
-                    "'nama narahubung institusi', 'handphone narahubung institusi'," +
-                    "'email narahubung institusi', 'jabatan narahubung fisip'," +
-                    "'jabatan narahubung institusi', nilai kerjasama," +
-                    "'filePath')";
+                    "(null, '"+ judulFile_TextBox.Text +"'," +
+                    ""+tahun+", "+pilihan+"," +
+                    "'"+ institusi_TextBox.Text +"', '"+noPerjanjianFisip_TextBox.Text+"'," +
+                    "'"+ noPerjanjianInstitusi_TextBox.Text +"', '"+tempattanggalttd+"'," +
+                    "'"+mulaiBerlaku+"', '"+berhentiBerlaku+"'," +
+                    "'"+fokusPerjanjianData+"', '"+ penandatanganFisip_TextBox.Text +"', '"+penandatanganInstitusi_TextBox.Text+"'" +
+                    ", '"+ unitPengusul_TextBox.Text +"', '"+ unitPenggunaData +"', '"+narahubungFisipData["nama"]+"'," +
+                    "'"+narahubungFisipData["handphone"]+"', '"+narahubungFisipData["email"]+"'," +
+                    "'"+narahubungInstitusiData["nama"]+"', '"+narahubungInstitusiData["handphone"]+"'," +
+                    "'"+narahubungInstitusiData["email"]+"', '"+narahubungFisipData["jabatan"]+"'," +
+                    "'"+narahubungInstitusiData["jabatan"]+"', "+nilaiKerjasama_TextBox.Text+"," +
+                    "'"+ filePath +"')";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                    MessageBox.Show(command.ExecuteNonQuery() + "");
+
+
+                // get latest id
+                int latestID = 0;
+                query = "select max(id) from kerjasama";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                    latestID = int.Parse(command.ExecuteScalar().ToString());
+
+
+                // update value
+                filePath =
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + latestID + "_"
+                    + judulFile_TextBox.Text + "_.docx";
+
+                query = "update kerjasama set filepath='"+filePath+"' where id=" + latestID;
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                    MessageBox.Show(command.ExecuteNonQuery() + "");
+
+                conn.Close();
             }
+            DocumentHandler creatingProcess = new DocumentHandler();
+            creatingProcess.Create();
         }
+
+
         // other functions
     }
 }

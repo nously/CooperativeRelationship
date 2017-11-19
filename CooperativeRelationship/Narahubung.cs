@@ -32,6 +32,7 @@ namespace CooperativeRelationship
             parent.narahubungInstitusiData.Add("handphone", institusiHandphone.Text);
             parent.narahubungInstitusiData.Add("email", institusiEmail.Text);
             parent.narahubungInstitusiData.Add("jabatan", institusiJabatan.Text);
+            Close();
         }
 
         private void fisipHandphone_KeyPress(object sender, KeyPressEventArgs e)

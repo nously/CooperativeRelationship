@@ -70,7 +70,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ComplexPopup.Designer.cs" />
-    <Compile Include="CreateDocument.cs" />
+    <Compile Include="DocumentHandler.cs" />
     <Compile Include="DocumentList.cs">
       <SubType>Form</SubType>
     </Compile>

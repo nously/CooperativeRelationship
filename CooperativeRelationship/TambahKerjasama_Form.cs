@@ -69,6 +69,8 @@ namespace CooperativeRelationship
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DocumentHandler creatingProcess = new DocumentHandler();
+
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
                 conn.Open();
@@ -120,9 +122,33 @@ namespace CooperativeRelationship
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                     MessageBox.Show(command.ExecuteNonQuery() + "");
 
+
+                creatingProcess.FilePath = filePath;
+                creatingProcess.BerhentiBerlaku = berhentiBerlaku;
+                creatingProcess.EmailNarahubungFisip = narahubungFisipData["email"];
+                creatingProcess.Judul = judulFile_TextBox.Text;
+                creatingProcess.EmailNarahubungInstitusi = narahubungInstitusiData["email"];
+                creatingProcess.FokusPerjanjian = fokusPerjanjianData;
+                creatingProcess.HandphoneNarahubungFisip = narahubungFisipData["handphone"];
+                creatingProcess.HandphoneNarahubungInstitusi = narahubungInstitusiData["handphone"];
+                creatingProcess.Institusi = institusi_TextBox.Text;
+                creatingProcess.JabatanNarahubungFisip = narahubungFisipData["jabatan"];
+                creatingProcess.JabatanNarahubungInstitusi = narahubungInstitusiData["jabatan"];
+                creatingProcess.MulaiBerlaku = mulaiBerlaku;
+                creatingProcess.NamaNarahubungFisip = narahubungFisipData["nama"];
+                creatingProcess.NamaNarahubungInstitusi = narahubungInstitusiData["nama"];
+                creatingProcess.NilaiKerjasama = nilaiKerjasama_TextBox.Text;
+                creatingProcess.NomorPerjanjianFisip = noPerjanjianFisip_TextBox.Text;
+                creatingProcess.NomorPerjanjianInstitusi = noPerjanjianInstitusi_TextBox.Text;
+                creatingProcess.PenandatanganFisip = penandatanganFisip_TextBox.Text;
+                creatingProcess.PenandatanganInstitusi = penandatanganInstitusi_TextBox.Text;
+                creatingProcess.TempatTanggalTTD = tempattanggalttd;
+                creatingProcess.UnitPengguna = unitPenggunaData;
+                creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
+
                 conn.Close();
             }
-            DocumentHandler creatingProcess = new DocumentHandler();
+            
             creatingProcess.Create();
         }
 

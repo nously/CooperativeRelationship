@@ -64,13 +64,23 @@ namespace CooperativeRelationship
             table.Range.Font.Size = 11;
             table.Range.Bold = 0;
 
-            //table.Columns[1].PreferredWidth = 200;
-            //table.Columns[2].PreferredWidth = 550;
+            table.Columns[1].PreferredWidth = 29;
+            table.Columns[2].PreferredWidth = 111;
+            table.Columns[3].PreferredWidth = 85;
+            table.Columns[4].PreferredWidth = 85;
+            table.Columns[5].PreferredWidth = 85;
+            table.Columns[6].PreferredWidth = 85;
+            table.Columns[7].PreferredWidth = 85;
+            table.Columns[8].PreferredWidth = 85;
+            table.Columns[9].PreferredWidth = 86;
 
             // draws all borders
             for (int i = 1; i <= numRows; i++)
                 for (int j = 1; j <= numColumns; j++)
                     table.Cell(i, j).Range.Borders.Enable = 1;
+
+            // merging
+
 
             return table;
         }

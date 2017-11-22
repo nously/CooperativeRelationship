@@ -59,6 +59,14 @@ namespace CooperativeRelationship
 
         private Microsoft.Office.Interop.Word.Table configureTable(Microsoft.Office.Interop.Word.Table table, int numRows, int numColumns)
         {
+            int rowPointer = 2;
+
+            // check fokusperjanjian amount
+            string[] fokus = FokusPerjanjian.Split('_');
+
+            // check unit pengguna amount
+            string[] pengguna = UnitPengguna.Split('_');
+
             table.Range.ParagraphFormat.SpaceAfter = 0;
             table.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
             table.Range.Font.Size = 11;
@@ -73,6 +81,82 @@ namespace CooperativeRelationship
             table.Columns[7].PreferredWidth = 85;
             table.Columns[8].PreferredWidth = 85;
             table.Columns[9].PreferredWidth = 86;
+
+            // rowPointer == 2
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer + 1, 6).Merge(table.Cell(rowPointer + 1, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 1, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 1, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + 1, 9));
+            rowPointer += 2;
+
+            // rowPointer == 4
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer + 1, 6).Merge(table.Cell(rowPointer + 1, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 1, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 1, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + 1, 9));
+            rowPointer += 2;
+
+            // rowPointer == 6
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            rowPointer += 1;
+
+            // rowPointer == 7
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Split(1, 4);
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 1, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 1, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + 1, 9));
+            rowPointer += 2;
+
+            // rowPointer == 9
+            int fokusNum = fokus.Length;
+            for (int i = 0; i < fokusNum; i++)
+                table.Cell(rowPointer + i, 3).Merge(table.Cell(rowPointer + i, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + fokusNum - 1, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + fokusNum - 1, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + fokusNum - 1, 9));
+            rowPointer += fokusNum;
+
+            // baris 6
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer + 2, 3).Merge(table.Cell(rowPointer + 2, 5));
+            table.Cell(rowPointer + 1, 6).Merge(table.Cell(rowPointer + 1, 8));
+            table.Cell(rowPointer + 2, 6).Merge(table.Cell(rowPointer + 2, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 2, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 2, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + 2, 9));
+            rowPointer += 2;
+
+            // baris 7
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            rowPointer += 1;
+
+            // baris 8
+            int penggunaNum = pengguna.Length;
+            for (int i = 0; i < penggunaNum; i++)
+                table.Cell(rowPointer + i, 3).Merge(table.Cell(rowPointer + i, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + penggunaNum - 1, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + penggunaNum - 1, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + penggunaNum - 1, 9));
+            rowPointer += penggunaNum;
+
+            // baris 9
+            table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer + 1, 6).Merge(table.Cell(rowPointer + 1, 8));
+            table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 3, 1));
+            table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 3, 2));
+            table.Cell(rowPointer, 9).Merge(table.Cell(rowPointer + 3, 9));
+            rowPointer += 4;
+
+            // baris 10
+
 
             // draws all borders
             for (int i = 1; i <= numRows; i++)
@@ -94,8 +178,6 @@ namespace CooperativeRelationship
         {
             try
             {
-                int rowPointer;
-
                 // check fokusperjanjian amount
                 string[] fokus = FokusPerjanjian.Split('_');
 

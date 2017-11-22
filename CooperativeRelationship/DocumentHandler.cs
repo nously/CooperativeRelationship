@@ -156,7 +156,8 @@ namespace CooperativeRelationship
             rowPointer += 4;
 
             // baris 10
-
+            table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer + 1, 6).Merge(table.Cell(rowPointer + 1, 8));
 
             // draws all borders
             for (int i = 1; i <= numRows; i++)

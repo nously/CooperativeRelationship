@@ -112,9 +112,14 @@ namespace CooperativeRelationship
 
 
                 // update value
+                string filePathWithoutDocx =
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
+                    + judulFile_TextBox.Text + "_";
+
                 filePath =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
-                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + latestID + "_"
+                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
                     + judulFile_TextBox.Text + "_.docx";
 
                 query = "update kerjasama set filepath='"+filePath+"' where id=" + latestID;
@@ -123,7 +128,7 @@ namespace CooperativeRelationship
                     MessageBox.Show(command.ExecuteNonQuery() + "");
 
 
-                creatingProcess.FilePath = filePath;
+                creatingProcess.FilePath = filePathWithoutDocx;
                 creatingProcess.BerhentiBerlaku = berhentiBerlaku;
                 creatingProcess.EmailNarahubungFisip = narahubungFisipData["email"];
                 creatingProcess.Judul = judulFile_TextBox.Text;
@@ -145,6 +150,7 @@ namespace CooperativeRelationship
                 creatingProcess.TempatTanggalTTD = tempattanggalttd;
                 creatingProcess.UnitPengguna = unitPenggunaData;
                 creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
+                
 
                 conn.Close();
             }

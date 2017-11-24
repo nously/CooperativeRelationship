@@ -29,49 +29,45 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dalamNegeri_Button = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.highlight_luarNegeri = new System.Windows.Forms.Panel();
+            this.highlight_dalamNegeri = new System.Windows.Forms.Panel();
             this.luarNegeri_Button = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.highlight_dalamNegeri = new System.Windows.Forms.Panel();
-            this.highlight_luarNegeri = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dalamNegeri_Button = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.judulTahun = new System.Windows.Forms.Label();
-            this.tahun_panel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kerjasamaBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tahunBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bantuanTeknisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.dalamNegeri_Button.SuspendLayout();
             this.luarNegeri_Button.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.tahun_panel.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.dalamNegeri_Button.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(195, 493);
+            this.panel1.Size = new System.Drawing.Size(195, 470);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.judulTahun);
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(195, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 493);
-            this.panel2.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -86,28 +82,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jenis Kerjasama";
             // 
-            // dalamNegeri_Button
+            // highlight_luarNegeri
             // 
-            this.dalamNegeri_Button.Controls.Add(this.label1);
-            this.dalamNegeri_Button.Location = new System.Drawing.Point(21, 23);
-            this.dalamNegeri_Button.Name = "dalamNegeri_Button";
-            this.dalamNegeri_Button.Size = new System.Drawing.Size(150, 33);
-            this.dalamNegeri_Button.TabIndex = 0;
-            this.dalamNegeri_Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dalamNegeri_Button_MouseClick);
-            this.dalamNegeri_Button.MouseEnter += new System.EventHandler(this.dalamNegeri_Button_MouseEnter);
-            this.dalamNegeri_Button.MouseLeave += new System.EventHandler(this.dalamNegeri_Button_MouseLeave);
+            this.highlight_luarNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.highlight_luarNegeri.Location = new System.Drawing.Point(5, 59);
+            this.highlight_luarNegeri.Name = "highlight_luarNegeri";
+            this.highlight_luarNegeri.Size = new System.Drawing.Size(10, 33);
+            this.highlight_luarNegeri.TabIndex = 2;
+            this.highlight_luarNegeri.Visible = false;
             // 
-            // label1
+            // highlight_dalamNegeri
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(32, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Dalam Negeri";
-            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dalamNegeri_Button_MouseClick);
-            this.label1.MouseEnter += new System.EventHandler(this.dalamNegeri_Button_MouseEnter);
+            this.highlight_dalamNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.highlight_dalamNegeri.Location = new System.Drawing.Point(5, 23);
+            this.highlight_dalamNegeri.Name = "highlight_dalamNegeri";
+            this.highlight_dalamNegeri.Size = new System.Drawing.Size(10, 33);
+            this.highlight_dalamNegeri.TabIndex = 1;
             // 
             // luarNegeri_Button
             // 
@@ -131,91 +121,135 @@
             this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.luarNegeri_Button_MouseClick);
             this.label2.MouseEnter += new System.EventHandler(this.luarNegeri_Button_MouseEnter);
             // 
-            // highlight_dalamNegeri
+            // dalamNegeri_Button
             // 
-            this.highlight_dalamNegeri.BackColor = System.Drawing.Color.Red;
-            this.highlight_dalamNegeri.Location = new System.Drawing.Point(5, 23);
-            this.highlight_dalamNegeri.Name = "highlight_dalamNegeri";
-            this.highlight_dalamNegeri.Size = new System.Drawing.Size(10, 33);
-            this.highlight_dalamNegeri.TabIndex = 1;
+            this.dalamNegeri_Button.Controls.Add(this.label1);
+            this.dalamNegeri_Button.Location = new System.Drawing.Point(21, 23);
+            this.dalamNegeri_Button.Name = "dalamNegeri_Button";
+            this.dalamNegeri_Button.Size = new System.Drawing.Size(150, 33);
+            this.dalamNegeri_Button.TabIndex = 0;
+            this.dalamNegeri_Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dalamNegeri_Button_MouseClick);
+            this.dalamNegeri_Button.MouseEnter += new System.EventHandler(this.dalamNegeri_Button_MouseEnter);
+            this.dalamNegeri_Button.MouseLeave += new System.EventHandler(this.dalamNegeri_Button_MouseLeave);
             // 
-            // highlight_luarNegeri
+            // label1
             // 
-            this.highlight_luarNegeri.BackColor = System.Drawing.Color.Red;
-            this.highlight_luarNegeri.Location = new System.Drawing.Point(5, 59);
-            this.highlight_luarNegeri.Name = "highlight_luarNegeri";
-            this.highlight_luarNegeri.Size = new System.Drawing.Size(10, 33);
-            this.highlight_luarNegeri.TabIndex = 2;
-            this.highlight_luarNegeri.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.label1.Location = new System.Drawing.Point(32, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Dalam Negeri";
+            this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dalamNegeri_Button_MouseClick);
+            this.label1.MouseEnter += new System.EventHandler(this.dalamNegeri_Button_MouseEnter);
             // 
-            // flowLayoutPanel1
+            // panel2
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.tahun_panel);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 58);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(667, 423);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.judulTahun);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Location = new System.Drawing.Point(195, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(685, 469);
+            this.panel2.TabIndex = 1;
             // 
             // judulTahun
             // 
             this.judulTahun.AutoSize = true;
-            this.judulTahun.Location = new System.Drawing.Point(17, 26);
+            this.judulTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.judulTahun.Location = new System.Drawing.Point(15, 13);
             this.judulTahun.Name = "judulTahun";
-            this.judulTahun.Size = new System.Drawing.Size(122, 13);
+            this.judulTahun.Size = new System.Drawing.Size(204, 20);
             this.judulTahun.TabIndex = 1;
             this.judulTahun.Text = "Daftar Tahun Kerjasama";
             // 
-            // tahun_panel
+            // flowLayoutPanel1
             // 
-            this.tahun_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tahun_panel.Controls.Add(this.label3);
-            this.tahun_panel.Location = new System.Drawing.Point(1, 1);
-            this.tahun_panel.Margin = new System.Windows.Forms.Padding(1);
-            this.tahun_panel.Name = "tahun_panel";
-            this.tahun_panel.Size = new System.Drawing.Size(663, 21);
-            this.tahun_panel.TabIndex = 0;
-            this.tahun_panel.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
-            this.tahun_panel.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 42);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(667, 405);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
             // 
-            // label3
+            // menuStrip1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Dimulai Tahun 2017";
-            this.label3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(880, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // panel3
+            // fileToolStripMenuItem
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(1, 24);
-            this.panel3.Margin = new System.Windows.Forms.Padding(1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(663, 21);
-            this.panel3.TabIndex = 1;
-            this.panel3.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
-            this.panel3.MouseLeave += new System.EventHandler(this.tahun_panel_MouseLeave);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kerjasamaBaruToolStripMenuItem,
+            this.tahunBaruToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // label4
+            // kerjasamaBaruToolStripMenuItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Dimulai Tahun 2017";
-            this.label4.MouseEnter += new System.EventHandler(this.tahun_panel_MouseEnter);
+            this.kerjasamaBaruToolStripMenuItem.Name = "kerjasamaBaruToolStripMenuItem";
+            this.kerjasamaBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.kerjasamaBaruToolStripMenuItem.Text = "Kerjasama Baru";
+            // 
+            // tahunBaruToolStripMenuItem
+            // 
+            this.tahunBaruToolStripMenuItem.Name = "tahunBaruToolStripMenuItem";
+            this.tahunBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.tahunBaruToolStripMenuItem.Text = "Tahun Baru";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bantuanTeknisToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem1});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // bantuanTeknisToolStripMenuItem
+            // 
+            this.bantuanTeknisToolStripMenuItem.Name = "bantuanTeknisToolStripMenuItem";
+            this.bantuanTeknisToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.bantuanTeknisToolStripMenuItem.Text = "Bantuan Teknis";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.exitToolStripMenuItem1.Text = "Tentang";
             // 
             // Form1
             // 
@@ -224,23 +258,24 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(880, 493);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manajemen Kerjasama";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.dalamNegeri_Button.ResumeLayout(false);
-            this.dalamNegeri_Button.PerformLayout();
             this.luarNegeri_Button.ResumeLayout(false);
             this.luarNegeri_Button.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.tahun_panel.ResumeLayout(false);
-            this.tahun_panel.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.dalamNegeri_Button.ResumeLayout(false);
+            this.dalamNegeri_Button.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -257,10 +292,16 @@
         private System.Windows.Forms.Panel highlight_luarNegeri;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label judulTahun;
-        private System.Windows.Forms.Panel tahun_panel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kerjasamaBaruToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tahunBaruToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bantuanTeknisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
     }
 }
 

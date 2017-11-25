@@ -66,10 +66,10 @@ namespace CooperativeRelationship
             int rowPointer = 1;
 
             // check fokusperjanjian amount
-            string[] fokus = FokusPerjanjian.Split('_');
+            string[] fokus = FokusPerjanjian.Split('|');
 
             // check unit pengguna amount
-            string[] pengguna = UnitPengguna.Split('_');
+            string[] pengguna = UnitPengguna.Split('|');
 
             table.Range.ParagraphFormat.SpaceAfter = 0;
             table.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
@@ -186,22 +186,46 @@ namespace CooperativeRelationship
             table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 2, 2));
             table.Cell(rowPointer + 1, 5).Merge(table.Cell(rowPointer + 2, 5));
             table.Cell(rowPointer, 4).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer, 1).Range.Text = "06";
+            table.Cell(rowPointer, 2).Range.Text = "Ditandatangani Oleh";
+            table.Cell(rowPointer, 3).Range.Text = "Institusi";
+            table.Cell(rowPointer + 1, 3).Range.Text = "Fakultas Ilmu Sosial dan Ilmu Politik";
+            table.Cell(rowPointer + 1, 4).Range.Text = Institusi;
+            table.Cell(rowPointer + 2, 3).Range.Text = PenandatanganFisip;
+            table.Cell(rowPointer + 2, 4).Range.Text = PenandatanganInstitusi;
+            table.Cell(rowPointer, 3).Range.Bold = 1;
+            table.Cell(rowPointer + 1, 3).Range.Bold = 1;
+            table.Cell(rowPointer + 1, 4).Range.Bold = 1;
+            table.Cell(rowPointer, 3).Range.ParagraphFormat.Alignment =
+                table.Cell(rowPointer + 1, 3).Range.ParagraphFormat.Alignment =
+                table.Cell(rowPointer + 1, 4).Range.ParagraphFormat.Alignment =
+                Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
             rowPointer += 3;
 
             // baris 7
             table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
+            table.Cell(rowPointer, 1).Range.Text = "07";
+            table.Cell(rowPointer, 2).Range.Text = "Unit Pengusul";
+            table.Cell(rowPointer, 3).Range.Text = UnitPengusul;
             rowPointer += 1;
 
             // baris 8
             int penggunaNum = pengguna.Length;
             for (int i = 0; i < penggunaNum; i++)
+            {
                 table.Cell(rowPointer + i, 3).Merge(table.Cell(rowPointer + i, 8));
+                byte counter = (byte)(i + 1);
+                table.Cell(rowPointer + i, 3).Range.Text = counter + ". " + pengguna[i];
+            }
+
             if (penggunaNum > 1)
             {
                 table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + penggunaNum - 1, 1));
                 table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + penggunaNum - 1, 2));
                 table.Cell(rowPointer, 4).Merge(table.Cell(rowPointer + penggunaNum - 1, 4));
             }
+            table.Cell(rowPointer, 1).Range.Text = "08";
+            table.Cell(rowPointer, 2).Range.Text = "Unit pengguna";
             rowPointer += penggunaNum;
 
             // baris 9
@@ -213,13 +237,34 @@ namespace CooperativeRelationship
             table.Cell(rowPointer + 2, 9).Merge(table.Cell(rowPointer + 3, 9));
             table.Cell(rowPointer + 1, 5).Merge(table.Cell(rowPointer + 2, 9));
             table.Cell(rowPointer, 4).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer, 1).Range.Text = "09";
+            table.Cell(rowPointer, 2).Range.Text = "Nara Hubung";
+            table.Cell(rowPointer, 3).Range.Text = "Institusi";
+            table.Cell(rowPointer + 1, 3).Range.Text = "Fakultas Ilmu Sosial dan Ilmu Politik";
+            table.Cell(rowPointer + 1, 4).Range.Text = Institusi;
+            table.Cell(rowPointer + 2, 3).Range.Text =
+                table.Cell(rowPointer + 2, 6).Range.Text = "Nama";
+            table.Cell(rowPointer + 2, 4).Range.Text =
+                table.Cell(rowPointer + 2, 7).Range.Text = "No. Handphone";
+            table.Cell(rowPointer + 2, 5).Range.Text =
+                table.Cell(rowPointer + 2, 8).Range.Text = "E-mail";
+            table.Cell(rowPointer + 3, 3).Range.Text = NamaNarahubungFisip;
+            table.Cell(rowPointer + 3, 4).Range.Text = HandphoneNarahubungFisip;
+            table.Cell(rowPointer + 3, 5).Range.Text = EmailNarahubungFisip;
+
+            table.Cell(rowPointer + 3, 6).Range.Text = NamaNarahubungInstitusi;
+            table.Cell(rowPointer + 3, 7).Range.Text = HandphoneNarahubungInstitusi;
+            table.Cell(rowPointer + 3, 8).Range.Text = EmailNarahubungInstitusi;
+
             rowPointer += 4;
 
             // baris 10
             table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 5));
             table.Cell(rowPointer + 1, 4).Merge(table.Cell(rowPointer + 1, 6));
-
-            
+            table.Cell(rowPointer, 1).Range.Text = "10";
+            table.Cell(rowPointer, 2).Range.Text = "Jabatan/Fungsi Nara Hubung";
+            table.Cell(rowPointer, 3).Range.Text = JabatanNarahubungFisip;
+            table.Cell(rowPointer, 4).Range.Text = JabatanNarahubungInstitusi;
 
             return table;
         }
@@ -235,10 +280,10 @@ namespace CooperativeRelationship
             {
                 System.Windows.Forms.MessageBox.Show(FilePath);
                 // check fokusperjanjian amount
-                string[] fokus = FokusPerjanjian.Split('_');
+                string[] fokus = FokusPerjanjian.Split('|');
 
                 // check unit pengguna amount
-                string[] pengguna = FokusPerjanjian.Split('_');
+                string[] pengguna = FokusPerjanjian.Split('|');
 
                 int numColumns = 9;
                 int numRows = fokus.Length + pengguna.Length + 17;

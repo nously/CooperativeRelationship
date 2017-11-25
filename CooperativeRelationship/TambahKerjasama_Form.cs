@@ -78,7 +78,7 @@ namespace CooperativeRelationship
                 // insert new document
                 int tahun = mulaiBerlaku_DateTimePicker.Value.Year;
                 int pilihan = (dalamNegeri_RadioButton.Checked) ? 1 : 2;
-                string tempattanggalttd = tempatTtd_TextBox.Text + tanggalTTD_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                string tempattanggalttd = tempatTtd_TextBox.Text + ", " + tanggalTTD_DateTimePicker.Value.ToString("dd MMMM yyyy");
                 string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
                 string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
                 string filePath =

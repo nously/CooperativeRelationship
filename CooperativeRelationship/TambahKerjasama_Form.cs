@@ -31,6 +31,7 @@ namespace CooperativeRelationship
             narahubungInstitusiData = new Dictionary<string, string>();
             databaseSource =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+            button1.Click += new EventHandler(button1_Click);
         }
 
         public TambahKerjasama_Form(string id) : this()
@@ -96,6 +97,7 @@ namespace CooperativeRelationship
                             date = int.Parse(dates[dates.Length - 3]);
                             berakhirPada_DateTimePicker.Value = new DateTime(year, month, date);
 
+                            button1.Click -= new EventHandler(button1_Click);
                             button1.Click += new EventHandler(button1_Click2);
                         }
                     }
@@ -141,6 +143,7 @@ namespace CooperativeRelationship
             Cursor = Cursors.Arrow;
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             DocumentHandler creatingProcess = new DocumentHandler();
@@ -158,20 +161,20 @@ namespace CooperativeRelationship
                 string filePath =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
                     + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
-                
+
                 string query = "insert into kerjasama values" +
-                    "(null, '"+ judulFile_TextBox.Text +"'," +
-                    ""+tahun+", "+pilihan+"," +
-                    "'"+ institusi_TextBox.Text +"', '"+noPerjanjianFisip_TextBox.Text+"'," +
-                    "'"+ noPerjanjianInstitusi_TextBox.Text +"', '"+tempattanggalttd+"'," +
-                    "'"+mulaiBerlaku+"', '"+berhentiBerlaku+"'," +
-                    "'"+fokusPerjanjianData+"', '"+ penandatanganFisip_TextBox.Text +"', '"+penandatanganInstitusi_TextBox.Text+"'" +
-                    ", '"+ unitPengusul_TextBox.Text +"', '"+ unitPenggunaData +"', '"+narahubungFisipData["nama"]+"'," +
-                    "'"+narahubungFisipData["handphone"]+"', '"+narahubungFisipData["email"]+"'," +
-                    "'"+narahubungInstitusiData["nama"]+"', '"+narahubungInstitusiData["handphone"]+"'," +
-                    "'"+narahubungInstitusiData["email"]+"', '"+narahubungFisipData["jabatan"]+"'," +
-                    "'"+narahubungInstitusiData["jabatan"]+"', "+nilaiKerjasama_TextBox.Text+"," +
-                    "'"+ filePath +"')";
+                    "(null, '" + judulFile_TextBox.Text + "'," +
+                    "" + tahun + ", " + pilihan + "," +
+                    "'" + institusi_TextBox.Text + "', '" + noPerjanjianFisip_TextBox.Text + "'," +
+                    "'" + noPerjanjianInstitusi_TextBox.Text + "', '" + tempattanggalttd + "'," +
+                    "'" + mulaiBerlaku + "', '" + berhentiBerlaku + "'," +
+                    "'" + fokusPerjanjianData + "', '" + penandatanganFisip_TextBox.Text + "', '" + penandatanganInstitusi_TextBox.Text + "'" +
+                    ", '" + unitPengusul_TextBox.Text + "', '" + unitPenggunaData + "', '" + narahubungFisipData["nama"] + "'," +
+                    "'" + narahubungFisipData["handphone"] + "', '" + narahubungFisipData["email"] + "'," +
+                    "'" + narahubungInstitusiData["nama"] + "', '" + narahubungInstitusiData["handphone"] + "'," +
+                    "'" + narahubungInstitusiData["email"] + "', '" + narahubungFisipData["jabatan"] + "'," +
+                    "'" + narahubungInstitusiData["jabatan"] + "', " + nilaiKerjasama_TextBox.Text + "," +
+                    "'" + filePath + "')";
 
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                     MessageBox.Show(command.ExecuteNonQuery() + "");
@@ -196,7 +199,7 @@ namespace CooperativeRelationship
                     + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
                     + judulFile_TextBox.Text + "_.docx";
 
-                query = "update kerjasama set filepath='"+filePath+"' where id=" + latestID;
+                query = "update kerjasama set filepath='" + filePath + "' where id=" + latestID;
 
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                     MessageBox.Show(command.ExecuteNonQuery() + "");
@@ -224,17 +227,18 @@ namespace CooperativeRelationship
                 creatingProcess.TempatTanggalTTD = tempattanggalttd;
                 creatingProcess.UnitPengguna = unitPenggunaData;
                 creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
-                
+
 
                 conn.Close();
             }
-            
+
             creatingProcess.Create();
             MessageBox.Show("File berhasil dibuat");
         }
 
         private void button1_Click2(object sender, EventArgs e)
         {
+            MessageBox.Show("Test");
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
                 // delete row

@@ -165,11 +165,26 @@ namespace CooperativeRelationship
                 if (e.ClickCount == 2)
                 {
                     // opens the *.docx file
-                    Process theDoc = new Process();
+                    //Process theDoc = new Process();
 
-                    theDoc.StartInfo.FileName = ((Document)e.Model).PathFile;
-                    theDoc.Start();
-                    return;
+                    //theDoc.StartInfo.FileName = ((Document)e.Model).PathFile;
+                    //theDoc.Start();
+                    //return;
+
+                    try
+                    {
+                        Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+
+                        object missing = System.Reflection.Missing.Value;
+                        Microsoft.Office.Interop.Word.Document writer = wordApp.Documents.Open(((Document)e.Model).PathFile);
+
+                        wordApp.Visible = true;
+                        wordApp.ShowAnimation = true;
+                    } 
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             };
 

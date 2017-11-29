@@ -37,15 +37,66 @@ namespace CooperativeRelationship
             this.id = id;
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
-                string query = "";
+                string query = "select * from kerjasama where id = " + id;
                 conn.Open();
                 using (SQLiteCommand command = new SQLiteCommand(query, conn))
                 {
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
-                        // set form
+                        Dictionary<string, int> monthNumber = new Dictionary<string, int>();
+                        monthNumber.Add("January", 1);
+                        monthNumber.Add("February", 2);
+                        monthNumber.Add("March", 3);
+                        monthNumber.Add("April", 4);
+                        monthNumber.Add("May", 5);
+                        monthNumber.Add("June", 6);
+                        monthNumber.Add("July", 7);
+                        monthNumber.Add("August", 8);
+                        monthNumber.Add("September", 9);
+                        monthNumber.Add("October", 10);
+                        monthNumber.Add("November", 11);
+                        monthNumber.Add("December", 12);
 
-                        button1.Click += new EventHandler(button1_Click2);
+                        // set form
+                        if (result.Read())
+                        {
+                            filePath = result["filePath"] + "";
+                            judulFile_TextBox.Text = (result["namaFile"] + "").Split('_')[1];
+                            if ((result["jenisKerjasama"] + "").Equals(DocumentList.KERJASAMA_DALAM_NEGERI + ""))
+                                dalamNegeri_RadioButton.Select();
+                            else
+                                luarNegeri_RadioButton.Select();
+                            institusi_TextBox.Text = result["institusi"] + "";
+                            noPerjanjianFisip_TextBox.Text = result["nomorPerjanjianFisip"] + "";
+                            noPerjanjianInstitusi_TextBox.Text = result["nomorPerjanjianInstitusi"] + "";
+                            penandatanganFisip_TextBox.Text = result["penandatanganFisip"] + "";
+                            penandatanganInstitusi_TextBox.Text = result["penandatanganInstitusi"] + "";
+                            unitPengusul_TextBox.Text = result["unitPengusul"] + "";
+                            nilaiKerjasama_TextBox.Text = result["nilaiKerjasama"] + "";
+
+                            string[] ttd = (result["tempatTanggalTTD"] + "").Split(',');
+                            tempatTtd_TextBox.Text = ttd[0];
+
+                            string[] dates = ttd[1].Split(' ');
+                            int year = int.Parse(dates[dates.Length - 1]);
+                            int month = monthNumber[dates[dates.Length - 2] + ""];
+                            int date = int.Parse(dates[dates.Length - 3]);
+                            tanggalTTD_DateTimePicker.Value = new DateTime(year, month, date);
+
+                            dates = (result["mulaiBerlaku"] + "").Split('/');
+                            year = int.Parse(dates[dates.Length - 1]);
+                            month = int.Parse(dates[dates.Length - 2]);
+                            date = int.Parse(dates[dates.Length - 3]);
+                            mulaiBerlaku_DateTimePicker.Value = new DateTime(year, month, date);
+
+                            dates = (result["berhentiBerlaku"] + "").Split('/');
+                            year = int.Parse(dates[dates.Length - 1]);
+                            month = int.Parse(dates[dates.Length - 2]);
+                            date = int.Parse(dates[dates.Length - 3]);
+                            berakhirPada_DateTimePicker.Value = new DateTime(year, month, date);
+
+                            button1.Click += new EventHandler(button1_Click2);
+                        }
                     }
                 }
                 conn.Close();

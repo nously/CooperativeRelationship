@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,7 @@ namespace CooperativeRelationship
                         if (result.Read())
                         {
                             filePath = result["filePath"] + "";
-                            judulFile_TextBox.Text = (result["namaFile"] + "").Split('_')[1];
+                            judulFile_TextBox.Text = result["namaFile"] + "";
                             if ((result["jenisKerjasama"] + "").Equals(DocumentList.KERJASAMA_DALAM_NEGERI + ""))
                                 dalamNegeri_RadioButton.Select();
                             else
@@ -83,15 +84,15 @@ namespace CooperativeRelationship
                             int date = int.Parse(dates[dates.Length - 3]);
                             tanggalTTD_DateTimePicker.Value = new DateTime(year, month, date);
 
-                            dates = (result["mulaiBerlaku"] + "").Split('/');
+                            dates = (result["mulaiBerlaku"] + "").Split(' ');
                             year = int.Parse(dates[dates.Length - 1]);
-                            month = int.Parse(dates[dates.Length - 2]);
+                            month = monthNumber[dates[dates.Length - 2] + ""];
                             date = int.Parse(dates[dates.Length - 3]);
                             mulaiBerlaku_DateTimePicker.Value = new DateTime(year, month, date);
 
-                            dates = (result["berhentiBerlaku"] + "").Split('/');
+                            dates = (result["berhentiBerlaku"] + "").Split(' ');
                             year = int.Parse(dates[dates.Length - 1]);
-                            month = int.Parse(dates[dates.Length - 2]);
+                            month = monthNumber[dates[dates.Length - 2] + ""];
                             date = int.Parse(dates[dates.Length - 3]);
                             berakhirPada_DateTimePicker.Value = new DateTime(year, month, date);
 
@@ -229,6 +230,7 @@ namespace CooperativeRelationship
             }
             
             creatingProcess.Create();
+            MessageBox.Show("File berhasil dibuat");
         }
 
         private void button1_Click2(object sender, EventArgs e)
@@ -244,12 +246,15 @@ namespace CooperativeRelationship
                     Console.WriteLine(affectedLine);
                 }
                 conn.Close();
-
-                // delete file
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
             }
-
             button1_Click(sender, e);
         }
+
+
         // other functions
     }
 }

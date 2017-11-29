@@ -45,6 +45,7 @@
             this.narahubung = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.unitPengusul = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nilaiKerjasama = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.edit = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documents)).BeginInit();
@@ -124,6 +125,7 @@
             this.documents.AllColumns.Add(this.narahubung);
             this.documents.AllColumns.Add(this.unitPengusul);
             this.documents.AllColumns.Add(this.nilaiKerjasama);
+            this.documents.AllColumns.Add(this.edit);
             this.documents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -138,7 +140,8 @@
             this.unitPengguna,
             this.narahubung,
             this.unitPengusul,
-            this.nilaiKerjasama});
+            this.nilaiKerjasama,
+            this.edit});
             this.documents.Cursor = System.Windows.Forms.Cursors.Default;
             this.documents.Location = new System.Drawing.Point(12, 56);
             this.documents.Name = "documents";
@@ -230,6 +233,12 @@
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
             this.nilaiKerjasama.Width = 93;
             // 
+            // edit
+            // 
+            this.edit.AspectName = "Edit";
+            this.edit.IsButton = true;
+            this.edit.Text = "Edit";
+            // 
             // DocumentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,5 +277,6 @@
         private BrightIdeasSoftware.OLVColumn unitPengguna;
         private BrightIdeasSoftware.OLVColumn narahubung;
         private BrightIdeasSoftware.OLVColumn nilaiKerjasama;
+        private BrightIdeasSoftware.OLVColumn edit;
     }
 }

@@ -18,6 +18,8 @@ namespace CooperativeRelationship
         public Dictionary<string, string> narahubungFisipData;
         public Dictionary<string, string> narahubungInstitusiData;
         private string databaseSource;
+        private string id;
+        private string filePath;
 
         public TambahKerjasama_Form()
         {
@@ -28,6 +30,26 @@ namespace CooperativeRelationship
             narahubungInstitusiData = new Dictionary<string, string>();
             databaseSource =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+        }
+
+        public TambahKerjasama_Form(string id) : this()
+        {
+            this.id = id;
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+            {
+                string query = "";
+                conn.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    using (SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        // set form
+
+                        button1.Click += new EventHandler(button1_Click2);
+                    }
+                }
+                conn.Close();
+            }
         }
 
         // event handlers
@@ -158,7 +180,25 @@ namespace CooperativeRelationship
             creatingProcess.Create();
         }
 
+        private void button1_Click2(object sender, EventArgs e)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+            {
+                // delete row
+                string query = "delete from kerjasama where id=" + id;
+                conn.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    int affectedLine = command.ExecuteNonQuery();
+                    Console.WriteLine(affectedLine);
+                }
+                conn.Close();
 
+                // delete file
+            }
+
+            button1_Click(sender, e);
+        }
         // other functions
     }
 }

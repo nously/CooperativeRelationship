@@ -117,11 +117,12 @@ namespace CooperativeRelationship
                 Popup narahubungPopup = createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
-                    "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "", 
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", 
-                    nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup, 
+                    "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "",
+                    nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup,
                     narahubungPopup);
                 document.PathFile = result["filePath"] + "";
+                document.Id = result["id"] + "";
 
                 list.Add(document);
             }
@@ -134,7 +135,7 @@ namespace CooperativeRelationship
                 Document clickedDocument = (Document)e.Model;
 
                 if (e.Column.Text.Equals("Nomor Perjanjian"))
-                    clickedDocument.NomorPerjanjianPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6, 
+                    clickedDocument.NomorPerjanjianPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
                         Screen.PrimaryScreen.Bounds.Height / 2 - 125));
                 else if (e.Column.Text.Equals("Masa Berlaku"))
                     clickedDocument.MasaBerlakuPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
@@ -151,6 +152,11 @@ namespace CooperativeRelationship
                 else if (e.Column.Text.Equals("Narahubung"))
                     clickedDocument.NarahubungPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
                         Screen.PrimaryScreen.Bounds.Height / 2 - 125));
+                else if (e.Column.Text.Equals("Edit"))
+                {
+                    TambahKerjasama_Form form = new TambahKerjasama_Form(clickedDocument.Id);
+                    form.Show();
+                }
             };
 
             // opens the *.docx file when doubleclick on item
@@ -186,6 +192,7 @@ namespace CooperativeRelationship
         private string narahubung;
         private string nilaiKerjasama;
         private string pathFile;
+        private string id;
         Popup nomorPerjanjianPopup;
         Popup masaBerlakuPopup;
         Popup fokusPerjanjianPopup;
@@ -235,6 +242,8 @@ namespace CooperativeRelationship
         public string Narahubung { get => narahubung; set => narahubung = value; }
         public string NilaiKerjasama { get => nilaiKerjasama; set => nilaiKerjasama = value; }
         public string PathFile { get => pathFile; set => pathFile = value; }
+        public string Id { get => id; set => id = value; }
+        public string Edit() { return "Edit"; }
     }
 
 }

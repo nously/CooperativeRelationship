@@ -302,7 +302,7 @@ namespace CooperativeRelationship
                 writer = configureDocument(writer);
                 
                 writer.Content.Text = Judul;
-                writer.Range(0, 5).ParagraphFormat.Alignment =
+                writer.Range(0, 1).ParagraphFormat.Alignment =
                     Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
                 // table configuration

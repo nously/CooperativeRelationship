@@ -30,14 +30,14 @@
         {
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.fisipNama = new System.Windows.Forms.TextBox();
-            this.fisipHandphone = new System.Windows.Forms.TextBox();
-            this.fisipEmail = new System.Windows.Forms.TextBox();
             this.fisipJabatan = new System.Windows.Forms.TextBox();
+            this.fisipEmail = new System.Windows.Forms.TextBox();
+            this.fisipHandphone = new System.Windows.Forms.TextBox();
+            this.fisipNama = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.institusiJabatan = new System.Windows.Forms.TextBox();
@@ -79,48 +79,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Narahubung FISIP";
             // 
-            // label1
+            // fisipJabatan
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nama";
+            this.fisipJabatan.Location = new System.Drawing.Point(123, 177);
+            this.fisipJabatan.Name = "fisipJabatan";
+            this.fisipJabatan.Size = new System.Drawing.Size(145, 20);
+            this.fisipJabatan.TabIndex = 7;
             // 
-            // label2
+            // fisipEmail
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "No. Handphone";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 138);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Alamat E-mail";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Jabatan";
-            // 
-            // fisipNama
-            // 
-            this.fisipNama.Location = new System.Drawing.Point(123, 42);
-            this.fisipNama.Name = "fisipNama";
-            this.fisipNama.Size = new System.Drawing.Size(145, 20);
-            this.fisipNama.TabIndex = 4;
+            this.fisipEmail.Location = new System.Drawing.Point(123, 135);
+            this.fisipEmail.Name = "fisipEmail";
+            this.fisipEmail.Size = new System.Drawing.Size(145, 20);
+            this.fisipEmail.TabIndex = 6;
+            this.fisipEmail.Leave += new System.EventHandler(this.fisipEmail_Leave);
             // 
             // fisipHandphone
             // 
@@ -131,20 +103,48 @@
             this.fisipHandphone.TabIndex = 5;
             this.fisipHandphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fisipHandphone_KeyPress);
             // 
-            // fisipEmail
+            // fisipNama
             // 
-            this.fisipEmail.Location = new System.Drawing.Point(123, 135);
-            this.fisipEmail.Name = "fisipEmail";
-            this.fisipEmail.Size = new System.Drawing.Size(145, 20);
-            this.fisipEmail.TabIndex = 6;
-            this.fisipEmail.Leave += new System.EventHandler(this.fisipEmail_Leave);
+            this.fisipNama.Location = new System.Drawing.Point(123, 42);
+            this.fisipNama.Name = "fisipNama";
+            this.fisipNama.Size = new System.Drawing.Size(145, 20);
+            this.fisipNama.TabIndex = 4;
             // 
-            // fisipJabatan
+            // label5
             // 
-            this.fisipJabatan.Location = new System.Drawing.Point(123, 177);
-            this.fisipJabatan.Name = "fisipJabatan";
-            this.fisipJabatan.Size = new System.Drawing.Size(145, 20);
-            this.fisipJabatan.TabIndex = 7;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Jabatan";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Alamat E-mail";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "No. Handphone";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nama";
             // 
             // button1
             // 
@@ -171,7 +171,7 @@
             this.groupBox2.Size = new System.Drawing.Size(292, 226);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Narahubung FISIP";
+            this.groupBox2.Text = "Narahubung Institusi Terkait";
             // 
             // institusiJabatan
             // 
@@ -186,6 +186,7 @@
             this.institusiEmail.Name = "institusiEmail";
             this.institusiEmail.Size = new System.Drawing.Size(145, 20);
             this.institusiEmail.TabIndex = 6;
+            this.institusiEmail.Leave += new System.EventHandler(this.fisipEmail_Leave);
             // 
             // institusiHandphone
             // 

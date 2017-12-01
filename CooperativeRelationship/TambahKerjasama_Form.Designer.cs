@@ -183,7 +183,7 @@
             this.editNarahubung_Button.Name = "editNarahubung_Button";
             this.editNarahubung_Button.Size = new System.Drawing.Size(75, 23);
             this.editNarahubung_Button.TabIndex = 38;
-            this.editNarahubung_Button.Text = "button3";
+            this.editNarahubung_Button.Text = "Edit";
             this.editNarahubung_Button.UseVisualStyleBackColor = true;
             this.editNarahubung_Button.Click += new System.EventHandler(this.editNarahubung_Button_Click);
             // 
@@ -193,7 +193,7 @@
             this.editUnitPengguna_Button.Name = "editUnitPengguna_Button";
             this.editUnitPengguna_Button.Size = new System.Drawing.Size(75, 23);
             this.editUnitPengguna_Button.TabIndex = 37;
-            this.editUnitPengguna_Button.Text = "button2";
+            this.editUnitPengguna_Button.Text = "Edit";
             this.editUnitPengguna_Button.UseVisualStyleBackColor = true;
             this.editUnitPengguna_Button.Click += new System.EventHandler(this.editUnitPengguna_Button_Click);
             // 
@@ -239,14 +239,13 @@
             this.editFokusPerjanjian_Button.Name = "editFokusPerjanjian_Button";
             this.editFokusPerjanjian_Button.Size = new System.Drawing.Size(75, 23);
             this.editFokusPerjanjian_Button.TabIndex = 32;
-            this.editFokusPerjanjian_Button.Text = "button1";
+            this.editFokusPerjanjian_Button.Text = "Edit";
             this.editFokusPerjanjian_Button.UseVisualStyleBackColor = true;
             this.editFokusPerjanjian_Button.Click += new System.EventHandler(this.editFokusPerjanjian_Button_Click);
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(785, 494);
             this.label19.Name = "label19";
@@ -273,6 +272,7 @@
             this.nilaiKerjasama_TextBox.Name = "nilaiKerjasama_TextBox";
             this.nilaiKerjasama_TextBox.Size = new System.Drawing.Size(398, 20);
             this.nilaiKerjasama_TextBox.TabIndex = 29;
+            this.nilaiKerjasama_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nilaiKerjasama_TextBox_KeyPress);
             // 
             // unitPengusul_TextBox
             // 

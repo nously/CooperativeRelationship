@@ -21,6 +21,8 @@ namespace CooperativeRelationship
         private string databaseSource;
         private string id;
         private string filePath;
+        private string tahun;
+        private int activeMode;
 
         public TambahKerjasama_Form()
         {
@@ -32,6 +34,21 @@ namespace CooperativeRelationship
             databaseSource =
                     Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
             button1.Click += new EventHandler(button1_Click);
+        }
+
+        public TambahKerjasama_Form(string tahun, int activeMode) : this()
+        {
+            this.activeMode = activeMode;
+            this.tahun = tahun;
+
+            DateTime currentDate = mulaiBerlaku_DateTimePicker.Value;
+
+            mulaiBerlaku_DateTimePicker.Value = new DateTime(int.Parse(tahun), currentDate.Month, currentDate.Day);
+            tanggalTTD_DateTimePicker.Value = new DateTime(int.Parse(tahun), currentDate.Month, currentDate.Day);
+            if (activeMode == DocumentList.KERJASAMA_DALAM_NEGERI)
+                dalamNegeri_RadioButton.Select();
+            else
+                luarNegeri_RadioButton.Select();
         }
 
         public TambahKerjasama_Form(string id) : this()
@@ -147,93 +164,107 @@ namespace CooperativeRelationship
         private void button1_Click(object sender, EventArgs e)
         {
             DocumentHandler creatingProcess = new DocumentHandler();
-
-            using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+            try
             {
-                conn.Open();
+                using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+                {
+                    conn.Open();
 
-                // insert new document
-                int tahun = mulaiBerlaku_DateTimePicker.Value.Year;
-                int pilihan = (dalamNegeri_RadioButton.Checked) ? 1 : 2;
-                string tempattanggalttd = tempatTtd_TextBox.Text + ", " + tanggalTTD_DateTimePicker.Value.ToString("dd MMMM yyyy");
-                string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
-                string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
-                string filePath =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
-                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
+                    // insert new document
+                    int tahun = mulaiBerlaku_DateTimePicker.Value.Year;
+                    int pilihan = (dalamNegeri_RadioButton.Checked) ? 1 : 2;
+                    string tempattanggalttd = tempatTtd_TextBox.Text + ", " + tanggalTTD_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                    string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                    string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
+                    string filePath =
+                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
 
-                string query = "insert into kerjasama values" +
-                    "(null, '" + judulFile_TextBox.Text + "'," +
-                    "" + tahun + ", " + pilihan + "," +
-                    "'" + institusi_TextBox.Text + "', '" + noPerjanjianFisip_TextBox.Text + "'," +
-                    "'" + noPerjanjianInstitusi_TextBox.Text + "', '" + tempattanggalttd + "'," +
-                    "'" + mulaiBerlaku + "', '" + berhentiBerlaku + "'," +
-                    "'" + fokusPerjanjianData + "', '" + penandatanganFisip_TextBox.Text + "', '" + penandatanganInstitusi_TextBox.Text + "'" +
-                    ", '" + unitPengusul_TextBox.Text + "', '" + unitPenggunaData + "', '" + narahubungFisipData["nama"] + "'," +
-                    "'" + narahubungFisipData["handphone"] + "', '" + narahubungFisipData["email"] + "'," +
-                    "'" + narahubungInstitusiData["nama"] + "', '" + narahubungInstitusiData["handphone"] + "'," +
-                    "'" + narahubungInstitusiData["email"] + "', '" + narahubungFisipData["jabatan"] + "'," +
-                    "'" + narahubungInstitusiData["jabatan"] + "', " + nilaiKerjasama_TextBox.Text + "," +
-                    "'" + filePath + "')";
+                    string query = "insert into kerjasama values" +
+                        "(null, '" + judulFile_TextBox.Text + "'," +
+                        "" + tahun + ", " + pilihan + "," +
+                        "'" + institusi_TextBox.Text + "', '" + noPerjanjianFisip_TextBox.Text + "'," +
+                        "'" + noPerjanjianInstitusi_TextBox.Text + "', '" + tempattanggalttd + "'," +
+                        "'" + mulaiBerlaku + "', '" + berhentiBerlaku + "'," +
+                        "'" + fokusPerjanjianData + "', '" + penandatanganFisip_TextBox.Text + "', '" + penandatanganInstitusi_TextBox.Text + "'" +
+                        ", '" + unitPengusul_TextBox.Text + "', '" + unitPenggunaData + "', '" + narahubungFisipData["nama"] + "'," +
+                        "'" + narahubungFisipData["handphone"] + "', '" + narahubungFisipData["email"] + "'," +
+                        "'" + narahubungInstitusiData["nama"] + "', '" + narahubungInstitusiData["handphone"] + "'," +
+                        "'" + narahubungInstitusiData["email"] + "', '" + narahubungFisipData["jabatan"] + "'," +
+                        "'" + narahubungInstitusiData["jabatan"] + "', " + nilaiKerjasama_TextBox.Text + "," +
+                        "'" + filePath + "')";
 
-                using (SQLiteCommand command = new SQLiteCommand(query, conn))
-                    MessageBox.Show(command.ExecuteNonQuery() + "");
-
-
-                // get latest id
-                int latestID = 0;
-                query = "select max(id) from kerjasama";
-
-                using (SQLiteCommand command = new SQLiteCommand(query, conn))
-                    latestID = int.Parse(command.ExecuteScalar().ToString());
-
-
-                // update value
-                string filePathWithoutDocx =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
-                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
-                    + judulFile_TextBox.Text + "_";
-
-                filePath =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
-                    + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
-                    + judulFile_TextBox.Text + "_.docx";
-
-                query = "update kerjasama set filepath='" + filePath + "' where id=" + latestID;
-
-                using (SQLiteCommand command = new SQLiteCommand(query, conn))
-                    MessageBox.Show(command.ExecuteNonQuery() + "");
+                    try
+                    {
+                        using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                            MessageBox.Show(command.ExecuteNonQuery() + "");
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show("Pastikan semua informasi terisi dan tidak terjadi duplikasi pada nomor surat perjanjian.\n" + ex.Message);
+                        return;
+                    }
 
 
-                creatingProcess.FilePath = filePathWithoutDocx;
-                creatingProcess.BerhentiBerlaku = berhentiBerlaku;
-                creatingProcess.EmailNarahubungFisip = narahubungFisipData["email"];
-                creatingProcess.Judul = judulFile_TextBox.Text;
-                creatingProcess.EmailNarahubungInstitusi = narahubungInstitusiData["email"];
-                creatingProcess.FokusPerjanjian = fokusPerjanjianData;
-                creatingProcess.HandphoneNarahubungFisip = narahubungFisipData["handphone"];
-                creatingProcess.HandphoneNarahubungInstitusi = narahubungInstitusiData["handphone"];
-                creatingProcess.Institusi = institusi_TextBox.Text;
-                creatingProcess.JabatanNarahubungFisip = narahubungFisipData["jabatan"];
-                creatingProcess.JabatanNarahubungInstitusi = narahubungInstitusiData["jabatan"];
-                creatingProcess.MulaiBerlaku = mulaiBerlaku;
-                creatingProcess.NamaNarahubungFisip = narahubungFisipData["nama"];
-                creatingProcess.NamaNarahubungInstitusi = narahubungInstitusiData["nama"];
-                creatingProcess.NilaiKerjasama = nilaiKerjasama_TextBox.Text;
-                creatingProcess.NomorPerjanjianFisip = noPerjanjianFisip_TextBox.Text;
-                creatingProcess.NomorPerjanjianInstitusi = noPerjanjianInstitusi_TextBox.Text;
-                creatingProcess.PenandatanganFisip = penandatanganFisip_TextBox.Text;
-                creatingProcess.PenandatanganInstitusi = penandatanganInstitusi_TextBox.Text;
-                creatingProcess.TempatTanggalTTD = tempattanggalttd;
-                creatingProcess.UnitPengguna = unitPenggunaData;
-                creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
+                    // get latest id
+                    int latestID = 0;
+                    query = "select max(id) from kerjasama";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                        latestID = int.Parse(command.ExecuteScalar().ToString());
 
 
-                conn.Close();
+                    // update value
+                    string filePathWithoutDocx =
+                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
+                        + judulFile_TextBox.Text + "_";
+
+                    filePath =
+                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
+                        + judulFile_TextBox.Text + "_.docx";
+
+                    query = "update kerjasama set filepath='" + filePath + "' where id=" + latestID;
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                        MessageBox.Show(command.ExecuteNonQuery() + "");
+
+
+                    creatingProcess.FilePath = filePathWithoutDocx;
+                    creatingProcess.BerhentiBerlaku = berhentiBerlaku;
+                    creatingProcess.EmailNarahubungFisip = narahubungFisipData["email"];
+                    creatingProcess.Judul = judulFile_TextBox.Text;
+                    creatingProcess.EmailNarahubungInstitusi = narahubungInstitusiData["email"];
+                    creatingProcess.FokusPerjanjian = fokusPerjanjianData;
+                    creatingProcess.HandphoneNarahubungFisip = narahubungFisipData["handphone"];
+                    creatingProcess.HandphoneNarahubungInstitusi = narahubungInstitusiData["handphone"];
+                    creatingProcess.Institusi = institusi_TextBox.Text;
+                    creatingProcess.JabatanNarahubungFisip = narahubungFisipData["jabatan"];
+                    creatingProcess.JabatanNarahubungInstitusi = narahubungInstitusiData["jabatan"];
+                    creatingProcess.MulaiBerlaku = mulaiBerlaku;
+                    creatingProcess.NamaNarahubungFisip = narahubungFisipData["nama"];
+                    creatingProcess.NamaNarahubungInstitusi = narahubungInstitusiData["nama"];
+                    creatingProcess.NilaiKerjasama = nilaiKerjasama_TextBox.Text;
+                    creatingProcess.NomorPerjanjianFisip = noPerjanjianFisip_TextBox.Text;
+                    creatingProcess.NomorPerjanjianInstitusi = noPerjanjianInstitusi_TextBox.Text;
+                    creatingProcess.PenandatanganFisip = penandatanganFisip_TextBox.Text;
+                    creatingProcess.PenandatanganInstitusi = penandatanganInstitusi_TextBox.Text;
+                    creatingProcess.TempatTanggalTTD = tempattanggalttd;
+                    creatingProcess.UnitPengguna = unitPenggunaData;
+                    creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
+
+
+                    conn.Close();
+                }
+
+                creatingProcess.Create();
+                MessageBox.Show("File berhasil dibuat");
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show("File gagal dibuat.\n" + ex.Message);
             }
-
-            creatingProcess.Create();
-            MessageBox.Show("File berhasil dibuat");
         }
 
         private void button1_Click2(object sender, EventArgs e)
@@ -256,6 +287,14 @@ namespace CooperativeRelationship
                 }
             }
             button1_Click(sender, e);
+        }
+
+        private void nilaiKerjasama_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
 

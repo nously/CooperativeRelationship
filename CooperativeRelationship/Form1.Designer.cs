@@ -206,12 +206,14 @@
             this.kerjasamaBaruToolStripMenuItem.Name = "kerjasamaBaruToolStripMenuItem";
             this.kerjasamaBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.kerjasamaBaruToolStripMenuItem.Text = "Kerjasama Baru";
+            this.kerjasamaBaruToolStripMenuItem.Click += new System.EventHandler(this.kerjasamaBaruToolStripMenuItem_Click);
             // 
             // tahunBaruToolStripMenuItem
             // 
             this.tahunBaruToolStripMenuItem.Name = "tahunBaruToolStripMenuItem";
             this.tahunBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.tahunBaruToolStripMenuItem.Text = "Tahun Baru";
+            this.tahunBaruToolStripMenuItem.Click += new System.EventHandler(this.tahunBaruToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

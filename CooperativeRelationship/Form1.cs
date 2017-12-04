@@ -153,5 +153,17 @@ namespace CooperativeRelationship
                 panelTahun.Size = new Size(flowLayoutPanel1.Width, 40);
             }
         }
+
+        private void tahunBaruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // create folder
+            // create row
+        }
+
+        private void kerjasamaBaruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TambahKerjasama_Form form = new TambahKerjasama_Form();
+            form.Show();
+        }
     }
 }

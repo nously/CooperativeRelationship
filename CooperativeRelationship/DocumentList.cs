@@ -39,7 +39,7 @@ namespace CooperativeRelationship
 
         private void tambahKerjasama_button_Click(object sender, EventArgs e)
         {
-            new TambahKerjasama_Form().Show();
+            new TambahKerjasama_Form(tahun, activeMode, this).Show();
         }
 
         private void tambahKerjasama_button_MouseEnter(object sender, EventArgs e)
@@ -98,6 +98,12 @@ namespace CooperativeRelationship
                 popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
             }
             return popup;
+        }
+
+        public void reloadList(object sender, EventArgs e)
+        {
+            documents.Items.Clear();
+            DocumentList_Load(sender, e);
         }
 
         private void populateListView(SQLiteDataReader result)

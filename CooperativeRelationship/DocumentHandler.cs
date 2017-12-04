@@ -72,7 +72,8 @@ namespace CooperativeRelationship
             string[] pengguna = UnitPengguna.Split('|');
 
             table.Range.ParagraphFormat.SpaceAfter = 0;
-            table.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            table.Range.ParagraphFormat.Alignment = 
+                Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
             table.Range.Font.Size = 11;
             table.Range.Bold = 0;
 
@@ -94,12 +95,12 @@ namespace CooperativeRelationship
             // merging  
             // rowPointer == 1
             table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
-            writer.Content.Bold = 1;
+            table.Rows[1].Range.ParagraphFormat.Alignment = 
+                Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
             table.Cell(rowPointer, 1).Range.Text = "NO.";
             table.Cell(rowPointer, 2).Range.Text = "INDIKATOR PERJANJIAN";
             table.Cell(rowPointer, 3).Range.Text = "KETERANGAN DETAIL";
-            table.Cell(rowPointer, 4).Range.Text = "KETERANGAN/STATUS";
-            writer.Content.Bold = 0;
+            table.Cell(rowPointer, 4).Range.Text = "KETERANGAN / STATUS";
             rowPointer += 1;
 
             // rowPointer == 2
@@ -109,15 +110,17 @@ namespace CooperativeRelationship
             table.Cell(rowPointer, 1).Merge(table.Cell(rowPointer + 1, 1));
             table.Cell(rowPointer, 2).Merge(table.Cell(rowPointer + 1, 2));
             table.Cell(rowPointer, 4).Merge(table.Cell(rowPointer + 1, 5));
+            table.Cell(rowPointer, 3).Range.ParagraphFormat.Alignment =
+            table.Cell(rowPointer + 1, 3).Range.ParagraphFormat.Alignment =
+            table.Cell(rowPointer + 1, 4).Range.ParagraphFormat.Alignment =
+                Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
 
             table.Cell(rowPointer, 1).Range.Text = "01";
             table.Cell(rowPointer, 2).Range.Text = "Perjanjian Kerjasama Dilakukan Antara";
             table.Cell(rowPointer, 3).Range.Text = "Institusi";
             table.Cell(rowPointer + 1, 3).Range.Text = "Fakultas Ilmu Sosial dan Ilmu Politik";
             table.Cell(rowPointer + 1, 4).Range.Text = Institusi;
-            table.Cell(rowPointer, 3).Range.Bold = 1;
-            table.Cell(rowPointer + 1, 3).Range.Bold = 1;
-            table.Cell(rowPointer + 1, 4).Range.Bold = 1;
+            
             rowPointer += 2;
 
             // rowPointer == 4
@@ -142,6 +145,11 @@ namespace CooperativeRelationship
             rowPointer += 1;
 
             // rowPointer == 7
+            int tahunMulai, tahunBerakhir;
+            tahunMulai = int.Parse(MulaiBerlaku.Substring(MulaiBerlaku.Length - 4));
+            tahunBerakhir = int.Parse(BerhentiBerlaku.Substring(BerhentiBerlaku.Length - 4));
+            int durasi = tahunBerakhir - tahunMulai;
+
             table.Cell(rowPointer, 3).Merge(table.Cell(rowPointer, 8));
             table.Cell(rowPointer + 1, 3).Merge(table.Cell(rowPointer + 1, 8));
             table.Cell(rowPointer + 1, 3).Split(1, 4);
@@ -150,7 +158,7 @@ namespace CooperativeRelationship
             table.Cell(rowPointer, 4).Merge(table.Cell(rowPointer + 1, 7));
             table.Cell(rowPointer, 1).Range.Text = "04";
             table.Cell(rowPointer, 2).Range.Text = "Masa Berlaku";
-            table.Cell(rowPointer, 3).Range.Text = "soon";
+            table.Cell(rowPointer, 3).Range.Text = durasi + " Tahun";
             table.Cell(rowPointer + 1, 3).Range.Text = "Dimulai Pada";
             table.Cell(rowPointer + 1, 4).Range.Text = MulaiBerlaku;
             table.Cell(rowPointer + 1, 5).Range.Text = "Berakhir Pada";
@@ -193,9 +201,6 @@ namespace CooperativeRelationship
             table.Cell(rowPointer + 1, 4).Range.Text = Institusi;
             table.Cell(rowPointer + 2, 3).Range.Text = PenandatanganFisip;
             table.Cell(rowPointer + 2, 4).Range.Text = PenandatanganInstitusi;
-            table.Cell(rowPointer, 3).Range.Bold = 1;
-            table.Cell(rowPointer + 1, 3).Range.Bold = 1;
-            table.Cell(rowPointer + 1, 4).Range.Bold = 1;
             table.Cell(rowPointer, 3).Range.ParagraphFormat.Alignment =
                 table.Cell(rowPointer + 1, 3).Range.ParagraphFormat.Alignment =
                 table.Cell(rowPointer + 1, 4).Range.ParagraphFormat.Alignment =

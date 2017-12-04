@@ -23,6 +23,7 @@ namespace CooperativeRelationship
         private string filePath;
         private string tahun;
         private int activeMode;
+        private DocumentList list;
 
         public TambahKerjasama_Form()
         {
@@ -36,10 +37,11 @@ namespace CooperativeRelationship
             button1.Click += new EventHandler(button1_Click);
         }
 
-        public TambahKerjasama_Form(string tahun, int activeMode) : this()
+        public TambahKerjasama_Form(string tahun, int activeMode, DocumentList list) : this()
         {
             this.activeMode = activeMode;
             this.tahun = tahun;
+            this.list = list;
 
             DateTime currentDate = mulaiBerlaku_DateTimePicker.Value;
 
@@ -265,6 +267,9 @@ namespace CooperativeRelationship
             {
                 MessageBox.Show("File gagal dibuat.\n" + ex.Message);
             }
+
+            list.reloadList(sender, e);
+            Close();
         }
 
         private void button1_Click2(object sender, EventArgs e)

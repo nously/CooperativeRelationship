@@ -23,11 +23,13 @@ namespace CooperativeRelationship
 
         private void button1_Click(object sender, EventArgs e)
         {
+            parent.narahubungFisipData.Clear();
             parent.narahubungFisipData.Add("nama", fisipNama.Text);
             parent.narahubungFisipData.Add("handphone", fisipHandphone.Text);
             parent.narahubungFisipData.Add("email", fisipEmail.Text);
             parent.narahubungFisipData.Add("jabatan", fisipJabatan.Text);
 
+            parent.narahubungInstitusiData.Clear();
             parent.narahubungInstitusiData.Add("nama", institusiNama.Text);
             parent.narahubungInstitusiData.Add("handphone", institusiHandphone.Text);
             parent.narahubungInstitusiData.Add("email", institusiEmail.Text);
@@ -55,6 +57,27 @@ namespace CooperativeRelationship
             }
             catch (ArgumentException ex)
             {}
+        }
+
+        private void Narahubung_Load(object sender, EventArgs e)
+        {
+            if (parent.narahubungFisipData.ContainsKey("nama"))
+                fisipNama.Text = parent.narahubungFisipData["nama"];
+            if (parent.narahubungFisipData.ContainsKey("email"))
+                fisipEmail.Text = parent.narahubungFisipData["email"];
+            if (parent.narahubungFisipData.ContainsKey("jabatan"))
+                fisipJabatan.Text = parent.narahubungFisipData["jabatan"];
+            if (parent.narahubungFisipData.ContainsKey("handphone"))
+                fisipHandphone.Text = parent.narahubungFisipData["handphone"];
+
+            if (parent.narahubungInstitusiData.ContainsKey("nama"))
+                institusiNama.Text = parent.narahubungInstitusiData["nama"];
+            if (parent.narahubungInstitusiData.ContainsKey("email"))
+                institusiEmail.Text = parent.narahubungInstitusiData["email"];
+            if (parent.narahubungInstitusiData.ContainsKey("jabatan"))
+                institusiJabatan.Text = parent.narahubungInstitusiData["jabatan"];
+            if (parent.narahubungInstitusiData.ContainsKey("handphone"))
+                institusiHandphone.Text = parent.narahubungInstitusiData["handphone"];
         }
     }
 }

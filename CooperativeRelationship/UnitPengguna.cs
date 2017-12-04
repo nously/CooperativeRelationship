@@ -56,17 +56,40 @@ namespace CooperativeRelationship
         {
             comboBoxes = new List<ComboBox>();
 
-            populateCombobox(comboBox1);
-            populateCombobox(comboBox2);
-            populateCombobox(comboBox3);
+            //populateCombobox(comboBox1);
+            //populateCombobox(comboBox2);
+            //populateCombobox(comboBox3);
 
-            comboBoxes.Add(comboBox1);
-            comboBoxes.Add(comboBox2);
-            comboBoxes.Add(comboBox3);
+            //comboBoxes.Add(comboBox1);
+            //comboBoxes.Add(comboBox2);
+            //comboBoxes.Add(comboBox3);
+
+            unitPengguna_FlowLayout.Controls.Clear();
+            if (!parent.unitPenggunaData.Equals(""))
+            {
+                string[] sentences = parent.unitPenggunaData.Split('|');
+                int counter = 0;
+                foreach (string sentence in sentences)
+                {
+                    if (!sentence.Equals("") || counter < 3)
+                    {
+                        button1_Click(sender, e);
+                        comboBoxes.Last<ComboBox>().Text = sentence;
+                        counter++;
+                    }
+                }
+            }
+            else
+            {
+                button1_Click(sender, e);
+                button1_Click(sender, e);
+                button1_Click(sender, e);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            parent.unitPenggunaData = "";
             foreach (ComboBox comboBox in comboBoxes)
             {
                 parent.unitPenggunaData += comboBox.Text + "|";

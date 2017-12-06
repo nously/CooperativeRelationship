@@ -53,8 +53,9 @@ namespace CooperativeRelationship
                 luarNegeri_RadioButton.Select();
         }
 
-        public TambahKerjasama_Form(string id) : this()
+        public TambahKerjasama_Form(string id, DocumentList list) : this()
         {
+            this.list = list;
             this.id = id;
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
@@ -274,7 +275,6 @@ namespace CooperativeRelationship
 
         private void button1_Click2(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
             using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
             {
                 // delete row

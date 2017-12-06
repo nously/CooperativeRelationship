@@ -112,15 +112,37 @@ namespace CooperativeRelationship
             // populate objectlistview
             while (result.Read())
             {
-                Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi \n" + result["institusi"] +
+                Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi " + result["institusi"] +
                 "\n\nNomor Perjanjian di FISIP:\n" + result["nomorPerjanjianFisip"] + "\n"
                 + "Nomor Perjanjian di Institusi Terkait:\n" + result["nomorPerjanjianInstitusi"]);
 
-                Popup masaBerlakuPopup = createPopup("Masa Berlaku Perjanjian dengan Institusi\n" + result["institusi"]);
-                Popup fokusPerjanjianPopup = createPopup("Fokus Perjanjian dengan Instintusi\n" + result["institusi"]);
-                Popup penandatanganPopup = createPopup("Penandatangan Perjanjian dengan Institusi\n" + result["institusi"]);
-                Popup unitPenggunaPopup = createPopup("Unit Pengguna dalam Perjanjian dengan Institusi\n" + result["institusi"]);
-                Popup narahubungPopup = createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
+                string[] words = (result["fokusPerjanjian"] + "").Split('|');
+                string focuses = "Fokus Perjanjian dengan Instintusi " + result["institusi"] + "\n\n";
+                string users = "Unit Pengguna dalam Perjanjian dengan Institusi " + result["institusi"] + "\n\n";
+
+                foreach (string word in words)
+                    if (!word.Equals(""))
+                        focuses += "\n- " + word;
+
+                words = (result["unitPengguna"] + "").Split('|');
+
+                foreach (string word in words)
+                    if (!word.Equals(""))
+                        users += "\n- " + word;
+
+                Popup masaBerlakuPopup = 
+                    createPopup("Masa Berlaku Perjanjian dengan Institusi " + result["institusi"] + "\n\n" +
+                    "Mulai berlaku pada:\n    > " + result["mulaiBerlaku"] + "\n" +
+                    "Berakhir pada:\n    > " + result["berhentiBerlaku"]);
+                Popup fokusPerjanjianPopup = createPopup(focuses);
+                Popup penandatanganPopup = 
+                    createPopup("Penandatangan Perjanjian dengan Institusi " + result["institusi"] + "\n\n" +
+                    "Penandatangan Fakultas Ilmu Sosial dan Ilmu Politik:\n    > " + 
+                    result["penandatanganFisip"] + "\n" +
+                    "Penandatangan Intitusi terkait:\n    > " + result["penandatanganInstitusi"]);
+                Popup unitPenggunaPopup = createPopup(users);
+                Popup narahubungPopup = 
+                    createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",
@@ -133,7 +155,6 @@ namespace CooperativeRelationship
                 list.Add(document);
             }
             
-            
             // show the popup when click the button
             documents.ButtonClick += delegate (object sender, CellClickEventArgs e)
             {
@@ -141,7 +162,8 @@ namespace CooperativeRelationship
                 Document clickedDocument = (Document)e.Model;
 
                 if (e.Column.Text.Equals("Nomor Perjanjian"))
-                    clickedDocument.NomorPerjanjianPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
+                    clickedDocument.NomorPerjanjianPopup
+                    .Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
                         Screen.PrimaryScreen.Bounds.Height / 2 - 125));
                 else if (e.Column.Text.Equals("Masa Berlaku"))
                     clickedDocument.MasaBerlakuPopup.Show(new Point(Screen.PrimaryScreen.Bounds.Width / 2 - Screen.PrimaryScreen.Bounds.Width / 6,
@@ -160,7 +182,7 @@ namespace CooperativeRelationship
                         Screen.PrimaryScreen.Bounds.Height / 2 - 125));
                 else if (e.Column.Text.Equals("Edit"))
                 {
-                    TambahKerjasama_Form form = new TambahKerjasama_Form(clickedDocument.Id);
+                    TambahKerjasama_Form form = new TambahKerjasama_Form(clickedDocument.Id, this);
                     form.Show();
                 }
             };
@@ -170,13 +192,6 @@ namespace CooperativeRelationship
             {
                 if (e.ClickCount == 2)
                 {
-                    // opens the *.docx file
-                    //Process theDoc = new Process();
-
-                    //theDoc.StartInfo.FileName = ((Document)e.Model).PathFile;
-                    //theDoc.Start();
-                    //return;
-
                     try
                     {
                         Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();

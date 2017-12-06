@@ -70,6 +70,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ComplexPopup.Designer.cs" />
+    <Compile Include="CreateFolder_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateFolder_Form.Designer.cs">
+      <DependentUpon>CreateFolder_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="DocumentHandler.cs" />
     <Compile Include="DocumentList.cs">
       <SubType>Form</SubType>
@@ -110,6 +116,9 @@
       <DependentUpon>UnitPengguna.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ComplexPopup.resx" />
+    <EmbeddedResource Include="CreateFolder_Form.resx">
+      <DependentUpon>CreateFolder_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DocumentList.resx">
       <DependentUpon>DocumentList.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,9 @@
     <EmbeddedResource Include="UnitPengguna.resx">
       <DependentUpon>UnitPengguna.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="hubunganKerjaSama.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

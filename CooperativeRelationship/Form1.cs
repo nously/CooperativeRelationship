@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.IO;
 
 namespace CooperativeRelationship
 {
@@ -20,7 +21,21 @@ namespace CooperativeRelationship
         public Form1()
         {
             InitializeComponent();
-            databaseSource = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama"))
+            {
+                string root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama";
+                Directory.CreateDirectory(root);
+                Directory.CreateDirectory(root + "\\Dalam Negeri");
+                Directory.CreateDirectory(root + "\\Luar Negeri");
+            }
+
+            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db"))
+                File.Copy(@".\hubunganKerjaSama.db",
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db");
+
+            databaseSource = 
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
         }
 
         private void dalamNegeri_Button_MouseLeave(object sender, EventArgs e)
@@ -146,6 +161,8 @@ namespace CooperativeRelationship
             }
         }
 
+        public void reload(object sender, EventArgs e) { Form1_Load(sender, e); }
+
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
         {
             foreach (Panel panelTahun in flowLayoutPanel1.Controls)
@@ -156,8 +173,8 @@ namespace CooperativeRelationship
 
         private void tahunBaruToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // create folder
-            // create row
+            CreateFolder_Form form = new CreateFolder_Form(this);
+            form.ShowDialog();
         }
 
         private void kerjasamaBaruToolStripMenuItem_Click(object sender, EventArgs e)

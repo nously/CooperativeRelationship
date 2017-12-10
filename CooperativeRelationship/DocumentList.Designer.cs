@@ -45,7 +45,9 @@
             this.narahubung = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.unitPengusul = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.nilaiKerjasama = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.bukaDokumen = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.edit = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.hapus = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documents)).BeginInit();
@@ -125,7 +127,9 @@
             this.documents.AllColumns.Add(this.narahubung);
             this.documents.AllColumns.Add(this.unitPengusul);
             this.documents.AllColumns.Add(this.nilaiKerjasama);
+            this.documents.AllColumns.Add(this.bukaDokumen);
             this.documents.AllColumns.Add(this.edit);
+            this.documents.AllColumns.Add(this.hapus);
             this.documents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -141,7 +145,9 @@
             this.narahubung,
             this.unitPengusul,
             this.nilaiKerjasama,
-            this.edit});
+            this.bukaDokumen,
+            this.edit,
+            this.hapus});
             this.documents.Cursor = System.Windows.Forms.Cursors.Default;
             this.documents.Location = new System.Drawing.Point(12, 56);
             this.documents.Name = "documents";
@@ -162,7 +168,6 @@
             // tempatTanggalTTD
             // 
             this.tempatTanggalTTD.AspectName = "TempatTanggalTTD";
-            this.tempatTanggalTTD.DisplayIndex = 2;
             this.tempatTanggalTTD.Sortable = false;
             this.tempatTanggalTTD.Text = "Tempat Tanggal TTD";
             this.tempatTanggalTTD.Width = 146;
@@ -170,12 +175,11 @@
             // nomorPerjanjian
             // 
             this.nomorPerjanjian.AspectName = "NomorPerjanjian";
-            this.nomorPerjanjian.DisplayIndex = 1;
             this.nomorPerjanjian.IsButton = true;
             this.nomorPerjanjian.Sortable = false;
             this.nomorPerjanjian.Text = "Nomor Perjanjian";
             this.nomorPerjanjian.UseFiltering = false;
-            this.nomorPerjanjian.Width = 110;
+            this.nomorPerjanjian.Width = 100;
             // 
             // masaBerlaku
             // 
@@ -183,7 +187,7 @@
             this.masaBerlaku.IsButton = true;
             this.masaBerlaku.Sortable = false;
             this.masaBerlaku.Text = "Masa Berlaku";
-            this.masaBerlaku.Width = 110;
+            this.masaBerlaku.Width = 100;
             // 
             // fokusPerjanjian
             // 
@@ -191,7 +195,7 @@
             this.fokusPerjanjian.IsButton = true;
             this.fokusPerjanjian.Sortable = false;
             this.fokusPerjanjian.Text = "Fokus Perjanjian";
-            this.fokusPerjanjian.Width = 110;
+            this.fokusPerjanjian.Width = 100;
             // 
             // penandatangan
             // 
@@ -199,33 +203,30 @@
             this.penandatangan.IsButton = true;
             this.penandatangan.Sortable = false;
             this.penandatangan.Text = "Penandatangan";
-            this.penandatangan.Width = 110;
+            this.penandatangan.Width = 100;
             // 
             // unitPengguna
             // 
             this.unitPengguna.AspectName = "UnitPengguna";
-            this.unitPengguna.DisplayIndex = 7;
             this.unitPengguna.IsButton = true;
             this.unitPengguna.Sortable = false;
             this.unitPengguna.Text = "Unit Pengguna";
-            this.unitPengguna.Width = 110;
+            this.unitPengguna.Width = 100;
             // 
             // narahubung
             // 
             this.narahubung.AspectName = "Narahubung";
-            this.narahubung.DisplayIndex = 8;
             this.narahubung.IsButton = true;
             this.narahubung.Sortable = false;
             this.narahubung.Text = "Narahubung";
-            this.narahubung.Width = 110;
+            this.narahubung.Width = 100;
             // 
             // unitPengusul
             // 
             this.unitPengusul.AspectName = "UnitPengusul";
-            this.unitPengusul.DisplayIndex = 6;
             this.unitPengusul.Sortable = false;
             this.unitPengusul.Text = "Unit Pengusul";
-            this.unitPengusul.Width = 175;
+            this.unitPengusul.Width = 115;
             // 
             // nilaiKerjasama
             // 
@@ -233,11 +234,24 @@
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
             this.nilaiKerjasama.Width = 93;
             // 
+            // bukaDokumen
+            // 
+            this.bukaDokumen.AspectName = "BukaDokumen";
+            this.bukaDokumen.IsButton = true;
+            this.bukaDokumen.Text = "Buka Dokumen";
+            this.bukaDokumen.Width = 90;
+            // 
             // edit
             // 
             this.edit.AspectName = "Edit";
             this.edit.IsButton = true;
             this.edit.Text = "Edit";
+            // 
+            // hapus
+            // 
+            this.hapus.AspectName = "Hapus";
+            this.hapus.IsButton = true;
+            this.hapus.Text = "Hapus";
             // 
             // DocumentList
             // 
@@ -278,5 +292,7 @@
         private BrightIdeasSoftware.OLVColumn narahubung;
         private BrightIdeasSoftware.OLVColumn nilaiKerjasama;
         private BrightIdeasSoftware.OLVColumn edit;
+        private BrightIdeasSoftware.OLVColumn hapus;
+        private BrightIdeasSoftware.OLVColumn bukaDokumen;
     }
 }

@@ -302,6 +302,15 @@ namespace CooperativeRelationship
             }
         }
 
+        private void browse_button_Click(object sender, EventArgs e)
+        {
+            DialogResult result = browseDocument.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                browse_textBox.Text = browseDocument.FileName;
+            }
+        }
+
 
         // other functions
     }

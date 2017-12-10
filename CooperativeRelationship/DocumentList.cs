@@ -11,6 +11,7 @@ using System.Data.SQLite;
 using BrightIdeasSoftware;
 using PopupControl;
 using System.Diagnostics;
+using System.IO;
 
 namespace CooperativeRelationship
 {
@@ -146,7 +147,7 @@ namespace CooperativeRelationship
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "",
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", "documentPath",
                     nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup,
                     narahubungPopup);
                 document.PathFile = result["filePath"] + "";
@@ -184,6 +185,30 @@ namespace CooperativeRelationship
                 {
                     TambahKerjasama_Form form = new TambahKerjasama_Form(clickedDocument.Id, this);
                     form.Show();
+                }
+                else if (e.Column.Text.Equals("Hapus"))
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection("data source=" + databaseSource))
+                    {
+                        // delete row
+                        string query = "delete from kerjasama where id=" + clickedDocument.Id;
+                        conn.Open();
+                        using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                        {
+                            int affectedLine = command.ExecuteNonQuery();
+                            Console.WriteLine(affectedLine);
+                        }
+                        conn.Close();
+                        if (File.Exists(clickedDocument.PathFile))
+                        {
+                            File.Delete(clickedDocument.PathFile);
+                        }
+                    }
+                    reloadList(sender, e);
+                }
+                else if (e.Column.Text.Equals("Buka Dokumen"))
+                {
+
                 }
             };
 
@@ -229,6 +254,7 @@ namespace CooperativeRelationship
         private string nilaiKerjasama;
         private string pathFile;
         private string id;
+        private string documentPath;
         Popup nomorPerjanjianPopup;
         Popup masaBerlakuPopup;
         Popup fokusPerjanjianPopup;
@@ -238,7 +264,7 @@ namespace CooperativeRelationship
 
         public Document(string institusi, string nomor, string tempatTanggalTTD,
             string masaBerlaku, string fokusPerjanjian, string penandatangan, string unitPengusul,
-            string unitPengguna, string narahubung, string nilaiKerjasama, string PathFile, Popup nomorPerjanjianPopup, 
+            string unitPengguna, string narahubung, string nilaiKerjasama, string PathFile, string documentPath, Popup nomorPerjanjianPopup, 
             Popup masaBerlakuPopup, Popup fokusPerjanjianPopup, Popup penandatanganPopup, Popup unitPenggunaPopup, 
             Popup narahubungPopup)
         {
@@ -253,6 +279,7 @@ namespace CooperativeRelationship
             Narahubung = narahubung;
             NilaiKerjasama = nilaiKerjasama;
             PathFile = pathFile;
+            DocumentPath = documentPath;
             NomorPerjanjianPopup = nomorPerjanjianPopup;
             MasaBerlakuPopup = masaBerlakuPopup;
             FokusPerjanjianPopup = fokusPerjanjianPopup;
@@ -279,7 +306,11 @@ namespace CooperativeRelationship
         public string NilaiKerjasama { get => nilaiKerjasama; set => nilaiKerjasama = value; }
         public string PathFile { get => pathFile; set => pathFile = value; }
         public string Id { get => id; set => id = value; }
+        public string DocumentPath { get => documentPath; set => documentPath = value; }
+
         public string Edit() { return "Edit"; }
+        public string BukaDokumen() { return "Buka"; }
+        public string Hapus() { return "Hapus"; }
     }
 
 }

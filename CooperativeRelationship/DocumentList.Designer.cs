@@ -33,7 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search_textBox = new System.Windows.Forms.TextBox();
             this.documents = new BrightIdeasSoftware.ObjectListView();
             this.institusi = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tempatTanggalTTD = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -82,7 +82,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.search_textBox);
             this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(865, 37);
@@ -97,6 +97,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Cari";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -107,13 +108,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cari Kerjasama";
             // 
-            // textBox1
+            // search_textBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(97, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(663, 20);
-            this.textBox1.TabIndex = 0;
+            this.search_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_textBox.Location = new System.Drawing.Point(97, 9);
+            this.search_textBox.Name = "search_textBox";
+            this.search_textBox.Size = new System.Drawing.Size(663, 20);
+            this.search_textBox.TabIndex = 0;
+            this.search_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.search_textBox_KeyDown);
             // 
             // documents
             // 
@@ -161,7 +163,7 @@
             this.institusi.AspectName = "Institusi";
             this.institusi.Sortable = false;
             this.institusi.Text = "Institusi";
-            this.institusi.UseFiltering = false;
+            this.institusi.UseInitialLetterForGroup = true;
             this.institusi.Width = 175;
             this.institusi.WordWrap = true;
             // 
@@ -231,27 +233,35 @@
             // nilaiKerjasama
             // 
             this.nilaiKerjasama.AspectName = "NilaiKerjasama";
+            this.nilaiKerjasama.Sortable = false;
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
+            this.nilaiKerjasama.UseFiltering = false;
             this.nilaiKerjasama.Width = 93;
             // 
             // bukaDokumen
             // 
             this.bukaDokumen.AspectName = "BukaDokumen";
             this.bukaDokumen.IsButton = true;
+            this.bukaDokumen.Sortable = false;
             this.bukaDokumen.Text = "Buka Dokumen";
+            this.bukaDokumen.UseFiltering = false;
             this.bukaDokumen.Width = 90;
             // 
             // edit
             // 
             this.edit.AspectName = "Edit";
             this.edit.IsButton = true;
+            this.edit.Sortable = false;
             this.edit.Text = "Edit";
+            this.edit.UseFiltering = false;
             // 
             // hapus
             // 
             this.hapus.AspectName = "Hapus";
             this.hapus.IsButton = true;
+            this.hapus.Sortable = false;
             this.hapus.Text = "Hapus";
+            this.hapus.UseFiltering = false;
             // 
             // DocumentList
             // 
@@ -278,7 +288,7 @@
         private System.Windows.Forms.Button tambahKerjasama_button;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search_textBox;
         private System.Windows.Forms.Button button1;
         private BrightIdeasSoftware.ObjectListView documents;
         private BrightIdeasSoftware.OLVColumn institusi;

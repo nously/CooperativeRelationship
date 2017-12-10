@@ -147,7 +147,7 @@ namespace CooperativeRelationship
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", "documentPath",
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", result["documentPath"] + "",
                     nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup,
                     narahubungPopup);
                 document.PathFile = result["filePath"] + "";
@@ -208,7 +208,7 @@ namespace CooperativeRelationship
                 }
                 else if (e.Column.Text.Equals("Buka Dokumen"))
                 {
-
+                    System.Diagnostics.Process.Start(@clickedDocument.DocumentPath);
                 }
             };
 
@@ -222,10 +222,9 @@ namespace CooperativeRelationship
                         Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
 
                         object missing = System.Reflection.Missing.Value;
-                        Microsoft.Office.Interop.Word.Document writer = wordApp.Documents.Open(((Document)e.Model).PathFile);
-
                         wordApp.Visible = true;
                         wordApp.ShowAnimation = true;
+                        Microsoft.Office.Interop.Word.Document writer = wordApp.Documents.Open(((Document)e.Model).PathFile);
                     } 
                     catch (Exception ex)
                     {
@@ -237,6 +236,36 @@ namespace CooperativeRelationship
             documents.RowHeight = 35;
             documents.FullRowSelect = true;
             documents.SetObjects(list);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection("data source=" + this.databaseSource))
+            {
+                string query = "SELECT * FROM kerjasama WHERE jenisKerjasama=" + this.activeMode + " AND tahun=" + this.tahun
+                    + " AND institusi LIKE '%"+ search_textBox.Text +"%'";
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    using (SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        documents.Items.Clear();
+                        populateListView(result);
+                    }
+                }
+                conn.Close();
+            }
+        }
+
+        private void search_textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 

@@ -195,7 +195,7 @@ namespace CooperativeRelationship
                         "'" + narahubungInstitusiData["nama"] + "', '" + narahubungInstitusiData["handphone"] + "'," +
                         "'" + narahubungInstitusiData["email"] + "', '" + narahubungFisipData["jabatan"] + "'," +
                         "'" + narahubungInstitusiData["jabatan"] + "', " + nilaiKerjasama_TextBox.Text + "," +
-                        "'" + filePath + "')";
+                        "'" + filePath + "', '"+browse_textBox.Text+"')";
 
                     try
                     {
@@ -256,8 +256,7 @@ namespace CooperativeRelationship
                     creatingProcess.TempatTanggalTTD = tempattanggalttd;
                     creatingProcess.UnitPengguna = unitPenggunaData;
                     creatingProcess.UnitPengusul = unitPengusul_TextBox.Text;
-
-
+                    
                     conn.Close();
                 }
 
@@ -304,6 +303,9 @@ namespace CooperativeRelationship
 
         private void browse_button_Click(object sender, EventArgs e)
         {
+            browseDocument.Filter = "PDF File|*.pdf";
+            browseDocument.FileName = "";
+
             DialogResult result = browseDocument.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {

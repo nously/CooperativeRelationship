@@ -117,6 +117,20 @@ namespace CooperativeRelationship
                             date = int.Parse(dates[dates.Length - 3]);
                             berakhirPada_DateTimePicker.Value = new DateTime(year, month, date);
 
+                            fokusPerjanjianData = result["fokusPerjanjian"] + "";
+                            unitPenggunaData = result["unitPengguna"] + "";
+                            narahubungFisipData.Add("nama", result["namaNarahubungFisip"] + "");
+                            narahubungFisipData.Add("email", result["emailNarahubungFisip"] + "");
+                            narahubungFisipData.Add("jabatan", result["jabatanNarahubungFisip"] + "");
+                            narahubungFisipData.Add("handphone", result["handphoneNarahubungFisip"] + "");
+
+                            narahubungInstitusiData.Add("nama", result["namaNarahubungInstitusi"] + "");
+                            narahubungInstitusiData.Add("email", result["emailNarahubungInstitusi"] + "");
+                            narahubungInstitusiData.Add("jabatan", result["jabatanNarahubungInstitusi"] + "");
+                            narahubungInstitusiData.Add("handphone", result["handphoneNarahubungInstitusi"] + "");
+
+                            browse_textBox.Text = result["documentPath"] + "";
+
                             button1.Click -= new EventHandler(button1_Click);
                             button1.Click += new EventHandler(button1_Click2);
                         }

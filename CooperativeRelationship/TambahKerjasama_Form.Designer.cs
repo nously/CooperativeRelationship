@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.judul = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TambahKerjasama_Form));
+            this.judull = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.browse_textBox = new System.Windows.Forms.TextBox();
+            this.browse_button = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -73,30 +77,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.label24 = new System.Windows.Forms.Label();
-            this.browse_button = new System.Windows.Forms.Button();
-            this.browse_textBox = new System.Windows.Forms.TextBox();
             this.browseDocument = new System.Windows.Forms.OpenFileDialog();
+            this.judul = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.judul.SuspendLayout();
             this.SuspendLayout();
             // 
-            // judul
+            // judull
             // 
-            this.judul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.judul.AutoSize = true;
-            this.judul.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.judul.Location = new System.Drawing.Point(359, 18);
-            this.judul.Name = "judul";
-            this.judul.Size = new System.Drawing.Size(284, 31);
-            this.judul.TabIndex = 0;
-            this.judul.Text = "Detail Kerjasama Baru";
+            this.judull.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.judull.AutoSize = true;
+            this.judull.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.judull.Location = new System.Drawing.Point(10, 1);
+            this.judull.Name = "judull";
+            this.judull.Size = new System.Drawing.Size(284, 31);
+            this.judull.TabIndex = 0;
+            this.judull.Text = "Detail Kerjasama Baru";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(255)))), ((int)(((byte)(215)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.browse_textBox);
             this.panel1.Controls.Add(this.browse_button);
@@ -145,6 +149,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(862, 619);
             this.panel1.TabIndex = 1;
+            // 
+            // browse_textBox
+            // 
+            this.browse_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.browse_textBox.Location = new System.Drawing.Point(368, 523);
+            this.browse_textBox.Name = "browse_textBox";
+            this.browse_textBox.Size = new System.Drawing.Size(353, 20);
+            this.browse_textBox.TabIndex = 45;
+            // 
+            // browse_button
+            // 
+            this.browse_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.browse_button.Location = new System.Drawing.Point(727, 521);
+            this.browse_button.Name = "browse_button";
+            this.browse_button.Size = new System.Drawing.Size(58, 23);
+            this.browse_button.TabIndex = 44;
+            this.browse_button.Text = "Browse";
+            this.browse_button.UseVisualStyleBackColor = true;
+            this.browse_button.Click += new System.EventHandler(this.browse_button_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(50, 526);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(154, 13);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "Dokumen Perjanjian Kerjasama";
             // 
             // button1
             // 
@@ -543,44 +576,29 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(50, 526);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(154, 13);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "Dokumen Perjanjian Kerjasama";
-            // 
-            // browse_button
-            // 
-            this.browse_button.Location = new System.Drawing.Point(727, 521);
-            this.browse_button.Name = "browse_button";
-            this.browse_button.Size = new System.Drawing.Size(58, 23);
-            this.browse_button.TabIndex = 44;
-            this.browse_button.Text = "Browse";
-            this.browse_button.UseVisualStyleBackColor = true;
-            this.browse_button.Click += new System.EventHandler(this.browse_button_Click);
-            // 
-            // browse_textBox
-            // 
-            this.browse_textBox.Location = new System.Drawing.Point(368, 523);
-            this.browse_textBox.Name = "browse_textBox";
-            this.browse_textBox.Size = new System.Drawing.Size(353, 20);
-            this.browse_textBox.TabIndex = 45;
-            // 
             // browseDocument
             // 
             this.browseDocument.FileName = "openFileDialog1";
+            // 
+            // judul
+            // 
+            this.judul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.judul.BackColor = System.Drawing.Color.Transparent;
+            this.judul.Controls.Add(this.judull);
+            this.judul.Location = new System.Drawing.Point(395, 12);
+            this.judul.Name = "judul";
+            this.judul.Size = new System.Drawing.Size(307, 36);
+            this.judul.TabIndex = 2;
             // 
             // TambahKerjasama_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1010, 709);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.judul);
+            this.Controls.Add(this.panel1);
             this.Name = "TambahKerjasama_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kerjasama Baru";
@@ -590,14 +608,15 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.judul.ResumeLayout(false);
+            this.judul.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label judul;
+        private System.Windows.Forms.Label judull;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -646,5 +665,6 @@
         private System.Windows.Forms.TextBox browse_textBox;
         private System.Windows.Forms.Button browse_button;
         private System.Windows.Forms.OpenFileDialog browseDocument;
+        private System.Windows.Forms.Panel judul;
     }
 }

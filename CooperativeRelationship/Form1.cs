@@ -46,13 +46,13 @@ namespace CooperativeRelationship
 
         private void dalamNegeri_Button_MouseEnter(object sender, EventArgs e)
         {
-            dalamNegeri_Button.BackColor = Color.White;
+            dalamNegeri_Button.BackColor = Color.FromArgb(44, 62, 80);
             dalamNegeri_Button.Cursor = Cursors.Hand;
         }
 
         private void luarNegeri_Button_MouseEnter(object sender, EventArgs e)
         {
-            luarNegeri_Button.BackColor = Color.White;
+            luarNegeri_Button.BackColor = Color.FromArgb(44, 62, 80);
             luarNegeri_Button.Cursor = Cursors.Hand;
         }
 
@@ -66,8 +66,8 @@ namespace CooperativeRelationship
         {
             highlight_dalamNegeri.Visible = true;
             highlight_luarNegeri.Visible = false;
-            label1.ForeColor = Color.FromArgb(52, 152, 219);
-            label2.ForeColor = Color.Black;
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
             judulTahun.Text = "Kerjasama Dalam Negeri";
             activeMode = DocumentList.KERJASAMA_DALAM_NEGERI;
 
@@ -78,8 +78,8 @@ namespace CooperativeRelationship
         {
             highlight_luarNegeri.Visible = true;
             highlight_dalamNegeri.Visible = false;
-            label2.ForeColor = Color.FromArgb(52, 152, 219);
-            label1.ForeColor = Color.Black;
+            label2.ForeColor = Color.White;
+            label1.ForeColor = Color.White;
             judulTahun.Text = "Kerjasama Luar Negeri";
             activeMode = DocumentList.KERJASAMA_LUAR_NEGERI;
 
@@ -95,14 +95,14 @@ namespace CooperativeRelationship
                 pan = pan.Parent;
             }
 
-            pan.BackColor = Color.FromArgb(240, 240, 240);
+            pan.BackColor = Color.FromArgb(150, 236, 240, 241);
             pan.Cursor = Cursors.Hand;
         }
 
         private void tahun_panel_MouseLeave(object sender, EventArgs e)
         {
             Panel pan = sender as Panel;
-            pan.BackColor = Color.White;
+            pan.BackColor = Color.FromArgb(185, 245, 222, 179);
             pan.Cursor = Cursors.Arrow;
         }
 
@@ -140,6 +140,7 @@ namespace CooperativeRelationship
 
                             panel.Size = new Size(flowLayoutPanel1.Width, 40);
                             panel.Margin = new Padding(1, 1, 1, 1);
+                            panel.BackColor = Color.FromArgb(185, 245, 222, 179);
                             tahun.Location = new Point(25, 13);
                             tahun.AutoSize = true;
 

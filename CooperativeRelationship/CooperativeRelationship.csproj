@@ -115,7 +115,10 @@
     <Compile Include="UnitPengguna.Designer.cs">
       <DependentUpon>UnitPengguna.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ComplexPopup.resx" />
+    <EmbeddedResource Include="ComplexPopup.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComplexPopup1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateFolder_Form.resx">
       <DependentUpon>CreateFolder_Form.cs</DependentUpon>
     </EmbeddedResource>

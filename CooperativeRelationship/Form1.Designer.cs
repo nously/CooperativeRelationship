@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.highlight_luarNegeri = new System.Windows.Forms.Panel();
@@ -62,7 +63,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, 23);
             this.panel1.Name = "panel1";
@@ -71,40 +72,44 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.highlight_luarNegeri);
             this.groupBox1.Controls.Add(this.highlight_dalamNegeri);
             this.groupBox1.Controls.Add(this.luarNegeri_Button);
             this.groupBox1.Controls.Add(this.dalamNegeri_Button);
-            this.groupBox1.Location = new System.Drawing.Point(12, 35);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(0, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 105);
+            this.groupBox1.Size = new System.Drawing.Size(195, 143);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jenis Kerjasama";
             // 
             // highlight_luarNegeri
             // 
-            this.highlight_luarNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.highlight_luarNegeri.Location = new System.Drawing.Point(5, 59);
+            this.highlight_luarNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.highlight_luarNegeri.Location = new System.Drawing.Point(5, 80);
             this.highlight_luarNegeri.Name = "highlight_luarNegeri";
-            this.highlight_luarNegeri.Size = new System.Drawing.Size(10, 33);
+            this.highlight_luarNegeri.Size = new System.Drawing.Size(10, 44);
             this.highlight_luarNegeri.TabIndex = 2;
             this.highlight_luarNegeri.Visible = false;
             // 
             // highlight_dalamNegeri
             // 
-            this.highlight_dalamNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.highlight_dalamNegeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.highlight_dalamNegeri.Location = new System.Drawing.Point(5, 23);
             this.highlight_dalamNegeri.Name = "highlight_dalamNegeri";
-            this.highlight_dalamNegeri.Size = new System.Drawing.Size(10, 33);
+            this.highlight_dalamNegeri.Size = new System.Drawing.Size(10, 45);
             this.highlight_dalamNegeri.TabIndex = 1;
             // 
             // luarNegeri_Button
             // 
             this.luarNegeri_Button.Controls.Add(this.label2);
-            this.luarNegeri_Button.Location = new System.Drawing.Point(21, 59);
+            this.luarNegeri_Button.Location = new System.Drawing.Point(21, 80);
             this.luarNegeri_Button.Name = "luarNegeri_Button";
-            this.luarNegeri_Button.Size = new System.Drawing.Size(150, 33);
+            this.luarNegeri_Button.Size = new System.Drawing.Size(168, 44);
             this.luarNegeri_Button.TabIndex = 1;
             this.luarNegeri_Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.luarNegeri_Button_MouseClick);
             this.luarNegeri_Button.MouseEnter += new System.EventHandler(this.luarNegeri_Button_MouseEnter);
@@ -113,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 10);
+            this.label2.Location = new System.Drawing.Point(49, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 0;
@@ -126,7 +131,7 @@
             this.dalamNegeri_Button.Controls.Add(this.label1);
             this.dalamNegeri_Button.Location = new System.Drawing.Point(21, 23);
             this.dalamNegeri_Button.Name = "dalamNegeri_Button";
-            this.dalamNegeri_Button.Size = new System.Drawing.Size(150, 33);
+            this.dalamNegeri_Button.Size = new System.Drawing.Size(168, 45);
             this.dalamNegeri_Button.TabIndex = 0;
             this.dalamNegeri_Button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dalamNegeri_Button_MouseClick);
             this.dalamNegeri_Button.MouseEnter += new System.EventHandler(this.dalamNegeri_Button_MouseEnter);
@@ -135,8 +140,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.label1.Location = new System.Drawing.Point(32, 10);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(44, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 0;
@@ -149,7 +154,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.panel2.Controls.Add(this.judulTahun);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Location = new System.Drawing.Point(195, 24);
@@ -161,6 +166,7 @@
             // 
             this.judulTahun.AutoSize = true;
             this.judulTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.judulTahun.ForeColor = System.Drawing.Color.White;
             this.judulTahun.Location = new System.Drawing.Point(15, 13);
             this.judulTahun.Name = "judulTahun";
             this.judulTahun.Size = new System.Drawing.Size(204, 20);
@@ -169,9 +175,11 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 42);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";

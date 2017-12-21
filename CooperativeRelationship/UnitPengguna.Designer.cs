@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitPengguna));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.unitPengguna_FlowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,6 +52,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.unitPengguna_FlowLayout);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button1);
@@ -64,6 +66,7 @@
             // unitPengguna_FlowLayout
             // 
             this.unitPengguna_FlowLayout.AutoScroll = true;
+            this.unitPengguna_FlowLayout.BackColor = System.Drawing.Color.Transparent;
             this.unitPengguna_FlowLayout.Controls.Add(this.panel1);
             this.unitPengguna_FlowLayout.Controls.Add(this.panel2);
             this.unitPengguna_FlowLayout.Controls.Add(this.panel3);
@@ -177,6 +180,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(222, 9);
             this.label4.Name = "label4";
@@ -189,6 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(610, 415);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);

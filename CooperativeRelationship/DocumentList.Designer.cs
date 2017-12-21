@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tambahKerjasama_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,6 +58,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.tambahKerjasama_button);
             this.panel1.Location = new System.Drawing.Point(12, 538);
             this.panel1.Name = "panel1";
@@ -80,6 +82,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.search_textBox);
@@ -135,6 +138,7 @@
             this.documents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.documents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(255)))), ((int)(((byte)(220)))));
             this.documents.CellEditUseWholeCell = false;
             this.documents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.institusi,
@@ -161,15 +165,19 @@
             // institusi
             // 
             this.institusi.AspectName = "Institusi";
+            this.institusi.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.institusi.HeaderImageKey = "";
+            this.institusi.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.institusi.Sortable = false;
             this.institusi.Text = "Institusi";
             this.institusi.UseInitialLetterForGroup = true;
-            this.institusi.Width = 175;
+            this.institusi.Width = 170;
             this.institusi.WordWrap = true;
             // 
             // tempatTanggalTTD
             // 
             this.tempatTanggalTTD.AspectName = "TempatTanggalTTD";
+            this.tempatTanggalTTD.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tempatTanggalTTD.Sortable = false;
             this.tempatTanggalTTD.Text = "Tempat Tanggal TTD";
             this.tempatTanggalTTD.Width = 146;
@@ -177,6 +185,7 @@
             // nomorPerjanjian
             // 
             this.nomorPerjanjian.AspectName = "NomorPerjanjian";
+            this.nomorPerjanjian.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nomorPerjanjian.IsButton = true;
             this.nomorPerjanjian.Sortable = false;
             this.nomorPerjanjian.Text = "Nomor Perjanjian";
@@ -186,6 +195,7 @@
             // masaBerlaku
             // 
             this.masaBerlaku.AspectName = "MasaBerlaku";
+            this.masaBerlaku.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.masaBerlaku.IsButton = true;
             this.masaBerlaku.Sortable = false;
             this.masaBerlaku.Text = "Masa Berlaku";
@@ -194,6 +204,7 @@
             // fokusPerjanjian
             // 
             this.fokusPerjanjian.AspectName = "FokusPerjanjian";
+            this.fokusPerjanjian.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fokusPerjanjian.IsButton = true;
             this.fokusPerjanjian.Sortable = false;
             this.fokusPerjanjian.Text = "Fokus Perjanjian";
@@ -202,6 +213,7 @@
             // penandatangan
             // 
             this.penandatangan.AspectName = "Penandatangan";
+            this.penandatangan.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.penandatangan.IsButton = true;
             this.penandatangan.Sortable = false;
             this.penandatangan.Text = "Penandatangan";
@@ -210,6 +222,7 @@
             // unitPengguna
             // 
             this.unitPengguna.AspectName = "UnitPengguna";
+            this.unitPengguna.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitPengguna.IsButton = true;
             this.unitPengguna.Sortable = false;
             this.unitPengguna.Text = "Unit Pengguna";
@@ -218,6 +231,7 @@
             // narahubung
             // 
             this.narahubung.AspectName = "Narahubung";
+            this.narahubung.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.narahubung.IsButton = true;
             this.narahubung.Sortable = false;
             this.narahubung.Text = "Narahubung";
@@ -226,6 +240,7 @@
             // unitPengusul
             // 
             this.unitPengusul.AspectName = "UnitPengusul";
+            this.unitPengusul.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unitPengusul.Sortable = false;
             this.unitPengusul.Text = "Unit Pengusul";
             this.unitPengusul.Width = 115;
@@ -233,6 +248,7 @@
             // nilaiKerjasama
             // 
             this.nilaiKerjasama.AspectName = "NilaiKerjasama";
+            this.nilaiKerjasama.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nilaiKerjasama.Sortable = false;
             this.nilaiKerjasama.Text = "Nilai Kerjasama";
             this.nilaiKerjasama.UseFiltering = false;
@@ -241,6 +257,7 @@
             // bukaDokumen
             // 
             this.bukaDokumen.AspectName = "BukaDokumen";
+            this.bukaDokumen.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bukaDokumen.IsButton = true;
             this.bukaDokumen.Sortable = false;
             this.bukaDokumen.Text = "Buka Dokumen";
@@ -250,6 +267,7 @@
             // edit
             // 
             this.edit.AspectName = "Edit";
+            this.edit.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit.IsButton = true;
             this.edit.Sortable = false;
             this.edit.Text = "Edit";
@@ -258,6 +276,7 @@
             // hapus
             // 
             this.hapus.AspectName = "Hapus";
+            this.hapus.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hapus.IsButton = true;
             this.hapus.Sortable = false;
             this.hapus.Text = "Hapus";
@@ -268,6 +287,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(890, 602);
             this.Controls.Add(this.documents);
             this.Controls.Add(this.panel2);

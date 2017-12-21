@@ -33,6 +33,7 @@ namespace CooperativeRelationship
             this.activeMode = activeMode;
             this.tahun = tahun;
             this.parent = parent;
+            Text = "Daftar Perjanjian Kerjasama Tahun " + tahun;
 
             databaseSource = 
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";

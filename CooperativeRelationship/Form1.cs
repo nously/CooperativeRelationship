@@ -14,7 +14,7 @@ namespace CooperativeRelationship
 {
     public partial class Form1 : Form
     {
-        static string RootDirectory;
+        public static string RootDirectory;
         int activeMode;
         string tahun;
         private string databaseSource;
@@ -40,23 +40,28 @@ namespace CooperativeRelationship
                 File.WriteAllText("root_directory.txt",
                     Environment.GetFolderPath(
                             Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama");
+                RootDirectory = Environment.GetFolderPath(
+                            Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama";
             }
 
 
-            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama"))
+            if (!Directory.Exists(RootDirectory))
             {
-                string root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama";
-                Directory.CreateDirectory(root);
-                Directory.CreateDirectory(root + "\\Dalam Negeri");
-                Directory.CreateDirectory(root + "\\Luar Negeri");
+                Directory.CreateDirectory(RootDirectory);
             }
 
-            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db"))
+            if (!Directory.Exists(RootDirectory + "\\Dalam Negeri"))
+                Directory.CreateDirectory(RootDirectory + "\\Dalam Negeri");
+
+            if (!Directory.Exists(RootDirectory + "\\Luar Negeri"))
+                Directory.CreateDirectory(RootDirectory + "\\Luar Negeri");
+
+            if (!File.Exists(RootDirectory + "\\hubunganKerjaSama.db"))
                 File.Copy(@".\hubunganKerjaSama.db",
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db");
+                    RootDirectory + "\\hubunganKerjaSama.db");
 
             databaseSource = 
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+                RootDirectory + "\\hubunganKerjaSama.db";
         }
 
         private void dalamNegeri_Button_MouseLeave(object sender, EventArgs e)

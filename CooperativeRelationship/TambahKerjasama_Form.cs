@@ -33,7 +33,7 @@ namespace CooperativeRelationship
             narahubungFisipData = new Dictionary<string, string>();
             narahubungInstitusiData = new Dictionary<string, string>();
             databaseSource =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+                    Form1.RootDirectory + "\\hubunganKerjaSama.db";
             button1.Click += new EventHandler(button1_Click);
         }
 
@@ -194,7 +194,7 @@ namespace CooperativeRelationship
                     string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
                     string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
                     string filePath =
-                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        Form1.RootDirectory
                         + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
 
                     string query = "insert into kerjasama values" +
@@ -233,12 +233,12 @@ namespace CooperativeRelationship
 
                     // update value
                     string filePathWithoutDocx =
-                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        Form1.RootDirectory + "\\"
                         + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
                         + judulFile_TextBox.Text + "_";
 
                     filePath =
-                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\"
+                        Form1.RootDirectory + "\\"
                         + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
                         + judulFile_TextBox.Text + "_.docx";
 

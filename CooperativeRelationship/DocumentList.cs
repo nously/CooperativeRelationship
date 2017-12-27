@@ -36,7 +36,7 @@ namespace CooperativeRelationship
             Text = "Daftar Perjanjian Kerjasama Tahun " + tahun;
 
             databaseSource = 
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+                Form1.RootDirectory + "\\hubunganKerjaSama.db";
         }
 
         private void tambahKerjasama_button_Click(object sender, EventArgs e)

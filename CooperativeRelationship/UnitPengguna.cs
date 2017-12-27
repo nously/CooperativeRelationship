@@ -21,8 +21,8 @@ namespace CooperativeRelationship
         {
             InitializeComponent();
             databaseSource =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                    "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+                    Form1.RootDirectory +
+                    "\\hubunganKerjaSama.db";
 
             this.parent = parent;
         }

@@ -22,7 +22,7 @@ namespace CooperativeRelationship
             InitializeComponent();
             this.parent = parent;
             databaseSource =
-                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama\\hubunganKerjaSama.db";
+                    Form1.RootDirectory + "\\hubunganKerjaSama.db";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,8 +45,7 @@ namespace CooperativeRelationship
                         if (!reader.Read())
                         {
                             string path =
-                                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                                "\\Hubungan Kerja Sama\\" + ((dalam.Checked) ? dalam.Text : luar.Text) + "\\" +
+                                Form1.RootDirectory + "\\" + ((dalam.Checked) ? dalam.Text : luar.Text) + "\\" +
                                 tahun.Text;
 
                             // create folder

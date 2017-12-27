@@ -24,6 +24,7 @@ namespace CooperativeRelationship
         private string tahun;
         private int activeMode;
         private DocumentList list;
+        private string documentPathFile;
 
         public TambahKerjasama_Form()
         {
@@ -194,8 +195,13 @@ namespace CooperativeRelationship
                     string mulaiBerlaku = mulaiBerlaku_DateTimePicker.Value.ToString("dd MMMM yyyy");
                     string berhentiBerlaku = berakhirPada_DateTimePicker.Value.ToString("dd MMMM yyyy");
                     string filePath =
-                        Form1.RootDirectory
-                        + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
+                        ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + judulFile_TextBox.Text + ".docx";
+                    string documntPath = 
+                        "Dokumen Perjanjian\\" + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" +
+                        browse_textBox.Text;
+
+                    //copy file
+                    File.Copy(documentPathFile, Form1.RootDirectory + "\\" + documntPath);
 
                     string query = "insert into kerjasama values" +
                         "(null, '" + judulFile_TextBox.Text + "'," +
@@ -209,7 +215,7 @@ namespace CooperativeRelationship
                         "'" + narahubungInstitusiData["nama"] + "', '" + narahubungInstitusiData["handphone"] + "'," +
                         "'" + narahubungInstitusiData["email"] + "', '" + narahubungFisipData["jabatan"] + "'," +
                         "'" + narahubungInstitusiData["jabatan"] + "', " + nilaiKerjasama_TextBox.Text + "," +
-                        "'" + filePath + "', '"+browse_textBox.Text+"')";
+                        "'" + filePath + "', '"+ documntPath + "')";
 
                     try
                     {
@@ -238,8 +244,7 @@ namespace CooperativeRelationship
                         + judulFile_TextBox.Text + "_";
 
                     filePath =
-                        Form1.RootDirectory + "\\"
-                        + ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
+                        ((pilihan == 1) ? "Dalam Negeri" : "Luar Negeri") + "\\" + tahun + "\\" + latestID + "_"
                         + judulFile_TextBox.Text + "_.docx";
 
                     query = "update kerjasama set filepath='" + filePath + "' where id=" + latestID;
@@ -323,7 +328,8 @@ namespace CooperativeRelationship
             DialogResult result = browseDocument.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                browse_textBox.Text = browseDocument.FileName;
+                documentPathFile = browseDocument.FileName;
+                browse_textBox.Text = browseDocument.SafeFileName;
             }
         }
 

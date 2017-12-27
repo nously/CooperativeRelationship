@@ -47,9 +47,14 @@ namespace CooperativeRelationship
                             string path =
                                 Form1.RootDirectory + "\\" + ((dalam.Checked) ? dalam.Text : luar.Text) + "\\" +
                                 tahun.Text;
+                            string path2 =
+                                Form1.RootDirectory + "\\Dokumen Perjanjian\\" + ((dalam.Checked) ? dalam.Text : luar.Text) + "\\" +
+                                tahun.Text;
 
                             // create folder
                             Directory.CreateDirectory(path);
+                            Directory.CreateDirectory(path2);
+
                             // add row
                             exist = false;
                         }

@@ -56,6 +56,13 @@ namespace CooperativeRelationship
             if (!Directory.Exists(RootDirectory + "\\Luar Negeri"))
                 Directory.CreateDirectory(RootDirectory + "\\Luar Negeri");
 
+            if (!Directory.Exists(RootDirectory + "\\Dokumen Perjanjian"))
+            {
+                Directory.CreateDirectory(RootDirectory + "\\Dokumen Perjanjian");
+                Directory.CreateDirectory(RootDirectory + "\\Dokumen Perjanjian\\Luar Negeri");
+                Directory.CreateDirectory(RootDirectory + "\\Dokumen Perjanjian\\Dalam Negeri");
+            }
+
             if (!File.Exists(RootDirectory + "\\hubunganKerjaSama.db"))
                 File.Copy(@".\hubunganKerjaSama.db",
                     RootDirectory + "\\hubunganKerjaSama.db");

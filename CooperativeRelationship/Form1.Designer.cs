@@ -45,13 +45,13 @@
             this.kerjasamaBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tahunBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.folderUtamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bantuanTeknisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.folderUtamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.rootFolder_Dialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,7 +85,7 @@
             this.groupBox1.Size = new System.Drawing.Size(192, 143);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Jenis Kerjasama";
+            this.groupBox1.Text = "Jenis Perjanjian";
             // 
             // highlight_luarNegeri
             // 
@@ -169,9 +169,9 @@
             this.judulTahun.ForeColor = System.Drawing.Color.White;
             this.judulTahun.Location = new System.Drawing.Point(15, 13);
             this.judulTahun.Name = "judulTahun";
-            this.judulTahun.Size = new System.Drawing.Size(204, 20);
+            this.judulTahun.Size = new System.Drawing.Size(199, 20);
             this.judulTahun.TabIndex = 1;
-            this.judulTahun.Text = "Daftar Tahun Kerjasama";
+            this.judulTahun.Text = "Daftar Tahun Perjanjian";
             // 
             // flowLayoutPanel1
             // 
@@ -201,8 +201,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kerjasamaBaruToolStripMenuItem,
             this.tahunBaruToolStripMenuItem,
+            this.kerjasamaBaruToolStripMenuItem,
             this.toolStripSeparator1,
             this.folderUtamaToolStripMenuItem,
             this.toolStripSeparator3,
@@ -214,8 +214,8 @@
             // kerjasamaBaruToolStripMenuItem
             // 
             this.kerjasamaBaruToolStripMenuItem.Name = "kerjasamaBaruToolStripMenuItem";
-            this.kerjasamaBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.kerjasamaBaruToolStripMenuItem.Text = "Kerjasama Baru";
+            this.kerjasamaBaruToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.kerjasamaBaruToolStripMenuItem.Text = "Perjanjian Baru";
             this.kerjasamaBaruToolStripMenuItem.Click += new System.EventHandler(this.kerjasamaBaruToolStripMenuItem_Click);
             // 
             // tahunBaruToolStripMenuItem
@@ -230,11 +230,23 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
             // 
+            // folderUtamaToolStripMenuItem
+            // 
+            this.folderUtamaToolStripMenuItem.Name = "folderUtamaToolStripMenuItem";
+            this.folderUtamaToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.folderUtamaToolStripMenuItem.Text = "Ganti Folder Utama";
+            this.folderUtamaToolStripMenuItem.Click += new System.EventHandler(this.folderUtamaToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.exitToolStripMenuItem.Text = "Keluar";
             // 
             // helpToolStripMenuItem
             // 
@@ -262,18 +274,6 @@
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem1.Text = "Tentang";
-            // 
-            // folderUtamaToolStripMenuItem
-            // 
-            this.folderUtamaToolStripMenuItem.Name = "folderUtamaToolStripMenuItem";
-            this.folderUtamaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.folderUtamaToolStripMenuItem.Text = "Folder Utama";
-            this.folderUtamaToolStripMenuItem.Click += new System.EventHandler(this.folderUtamaToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
             // 
             // Form1
             // 

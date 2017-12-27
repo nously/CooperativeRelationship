@@ -148,10 +148,10 @@ namespace CooperativeRelationship
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",
-                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", result["documentPath"] + "",
+                    "Lihat Detail", "Lihat Detail", result["nilaiKerjasama"] + "", result["filePath"] + "", Form1.RootDirectory + "\\" + result["documentPath"] + "",
                     nomorPerjanjianPopup, masaBerlakuPopup, fokusPerjanjianPopup, penandatanganPopup, unitPenggunaPopup,
                     narahubungPopup);
-                document.PathFile = result["filePath"] + "";
+                document.PathFile = Form1.RootDirectory + "\\" + result["filePath"] + "";
                 document.Id = result["id"] + "";
 
                 list.Add(document);

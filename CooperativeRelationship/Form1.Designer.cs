@@ -50,6 +50,9 @@
             this.bantuanTeknisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderUtamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.rootFolder_Dialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.luarNegeri_Button.SuspendLayout();
@@ -201,6 +204,8 @@
             this.kerjasamaBaruToolStripMenuItem,
             this.tahunBaruToolStripMenuItem,
             this.toolStripSeparator1,
+            this.folderUtamaToolStripMenuItem,
+            this.toolStripSeparator3,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -258,6 +263,18 @@
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem1.Text = "Tentang";
             // 
+            // folderUtamaToolStripMenuItem
+            // 
+            this.folderUtamaToolStripMenuItem.Name = "folderUtamaToolStripMenuItem";
+            this.folderUtamaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.folderUtamaToolStripMenuItem.Text = "Folder Utama";
+            this.folderUtamaToolStripMenuItem.Click += new System.EventHandler(this.folderUtamaToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +326,9 @@
         private System.Windows.Forms.ToolStripMenuItem bantuanTeknisToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem folderUtamaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.FolderBrowserDialog rootFolder_Dialog1;
     }
 }
 

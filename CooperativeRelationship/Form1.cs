@@ -14,13 +14,34 @@ namespace CooperativeRelationship
 {
     public partial class Form1 : Form
     {
+        static string RootDirectory;
         int activeMode;
         string tahun;
         private string databaseSource;
 
+
         public Form1()
         {
             InitializeComponent();
+
+            bool filled = true;
+            using (var reader = new StreamReader(@"root_directory.txt"))
+            {
+                var line = reader.ReadLine();
+                RootDirectory = line;
+                if (line == null)
+                {
+                    filled = false;
+                }
+            }
+
+            if (!filled)
+            {
+                File.WriteAllText("root_directory.txt",
+                    Environment.GetFolderPath(
+                            Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama");
+            }
+
 
             if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Hubungan Kerja Sama"))
             {
@@ -182,6 +203,15 @@ namespace CooperativeRelationship
         {
             TambahKerjasama_Form form = new TambahKerjasama_Form();
             form.Show();
+        }
+
+        private void folderUtamaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rootFolder_Dialog1.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Semua dokumen akan disimpan di folder: " + rootFolder_Dialog1.SelectedPath);
+                File.WriteAllText("root_directory.txt", rootFolder_Dialog1.SelectedPath);
+            }
         }
     }
 }

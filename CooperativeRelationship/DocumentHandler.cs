@@ -283,7 +283,7 @@ namespace CooperativeRelationship
         {
             try
             {
-                System.Windows.Forms.MessageBox.Show(FilePath);
+                //System.Windows.Forms.MessageBox.Show(FilePath);
                 // check fokusperjanjian amount
                 string[] fokus = FokusPerjanjian.Split('|');
 

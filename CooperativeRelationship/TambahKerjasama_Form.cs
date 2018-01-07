@@ -201,7 +201,8 @@ namespace CooperativeRelationship
                         browse_textBox.Text;
 
                     //copy file
-                    File.Copy(documentPathFile, Form1.RootDirectory + "\\" + documntPath);
+                    if (!File.Exists(Form1.RootDirectory + "\\" + documntPath))
+                        File.Copy(documentPathFile, Form1.RootDirectory + "\\" + documntPath);
 
                     string query = "insert into kerjasama values" +
                         "(null, '" + judulFile_TextBox.Text + "'," +
@@ -220,7 +221,7 @@ namespace CooperativeRelationship
                     try
                     {
                         using (SQLiteCommand command = new SQLiteCommand(query, conn))
-                            MessageBox.Show(command.ExecuteNonQuery() + "");
+                            command.ExecuteNonQuery();
                     }
                     catch (SQLiteException ex)
                     {
@@ -250,7 +251,7 @@ namespace CooperativeRelationship
                     query = "update kerjasama set filepath='" + filePath + "' where id=" + latestID;
 
                     using (SQLiteCommand command = new SQLiteCommand(query, conn))
-                        MessageBox.Show(command.ExecuteNonQuery() + "");
+                        command.ExecuteNonQuery();
 
 
                     creatingProcess.FilePath = filePathWithoutDocx;

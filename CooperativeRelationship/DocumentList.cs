@@ -102,6 +102,36 @@ namespace CooperativeRelationship
             return popup;
         }
 
+        private Popup createPopupNarahubung(string message)
+        {
+            Popup popup;
+
+            ComplexPopup complexPopup = new ComplexPopup();
+            Panel panel = new Panel();
+            panel.Parent = complexPopup;
+            panel.Dock = DockStyle.Fill;
+
+            Label label = new Label();
+            label.Text = message;
+            label.AutoSize = true;
+            label.Parent = panel;
+
+            popup = new Popup(complexPopup);
+            popup.Size = new Size(Screen.PrimaryScreen.Bounds.Width / 3, 375);
+            popup.Resizable = true;
+
+            if (SystemInformation.IsComboBoxAnimationEnabled)
+            {
+                popup.ShowingAnimation = PopupAnimations.Slide | PopupAnimations.TopToBottom;
+                popup.HidingAnimation = PopupAnimations.Slide | PopupAnimations.BottomToTop;
+            }
+            else
+            {
+                popup.ShowingAnimation = popup.HidingAnimation = PopupAnimations.None;
+            }
+            return popup;
+        }
+
         public void reloadList(object sender, EventArgs e)
         {
             documents.Items.Clear();
@@ -115,22 +145,33 @@ namespace CooperativeRelationship
             while (result.Read())
             {
                 Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi " + result["institusi"] +
-                "\n\nNomor Perjanjian di FISIP:\n" + result["nomorPerjanjianFisip"] + "\n"
-                + "Nomor Perjanjian di Institusi Terkait:\n" + result["nomorPerjanjianInstitusi"]);
+                "\n\nNomor Perjanjian di FISIP:\n  >" + result["nomorPerjanjianFisip"] + "\n"
+                + "Nomor Perjanjian di Institusi Terkait:\n  >" + result["nomorPerjanjianInstitusi"]);
 
                 string[] words = (result["fokusPerjanjian"] + "").Split('|');
-                string focuses = "Fokus Perjanjian dengan Instintusi " + result["institusi"] + "\n\n";
-                string users = "Unit Pengguna dalam Perjanjian dengan Institusi " + result["institusi"] + "\n\n";
+                string focuses = "Fokus Perjanjian dengan Instintusi " + result["institusi"] + "\n";
+                string users = "Unit Pengguna dalam Perjanjian dengan Institusi " + result["institusi"] + "\n";
+                string narahubungDetail = "\n\nNarahubung Pihak Institusi\n";
+                narahubungDetail += "  > Nama\n      " + result["namaNarahubungInstitusi"];
+                narahubungDetail += "\n  > Handphone\n      " + result["handphoneNarahubungInstitusi"];
+                narahubungDetail += "\n  > Email\n      " + result["emailNarahubungInstitusi"];
+                narahubungDetail += "\n  > Jabatan\n      " + result["jabatanNarahubungInstitusi"];
+
+                narahubungDetail += "\n\nNarahubung Pihak FISIP\n";
+                narahubungDetail += "  > Nama\n      " + result["namaNarahubungFisip"];
+                narahubungDetail += "\n  > Handphone\n      " + result["handphoneNarahubungFisip"];
+                narahubungDetail += "\n  > Email\n      " + result["emailNarahubungFisip"];
+                narahubungDetail += "\n  > Jabatan\n      " + result["jabatanNarahubungFisip"];
 
                 foreach (string word in words)
                     if (!word.Equals(""))
-                        focuses += "\n- " + word;
+                        focuses += "\n> " + word;
 
                 words = (result["unitPengguna"] + "").Split('|');
 
                 foreach (string word in words)
                     if (!word.Equals(""))
-                        users += "\n- " + word;
+                        users += "\n> " + word;
 
                 Popup masaBerlakuPopup = 
                     createPopup("Masa Berlaku Perjanjian dengan Institusi " + result["institusi"] + "\n\n" +
@@ -144,7 +185,7 @@ namespace CooperativeRelationship
                     "Penandatangan Intitusi terkait:\n    > " + result["penandatanganInstitusi"]);
                 Popup unitPenggunaPopup = createPopup(users);
                 Popup narahubungPopup = 
-                    createPopup("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"]);
+                    createPopupNarahubung("Narahubung dalam Perjanjian dengan Institusi\n" + result["institusi"] + narahubungDetail);
 
                 Document document = new Document(result["institusi"] + "", "Lihat Detail", result["tempatTanggalTTD"] + "",
                     "Lihat Detail", "Lihat Detail", "Lihat Detail", result["unitPengusul"] + "",

@@ -42,7 +42,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kerjasamaBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tahunBaruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.folderUtamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +52,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rootFolder_Dialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.rootDirP = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.luarNegeri_Button.SuspendLayout();
@@ -155,6 +155,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.panel2.Controls.Add(this.rootDirP);
             this.panel2.Controls.Add(this.judulTahun);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Location = new System.Drawing.Point(195, 24);
@@ -202,7 +203,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tahunBaruToolStripMenuItem,
-            this.kerjasamaBaruToolStripMenuItem,
             this.toolStripSeparator1,
             this.folderUtamaToolStripMenuItem,
             this.toolStripSeparator3,
@@ -211,24 +211,17 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // kerjasamaBaruToolStripMenuItem
-            // 
-            this.kerjasamaBaruToolStripMenuItem.Name = "kerjasamaBaruToolStripMenuItem";
-            this.kerjasamaBaruToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.kerjasamaBaruToolStripMenuItem.Text = "Perjanjian Baru";
-            this.kerjasamaBaruToolStripMenuItem.Click += new System.EventHandler(this.kerjasamaBaruToolStripMenuItem_Click);
-            // 
             // tahunBaruToolStripMenuItem
             // 
             this.tahunBaruToolStripMenuItem.Name = "tahunBaruToolStripMenuItem";
-            this.tahunBaruToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.tahunBaruToolStripMenuItem.Text = "Tahun Baru";
+            this.tahunBaruToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.tahunBaruToolStripMenuItem.Text = "Tambah Tahun";
             this.tahunBaruToolStripMenuItem.Click += new System.EventHandler(this.tahunBaruToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(173, 6);
             // 
             // folderUtamaToolStripMenuItem
             // 
@@ -240,13 +233,14 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(173, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.exitToolStripMenuItem.Text = "Keluar";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -275,6 +269,17 @@
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem1.Text = "Tentang";
             // 
+            // rootDirP
+            // 
+            this.rootDirP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rootDirP.AutoSize = true;
+            this.rootDirP.ForeColor = System.Drawing.Color.White;
+            this.rootDirP.Location = new System.Drawing.Point(7, 450);
+            this.rootDirP.Name = "rootDirP";
+            this.rootDirP.Size = new System.Drawing.Size(35, 13);
+            this.rootDirP.TabIndex = 2;
+            this.rootDirP.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,6 +289,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(896, 532);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manajemen Kerjasama";
@@ -318,7 +324,6 @@
         private System.Windows.Forms.Label judulTahun;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kerjasamaBaruToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tahunBaruToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -329,6 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem folderUtamaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.FolderBrowserDialog rootFolder_Dialog1;
+        private System.Windows.Forms.Label rootDirP;
     }
 }
 

@@ -69,6 +69,8 @@ namespace CooperativeRelationship
 
             databaseSource = 
                 RootDirectory + "\\hubunganKerjaSama.db";
+
+            rootDirP.Text = "Semua dokumen disimpan di folder: " + RootDirectory;
         }
 
         private void dalamNegeri_Button_MouseLeave(object sender, EventArgs e)
@@ -148,6 +150,10 @@ namespace CooperativeRelationship
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            highlight_dalamNegeri.Visible = true;
+            highlight_luarNegeri.Visible = false;
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
             judulTahun.Text = "Kerjasama Dalam Negeri";
             activeMode = DocumentList.KERJASAMA_DALAM_NEGERI;
 
@@ -221,9 +227,17 @@ namespace CooperativeRelationship
         {
             if (rootFolder_Dialog1.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Semua dokumen akan disimpan di folder: " + rootFolder_Dialog1.SelectedPath);
+                MessageBox.Show("Semua dokumen akan disimpan di folder: " + rootFolder_Dialog1.SelectedPath
+                    + "\n\nSilakan restart aplikasi.");
                 File.WriteAllText("root_directory.txt", rootFolder_Dialog1.SelectedPath);
+                RootDirectory = rootFolder_Dialog1.SelectedPath;
+                reload(sender, e);
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

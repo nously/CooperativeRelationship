@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.highlight_luarNegeri = new System.Windows.Forms.Panel();
@@ -38,6 +37,7 @@
             this.dalamNegeri_Button = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rootDirP = new System.Windows.Forms.Label();
             this.judulTahun = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,7 +52,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rootFolder_Dialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.rootDirP = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.luarNegeri_Button.SuspendLayout();
@@ -163,6 +162,17 @@
             this.panel2.Size = new System.Drawing.Size(685, 469);
             this.panel2.TabIndex = 1;
             // 
+            // rootDirP
+            // 
+            this.rootDirP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rootDirP.AutoSize = true;
+            this.rootDirP.ForeColor = System.Drawing.Color.White;
+            this.rootDirP.Location = new System.Drawing.Point(7, 450);
+            this.rootDirP.Name = "rootDirP";
+            this.rootDirP.Size = new System.Drawing.Size(35, 13);
+            this.rootDirP.TabIndex = 2;
+            this.rootDirP.Text = "label3";
+            // 
             // judulTahun
             // 
             this.judulTahun.AutoSize = true;
@@ -180,7 +190,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 42);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -268,17 +277,6 @@
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.exitToolStripMenuItem1.Text = "Tentang";
-            // 
-            // rootDirP
-            // 
-            this.rootDirP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rootDirP.AutoSize = true;
-            this.rootDirP.ForeColor = System.Drawing.Color.White;
-            this.rootDirP.Location = new System.Drawing.Point(7, 450);
-            this.rootDirP.Name = "rootDirP";
-            this.rootDirP.Size = new System.Drawing.Size(35, 13);
-            this.rootDirP.TabIndex = 2;
-            this.rootDirP.Text = "label3";
             // 
             // Form1
             // 

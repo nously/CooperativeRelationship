@@ -21,6 +21,7 @@ namespace CooperativeRelationship
         private string databaseSource;
         private string id;
         private string filePath;
+        private string docPath;
         private string tahun;
         private int activeMode;
         private DocumentList list;
@@ -80,10 +81,21 @@ namespace CooperativeRelationship
                         monthNumber.Add("November", 11);
                         monthNumber.Add("December", 12);
 
+                        monthNumber.Add("Januari", 1);
+                        monthNumber.Add("Februari", 2);
+                        monthNumber.Add("Maret", 3);
+                        monthNumber.Add("Mei", 5);
+                        monthNumber.Add("Juni", 6);
+                        monthNumber.Add("Juli", 7);
+                        monthNumber.Add("Agustus", 8);
+                        monthNumber.Add("Oktober", 10);
+                        monthNumber.Add("Desember", 12);
+
                         // set form
                         if (result.Read())
                         {
                             filePath = result["filePath"] + "";
+                            docPath = result["documentPath"] + "";
                             judulFile_TextBox.Text = result["namaFile"] + "";
                             if ((result["jenisKerjasama"] + "").Equals(DocumentList.KERJASAMA_DALAM_NEGERI + ""))
                                 dalamNegeri_RadioButton.Select();
@@ -111,6 +123,7 @@ namespace CooperativeRelationship
                             month = monthNumber[dates[dates.Length - 2] + ""];
                             date = int.Parse(dates[dates.Length - 3]);
                             mulaiBerlaku_DateTimePicker.Value = new DateTime(year, month, date);
+                            //mulaiBerlaku_DateTimePicker.Text = result["mulaiBerlaku"] + "";
 
                             dates = (result["berhentiBerlaku"] + "").Split(' ');
                             year = int.Parse(dates[dates.Length - 1]);
@@ -203,6 +216,11 @@ namespace CooperativeRelationship
                     //copy file
                     if (!File.Exists(Form1.RootDirectory + "\\" + documntPath))
                         File.Copy(documentPathFile, Form1.RootDirectory + "\\" + documntPath);
+                    else
+                    {
+                        MessageBox.Show("Nama file dokumen sudah digunakan.\nUbah nama dokumen yang akan disimpan sebelum memasukkan data baru.");
+                        return;
+                    }
 
                     string query = "insert into kerjasama values" +
                         "(null, '" + judulFile_TextBox.Text + "'," +
@@ -305,10 +323,19 @@ namespace CooperativeRelationship
                     Console.WriteLine(affectedLine);
                 }
                 conn.Close();
+                filePath = Form1.RootDirectory + "\\" + filePath;
+                docPath = Form1.RootDirectory + "\\" + docPath;
                 if (File.Exists(filePath))
                 {
+                    MessageBox.Show("Test");
                     File.Delete(filePath);
                 }
+                if (File.Exists(docPath))
+                {
+                    MessageBox.Show("Test");
+                    File.Delete(docPath);
+                }
+                MessageBox.Show(docPath + " " + filePath);
             }
             button1_Click(sender, e);
         }

@@ -144,13 +144,13 @@ namespace CooperativeRelationship
             // populate objectlistview
             while (result.Read())
             {
-                Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi " + result["institusi"] +
+                Popup nomorPerjanjianPopup = createPopup("Nomor Perjanjian dengan Institusi\n" + result["institusi"] +
                 "\n\nNomor Perjanjian di FISIP:\n  >" + result["nomorPerjanjianFisip"] + "\n"
                 + "Nomor Perjanjian di Institusi Terkait:\n  >" + result["nomorPerjanjianInstitusi"]);
 
                 string[] words = (result["fokusPerjanjian"] + "").Split('|');
-                string focuses = "Fokus Perjanjian dengan Instintusi " + result["institusi"] + "\n";
-                string users = "Unit Pengguna dalam Perjanjian dengan Institusi " + result["institusi"] + "\n";
+                string focuses = "Fokus Perjanjian dengan Instintusi\n" + result["institusi"] + "\n";
+                string users = "Unit Pengguna dalam Perjanjian dengan Institusi\n" + result["institusi"] + "\n";
                 string narahubungDetail = "\n\nNarahubung Pihak Institusi\n";
                 narahubungDetail += "  > Nama\n      " + result["namaNarahubungInstitusi"];
                 narahubungDetail += "\n  > Handphone\n      " + result["handphoneNarahubungInstitusi"];
@@ -174,12 +174,12 @@ namespace CooperativeRelationship
                         users += "\n> " + word;
 
                 Popup masaBerlakuPopup = 
-                    createPopup("Masa Berlaku Perjanjian dengan Institusi " + result["institusi"] + "\n\n" +
+                    createPopup("Masa Berlaku Perjanjian dengan Institusi\n" + result["institusi"] + "\n\n" +
                     "Mulai berlaku pada:\n    > " + result["mulaiBerlaku"] + "\n" +
                     "Berakhir pada:\n    > " + result["berhentiBerlaku"]);
                 Popup fokusPerjanjianPopup = createPopup(focuses);
                 Popup penandatanganPopup = 
-                    createPopup("Penandatangan Perjanjian dengan Institusi " + result["institusi"] + "\n\n" +
+                    createPopup("Penandatangan Perjanjian dengan Institusi\n" + result["institusi"] + "\n\n" +
                     "Penandatangan Fakultas Ilmu Sosial dan Ilmu Politik:\n    > " + 
                     result["penandatanganFisip"] + "\n" +
                     "Penandatangan Intitusi terkait:\n    > " + result["penandatanganInstitusi"]);
@@ -244,6 +244,10 @@ namespace CooperativeRelationship
                         if (File.Exists(clickedDocument.PathFile))
                         {
                             File.Delete(clickedDocument.PathFile);
+                        }
+                        if (File.Exists(clickedDocument.DocumentPath))
+                        {
+                            File.Delete(clickedDocument.DocumentPath);
                         }
                     }
                     reloadList(sender, e);
